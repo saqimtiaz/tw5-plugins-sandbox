@@ -1,5 +1,5 @@
 created: 20220717104517307
-modified: 20220717111029551
+modified: 20220717111720530
 tags: 
 title: HelloThere
 type: text/vnd.tiddlywiki
@@ -12,7 +12,7 @@ Experimental plugins - no support available. Use at your own risk.
 
 <dl>
 <$list filter="[plugin-type[plugin]author[Saq Imtiaz]]">
-<dt><$link/></dt>
+<dt><$link><$text text={{!!name}}/></$link></dt>
 <dd> <$text text={{!!description}}/></dd>
 <$list filter="[<currentTiddler>removeprefix[$:/plugins/sq/]tagging[]]">
 <dd><$link/></dd>
