@@ -1,9 +1,10 @@
 created: 20220717082458039
-modified: 20220717084951832
+modified: 20220717105801392
 tags: 
 title: $:/config/FileSystemPaths
 type: text/vnd.tiddlywiki
 
+[prefix[$:/sq/sandbox/]!has[draft.of]removeprefix[$:/sq/sandbox/]addprefix[_sandbox/]]
 [is[system]!has[draft.of]removeprefix[$:/]addprefix[_system/]]
 [is[image]!has[_canonical_uri]addprefix[images/]]
 [is[image]has[_canonical_uri]addprefix[external_images/]]
