@@ -1,0 +1,19 @@
+created: 20220626024333030
+modified: 20220717084140813
+tags: demo spotlight
+title: Spotlight: Demo 3
+type: text/vnd.tiddlywiki
+
+
+<$set name=imgs filter="[tag[img]]">
+
+<$list filter="[enlist<imgs>]" variable="img">
+<$button class="tc-btn-invisible" tag="div" actions="""
+<$action-spotlight
+	$images=<<imgs>>
+	$start=<<img>>
+/>""">
+<$image source=<<img>> />
+</$button>
+</$list>
+</$set>

@@ -1,0 +1,7 @@
+title: $:/plugins/sq/spotlight/styles
+type: text/css
+tags: $:/tags/Stylesheet
+
+.spl-pane video::-webkit-media-controls-timeline {
+	width: 90vw;
+}

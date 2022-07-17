@@ -1,0 +1,11 @@
+created: 20220717082458039
+modified: 20220717084951832
+tags: 
+title: $:/config/FileSystemPaths
+type: text/vnd.tiddlywiki
+
+[is[system]!has[draft.of]removeprefix[$:/]addprefix[_system/]]
+[is[image]!has[_canonical_uri]addprefix[images/]]
+[is[image]has[_canonical_uri]addprefix[external_images/]]
+[tag[spotlight]tag[demo]addprefix[demos/spotlight/]]
+[tag[macy]tag[demo]addprefix[demos/macy/]]

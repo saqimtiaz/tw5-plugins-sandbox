@@ -1,0 +1,5 @@
+title: $:/plugins/sq/macy/readme
+
+@@color:red;''Experimental plugin - no support available. Use at your own risk.''@@
+
+Masonry layout plugin for images based on the [[Macy library|https://github.com/bigbite/macy.js]]. Licensed under the [[MIT License|https://github.com/bigbite/macy.js/blob/master/LICENSE]].

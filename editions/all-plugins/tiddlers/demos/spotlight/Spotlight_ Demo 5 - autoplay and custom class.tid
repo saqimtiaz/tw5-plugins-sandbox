@@ -1,0 +1,18 @@
+created: 20220709182612187
+modified: 20220717084118227
+tags: demo spotlight
+title: Spotlight: Demo 5 - autoplay and custom class
+type: text/vnd.tiddlywiki
+
+
+\define spotlight-actions()
+<$action-spotlight
+	$images="https://images.unsplash.com/photo-1655747945989-e4db8f9bcbf4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=772&q=80 https://images.unsplash.com/photo-1655744348513-7e48315b7769?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=734&q=80 https://images.unsplash.com/photo-1655747508339-7cc94a19ac2b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80  omar-lopez-zS3nwvUpg9A-unsplash.jpg  parsa-mahmoudi-8T9l_sInnbs-unsplash.jpg stephen-leonardi-c2nYwbfXCPM-unsplash.jpg"
+	$start="https://images.unsplash.com/photo-1655747508339-7cc94a19ac2b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
+	$labels="a b c d e"
+	autoslide="true"
+	class="fancycustomclass"
+/>
+\end
+
+<$button actions=<<spotlight-actions>> >go</$button>

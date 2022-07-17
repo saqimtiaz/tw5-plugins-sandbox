@@ -1,0 +1,5 @@
+title: $:/plugins/sq/spotlight/readme
+
+@@color:red;''Experimental plugin - no support available. Use at your own risk.''@@
+
+Lightbox plugin for images based on the [[Spotlightjs library|https://github.com/nextapps-de/spotlight]]. Licensed under the [[Apache License 2.0|https://github.com/nextapps-de/spotlight/blob/master/LICENSE]].

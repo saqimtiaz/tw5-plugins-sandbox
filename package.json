@@ -1,0 +1,27 @@
+{
+  "name": "tw5-plugins-sandbox",
+  "version": "0.0.1",
+  "description": "Experimental TW5 plugins",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saqimtiaz/tw5-plugins-sandbox.git"
+  },
+  "keywords": [
+    "TW5",
+    "TiddlyWiki",
+    "plugins"
+  ],
+  "author": "Saq Imtiaz",
+  "dependencies": {
+    "tiddlywiki": "github:Jermolene/TiddlyWiki5"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "nodemon": "^2.0.19"
+  },
+  "scripts": {
+    "build": "node ./node_modules/tiddlywiki/tiddlywiki.js editions/all-plugins --build index",
+    "dev": "cross-env TIDDLYWIKI_PLUGIN_PATH=plugins npx nodemon -e tid,multids,js,info,css,json --watch plugins ./node_modules/tiddlywiki/tiddlywiki.js editions/all-plugins --listen port=7555",
+    "update-tw": "npm install --save github:Jermolene/TiddlyWiki5"
+  }
+}

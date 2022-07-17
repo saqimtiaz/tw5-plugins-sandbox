@@ -1,0 +1,10 @@
+title: $:/plugins/sq/window-resize/readme
+
+@@color:red;''Experimental plugin - no support available. Use at your own risk.''@@
+
+Updates the following temp tiddlers with the window width and height on window resize:
+
+* $:/temp/info/browser/window/width
+* $:/temp/info/browser/window/height
+
+Invokes actions in tiddlers tagged `$:/tags/WindowResizeAction` on window resize.

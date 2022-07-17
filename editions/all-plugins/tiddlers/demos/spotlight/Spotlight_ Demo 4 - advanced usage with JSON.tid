@@ -1,0 +1,22 @@
+created: 20220709182415671
+modified: 20220717084124637
+tags: demo spotlight
+title: Spotlight: Demo 4 - advanced usage with JSON
+type: text/vnd.tiddlywiki
+
+
+
+\define spotlight-actions()
+<$action-spotlight
+	$gallery="""[
+    	{ "src": "https://images.unsplash.com/photo-1655747508339-7cc94a19ac2b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80", "title": "Parrot"},
+    	{ "src": "https://images.unsplash.com/photo-1655747945989-e4db8f9bcbf4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=772&q=80", "title": "Food" },
+    	{ "src": "Brooklyn Bridge", "title": "Brooklyn Bridge" },
+    	{"src": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4", "media":"video", "poster":"https://nextapps-de.github.io/spotlight/demo/gallery/poster.jpg"}
+]"""
+	$start="Brooklyn Bridge"/>
+\end
+
+Override global configuration on a per slide basis by passing a JSON object describing the gallery to display in the lightbox:
+
+<$button actions=<<spotlight-actions>> >go </$button>

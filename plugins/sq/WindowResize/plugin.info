@@ -1,0 +1,10 @@
+{
+	"title": "$:/plugins/sq/window-resize",
+	"name": "Window Resize",
+	"description": "Window resize listener",
+	"author": "Saq Imtiaz",
+	"core-version": ">=5.2.0",
+	"plugin-priority": 0,
+	"list": "readme",
+	"version": "0.0.1"
+}
