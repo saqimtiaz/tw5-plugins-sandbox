@@ -1,5 +1,5 @@
 created: 20220713124439714
-modified: 20220717084349514
+modified: 20220717123107208
 tags: demo macy
 title: Demo: Macy test with lightbox
 type: text/vnd.tiddlywiki
@@ -45,12 +45,12 @@ http://unsplash.it/390/130
 """
 >
 <$list filter="[enlist<imgs>]" variable="img">
-<$button class="tc-btn-invisible demo" tag="div" actions="""
+<$button class="tc-btn-invisible item-container" tag="div" actions="""
 <$action-spotlight
 	$images=<<imgs>>
 	$start=<<img>>
 />""">
-<$image source=<<img>>  class="demo-image" />
+<$image source=<<img>>  class="item" />
 </$button>
 </$list>
 </$let>

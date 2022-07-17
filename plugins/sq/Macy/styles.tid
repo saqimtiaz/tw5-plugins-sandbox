@@ -3,52 +3,53 @@ type: text/css
 title: $:/plugins/sq/macy/styles
 
 .macy-container::before {
-    content: "";
-    display: table;
-    clear: both
+	content: "";
+	display: table;
+	clear: both
 }
 
 .macy-container {
-    margin-top: 22px
+	margin-top: 22px
 }
 
 .macy-container::after {
-    content: "";
-    display: table;
-    clear: both
+	content: "";
+	display: table;
+	clear: both
 }
 
-.macy-container .demo {
-    margin-bottom: 24px;
-    border-radius: 4px;
-    overflow: hidden;
-    border: 1px solid #eee
+.macy-container .item-container {
+	margin-bottom: 24px;
+	border-radius: 4px;
+	overflow: hidden;
+	border: 1px solid #eee
 }
 
-.macy-container .demo-image {
-    width: 100%;
-    display: block;
-    height: auto
+.macy-container .item {
+	width: 100%;
+	display: block;
+	height: auto
 }
 
-.macy-container > div{
-    opacity: 0.5; 
-    /*transition: all 0.5s ease;*/ /** make this a config setting **/
+.macy-container>.item-container {
+	opacity: 0.5;
+	/*transition: all 0.5s ease;*/
+	/** make this a config setting **/
 }
 
-.macy-container.macy-ready > div{
-    opacity:1;
-    transition: all 0.2s ease; 
+.macy-container.macy-ready>.item-container {
+	opacity: 1;
+	transition: all 0.2s ease;
 }
 
 /**
-.macy-container > div {
-  opacity: 0;
+.macy-container > .item-container {
+    opacity: 0;
 }
 
 .macy-container > div[data-macy-complete="1"] {
-  opacity: 1;
-  transform: translateY(0);
-  transition: top .2s ease-in-out,left .2s ease-in-out,opacity .2s ease-in-out,transform .2s ease-in-out opacity 0.2s width 0.2;
+    opacity: 1;
+    transform: translateY(0);
+    transition: top .2s ease-in-out,left .2s ease-in-out,opacity .2s ease-in-out,transform .2s ease-in-out opacity 0.2s width 0.2;
 }
 **/
