@@ -1,4 +1,4 @@
 node_modules
 output
-**/layout.tid
-**/StoryList.tid
+layout.tid
+StoryList.tid
