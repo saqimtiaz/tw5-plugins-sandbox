@@ -1,7 +1,8 @@
 caption: Advanced usage with JSON
 created: 20220709182415671
 description: Override global configuration on a per slide basis by passing a JSON object describing the gallery to display in the lightbox.
-modified: 20220723112635777
+modified: 20220723140212167
+owner-plugin: Spotlight
 tags: $:/tags/plugin/example Spotlight
 title: Spotlight: Example 4 - advanced usage with JSON
 type: text/vnd.tiddlywiki

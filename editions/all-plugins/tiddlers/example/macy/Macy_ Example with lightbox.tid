@@ -1,6 +1,7 @@
 caption: Macy integrated with a lightbox using the Spotlight plugin.
 created: 20220713124439714
-modified: 20220723120147431
+modified: 20220723140152798
+owner-plugin: Macy
 tags: $:/tags/plugin/example Macy
 title: Macy: Example with lightbox
 type: text/vnd.tiddlywiki

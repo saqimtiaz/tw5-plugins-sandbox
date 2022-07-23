@@ -1,6 +1,7 @@
 caption: Minimal example: Bare images wrapped in a $macy widget.
 created: 20220717125717227
-modified: 20220723120352351
+modified: 20220723140152798
+owner-plugin: Macy
 tags: $:/tags/plugin/example Macy
 title: Macy: Example with minimal markup
 type: text/vnd.tiddlywiki
