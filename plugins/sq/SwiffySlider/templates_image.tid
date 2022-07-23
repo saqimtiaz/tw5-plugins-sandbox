@@ -1,0 +1,14 @@
+title: $:/plugins/sq/swiffy-slider/templates/image
+
+<div class="swiper-wrapper">
+	<$list filter="[enlist<tinyswiper-images>]">
+		<div class="swiper-slide">
+ 			<$button class="tc-btn-invisible"><span style.position="absolute" style.top="5px" style.right="10px" style.fill="#fff">{{$:/core/images/full-screen-button}}</span>
+				<$action-spotlight $images=<<tinyswiper-images>> $start=<<currentTiddler>>/>
+			</$button>
+			<img src=<<currentTiddler>> />
+		</div>
+	</$list>
+</div>
+<button class="swiper-plugin-navigation-prevEl"><svg width="10" height="17" viewBox="0 0 10 17" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><path d="M16.016 4.53a.75.75 0 010 1.061l-6.898 6.896 6.898 6.899a.75.75 0 01.073.976l-.073.084a.75.75 0 01-.976.073l-.084-.073-7.425-7.424a.747.747 0 01-.218-.478.75.75 0 01.217-.589l7.425-7.425a.75.75 0 011.06 0z" id="arrow-left_svg__a"></path></defs><g transform="translate(-7 -4)" fill="none" fill-rule="evenodd"><mask id="arrow-left_svg__b" fill="#fff"><use xlink:href="#arrow-left_svg__a"></use></mask><use fill="#000" xlink:href="#arrow-left_svg__a"></use><g mask="url(#arrow-left_svg__b)"><path fill="#F7F7F7" d="M-28-33.7h80v80h-80z"></path></g></g></svg></button>
+<button class="swiper-plugin-navigation-nextEl"><svg width="10" height="17" viewBox="0 0 10 17" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><path d="M16.016 4.53a.75.75 0 010 1.061l-6.898 6.896 6.898 6.899a.75.75 0 01.073.976l-.073.084a.75.75 0 01-.976.073l-.084-.073-7.425-7.424a.747.747 0 01-.218-.478.75.75 0 01.217-.589l7.425-7.425a.75.75 0 011.06 0z" id="arrow-right_svg__a"></path></defs><g transform="matrix(-1 0 0 1 17 -4)" fill="none" fill-rule="evenodd"><mask id="arrow-right_svg__b" fill="#fff"><use xlink:href="#arrow-right_svg__a"></use></mask><use fill="#000" xlink:href="#arrow-right_svg__a"></use><g mask="url(#arrow-right_svg__b)"><path fill="#F7F7F7" d="M-28-33.7h80v80h-80z"></path></g></g></svg></button>

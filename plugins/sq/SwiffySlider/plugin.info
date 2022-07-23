@@ -1,0 +1,10 @@
+{
+	"title": "$:/plugins/sq/swiffy-slider",
+	"name": "Swiffy Slider",
+	"description": "Sliders based on the Swiffy library",
+	"author": "Saq Imtiaz",
+	"core-version": ">=5.2.0",
+	"plugin-priority": 0,
+	"list": "readme settings",
+	"version": "0.0.1"
+}
