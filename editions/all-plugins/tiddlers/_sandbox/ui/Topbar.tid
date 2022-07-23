@@ -1,0 +1,24 @@
+code-body: yes
+created: 20200428203101797
+modified: 20220723052107472
+tags: $:/tags/AboveStory
+title: $:/sq/sandbox/ui/Topbar
+type: text/vnd.tiddlywiki
+
+<div class="sandbox-topbar-wrapper">
+	<div class="sandbox-bar sandbox-topbar tc-adjust-top-of-scroll">
+		<div class="left">
+<span class="plugin-view-controls">
+{{$:/sq/sandbox/ui/buttons/toggle-plugin-overview-mode}}
+</span>
+{{$:/sq/sandbox/ui/topbar/Search}}
+
+		</div>
+		<div class="right">
+		</div>
+	</div>
+<div class="site-title-container">
+<h1 style.margin="0" class="sandbox-sitetitle tc-site-title">Saq's TW5 Sandbox</h1>
+<span class="tc-inline-style" style="font-weight:500;">Experimental doodads</span>
+</div>
+</div>

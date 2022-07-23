@@ -1,0 +1,15 @@
+created: 20220721130452597
+modified: 20220722190843864
+tags: 
+title: $:/sq/sandbox/ui/buttons/toggle-plugin-overview-mode
+type: text/vnd.tiddlywiki
+
+\define toggle-actions()
+<$action-setfield $tiddler=<<state>> text={{{ [<state>get[text]!is[blank]else[slider]match[slider]then[grid]else[slider]] }}}/>
+\end
+
+<$let state="$:/temp/sq/sandbox/plugin-overview-mode">
+<$button class="tc-btn-invisible" actions=<<toggle-actions>> tooltip="switch plugin display mode">
+<$transclude tiddler={{{ [<state>get[text]else[slider]match[slider]then[$:/sq/sandbox/images/gallery-grid-view]else[$:/sq/sandbox/images/carousel-slider]] }}}/>
+</$button>
+</$let>

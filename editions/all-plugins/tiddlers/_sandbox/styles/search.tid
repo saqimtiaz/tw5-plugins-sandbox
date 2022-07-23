@@ -1,0 +1,91 @@
+created: 20220722120412701
+modified: 20220723094249219
+tags: $:/tags/Stylesheet
+title: $:/sq/sandbox/styles/search
+type: text/vnd.tiddlywiki
+
+.search-box {
+	/*	background: #cd595a;*/
+	background: tomato;
+	border-radius: 40px;
+	padding: 10px;
+	display: inline-block;
+}
+
+input.search-input {
+	outline: none;
+	border: none;
+	background: none;
+	width: 0;
+	padding: 0;
+	color: #fff;
+	float: left;
+	font-size: 16px;
+	transition: .3s;
+	line-height: 30px;
+	background: transparent;
+}
+
+.search-input::placeholder {
+	color: #eee;
+}
+
+.search-btn {
+	color: #fff;
+	float: left;
+	width: 30px;
+	height: 30px;
+	border-radius: 40px;
+	/*	background: #cd595a;*/
+	background: tomato;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-decoration: none;
+	transition: .3s;
+}
+
+.tc-search.search-btn svg,
+a.search-btn svg {
+	fill: white;
+	width: 20px;
+	height: 20px;
+}
+
+/* uncomment below to keep search expanded when text in input field */
+/*.search-input:not(:placeholder-shown),*/
+.search-input:focus {
+	width: 240px;
+	padding: 0 6px;
+	background: transparent;
+}
+
+.search-box:hover .search-input {
+	width: 240px;
+	padding: 0 6px;
+	background: transparent;
+}
+
+.search-box:hover .search-btn,
+.search-input:focus+.search-btn,
+.search-input:not(:placeholder-shown)+.search-btn {
+	background: #fff;
+	color: #cd595a;
+}
+
+.search-box:hover a.search-btn svg,
+.search-input:focus+a.search-btn svg,
+.search-input:not(:placeholder-shown)+a.search-btn svg {
+	fill: #cd595a;
+	fill: tomato;
+}
+
+.sandbox-topbar-wrapper .tc-sidebar-lists.tc-sidebar-search {
+	align-items: center;
+	display: flex;
+}
+
+.sandbox-bar .tc-sidebar-lists p {
+	margin-top: 3px;
+	margin-bottom: 3px;
+}

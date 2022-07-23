@@ -1,0 +1,5 @@
+created: 20220719144022256
+list: $:/sq/sandbox/cascade/viewtemplate/plugin-example $:/sq/sandbox/cascade/viewtemplate/plugin-info $:/config/ViewTemplateBodyFilters/stylesheet $:/config/ViewTemplateBodyFilters/system $:/config/ViewTemplateBodyFilters/code-body $:/config/ViewTemplateBodyFilters/import $:/config/ViewTemplateBodyFilters/plugin $:/config/ViewTemplateBodyFilters/hide-body $:/sq/sandbox/cascade/viewtemplate/default $:/config/ViewTemplateBodyFilters/default
+modified: 20220721074524441
+title: $:/tags/ViewTemplateBodyFilter
+type: text/vnd.tiddlywiki

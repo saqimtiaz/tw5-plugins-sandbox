@@ -1,0 +1,13 @@
+created: 20220718175309247
+modified: 20220718175314802
+title: Installation via SQPL
+type: text/vnd.tiddlywiki
+
+!! Installation instructions
+
+* Drag & drop this link into your wiki to add the plugin library:  [[SQPL]]
+
+!! How to install SQPL plugins
+
+* Go to the Control Panel of your wiki, in the Plugins tab
+* Open the SQPL library

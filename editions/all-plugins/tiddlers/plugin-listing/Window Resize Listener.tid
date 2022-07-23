@@ -1,0 +1,12 @@
+cover-image: $:/sq/sandbox/images/plugin-cover/window-resize-listener
+created: 20220718214723819
+description: Provides window height and width information in state tiddlers and executes actions on window resize.
+icon: $:/sq/sandbox/images/plugin-cover/window-resize-listener
+modified: 20220723094851125
+plugin-tiddler: $:/plugins/sq/window-resize
+sqpl: no
+tags: $:/tags/plugin/plugin-info listeners actions
+title: Window Resize Listener
+type: text/vnd.tiddlywiki
+
+ 

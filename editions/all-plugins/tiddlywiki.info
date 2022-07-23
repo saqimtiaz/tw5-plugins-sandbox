@@ -9,7 +9,8 @@
         "sq/TinySwiper",
         "sq/Spotlight",
         "sq/WindowResize",
-        "sq/ResizeObserver"
+        "sq/ResizeObserver",
+        "sq/SwiffySlider"
     ],
     "themes": [
         "tiddlywiki/vanilla",

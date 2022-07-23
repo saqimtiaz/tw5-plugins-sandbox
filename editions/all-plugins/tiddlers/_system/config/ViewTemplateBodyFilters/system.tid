@@ -1,0 +1,7 @@
+created: 20220718183200932
+modified: 20220718202958073
+tags: $:/tags/ViewTemplateBodyFilter
+title: $:/config/ViewTemplateBodyFilters/system
+type: text/vnd.tiddlywiki
+
+[prefix[$:/boot/]] [prefix[$:/config/]] [prefix[$:/core/macros]] [prefix[$:/core/save/]] [prefix[$:/core/templates/]] [prefix[$:/core/ui/]split[/]count[]compare:number:eq[4]] [prefix[$:/info/]] [prefix[$:/language/]] [prefix[$:/languages/]] [prefix[$:/snippets/]] [prefix[$:/state/]] [prefix[$:/status/]] [prefix[$:/info/]] [prefix[$:/temp/]] [prefix[$:/sq/sandbox]!prefix[$:/sq/sandbox/images]] +[!is[image]limit[1]then[$:/core/ui/ViewTemplate/body/code]]

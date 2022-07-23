@@ -1,0 +1,15 @@
+cover-image: $:/sq/sandbox/images/plugin-cover/spotlight
+created: 20220718180324329
+description: Super lightweight and fast lightbox gallery for images that easily integrates with most image display layouts.
+modified: 20220723094827538
+plugin-tiddler: $:/plugins/sq/spotlight
+sqpl: no
+tags: $:/tags/plugin/plugin-info images lightbox
+title: Spotlight
+type: text/vnd.tiddlywiki
+
+Supports embedded images (tiddlers) as well as external images. Limited support for videos is available by using the advanced configuration and providing JSON that describes the contents of the lightbox.
+
+Based on the [[Spotlight.js|https://nextapps-de.github.io/spotlight/]] ~JavaScript library.
+
+Use the [[live and configurable demo|https://nextapps-de.github.io/spotlight/]] of the Spotlight library to familiarize yourself with its behaviour and options.

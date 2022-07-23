@@ -1,0 +1,13 @@
+[
+    {
+        "created": "20220626024333030",
+        "text": "<$set name=imgs filter=\"[tag[img]]\">\n\n<$list filter=\"[enlist<imgs>]\" variable=\"img\">\n<$button class=\"tc-btn-invisible\" tag=\"div\" actions=\"\"\"\n<$action-spotlight\n\t$images=<<imgs>>\n\t$start=<<img>>\n/>\"\"\">\n<$image source=<<img>> />\n</$button>\n</$list>\n</$set> ",
+        "title": "Spotlight: Example 3",
+        "modified": "20220723094553989",
+        "tags": "$:/tags/plugin/example Spotlight",
+        "type": "text/vnd.tiddlywiki",
+        "caption": "Example: Using image tiddlers as a source for a lightbox. ",
+        "description": "The tiddlers are specified by a tag and can be embedded images or external images specified in the `_canonical_uri` field.",
+        "owner-plugin": "Spotlight"
+    }
+]

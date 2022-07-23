@@ -1,0 +1,55 @@
+created: 20220719064853436
+modified: 20220721064433671
+tags: 
+title: $:/sq/sandbox/templates/plugin-example
+type: text/vnd.tiddlywiki
+
+\import $:/sq/sandbox/macros/list-links-if
+
+<div class="card tiddler-card shadow h-100">
+	<h5 class="card-header">
+		<span class="sq-tiddler-toolbar tc-tiddler-controls">
+			<$let
+			   tv-config-toolbar-icons="yes"
+			   tv-config-toolbar-class="tc-btn-invisible"
+			>
+			   {{||$:/core/ui/Buttons/close}}
+			</$let>
+		</span>
+		<span class="tc-tiddler-title-icon">
+			<$transclude tiddler={{{ [{!!owner-plugin}get[plugin-tiddler]addsuffix[/icon]is[shadow]] :else[{!!owner-plugin}get[!!icon]] }}}/>
+		</span>
+		 <span class="sq-tiddler-title"><$text text={{!!title}}/></span>
+	</h5>
+		<div class="card-body p-3 p-xl-5">
+			<h3 class="card-title h5">
+				<$text text={{!!caption}}/>
+			</h3>
+			<$transclude field="description" mode="block"/>
+			<div>
+				<$let state=<<qualify "$:/state/plugin-examples">> >
+				<$button
+					tag="a"
+					class="btn btn-primary"
+					set=<<state>>
+					setTo={{{ [<state>get[text]match[show]then[hide]else[show]] }}}
+				>
+					<$text text={{{ [<state>get[text]match[show]then[Hide code]else[Show code]] }}}/>
+				</$button>
+				<$reveal type="match" state=<<state>> text="show" tag="div">
+					<$codeblock
+						code={{{ [<currentTiddler>get[text]] }}}
+						language={{{ [<currentTiddler>get[type]else[text/vnd.tiddlywiki]] }}}
+					/>
+				</$reveal>
+				</$let>
+			</div>
+			<hr class="subtle-divider">
+			<div class="example-content">
+				<$transclude mode="block"/>
+			</div>
+		</div>
+	<div class="card-footer text-muted">
+		<<list-links-if heading:"Related:" filter:"[{!!owner-plugin}] [tag{!!owner-plugin}tag[$:/tags/plugin/example]] [tag{!!owner-plugin}tag[docs]]">>
+	</div>
+</div>

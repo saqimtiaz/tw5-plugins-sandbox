@@ -1,0 +1,45 @@
+created: 20220719004102233
+modified: 20220722190435006
+tags: $:/tags/AboveStory
+title: $:/sq/sandbox/ui/plugins-slider
+type: text/vnd.tiddlywiki
+
+<$let plugin-overview-mode={{{ [{$:/temp/sq/sandbox/plugin-overview-mode}!is[blank]else[slider]]  }}}>
+<$swiffy-slider>
+<div class={{{ [<plugin-overview-mode>match[slider]then[swiffy-slider slider-item-show2 slider-item-reveal slider-nav-outside  slider-nav-visible slider-indicators-outside slider-indicators-round slider-indicators-dark slider-nav-animation slider-nav-animation-fadein slider-item-first-visible slider-nav-dark]] sq-plugin-slider :and[join[ ]] }}}>
+	<ul class={{{ [<plugin-overview-mode>match[slider]then[slider-container]else[grid-cards]] py-4 :and[join[ ]] }}}>
+	<$list filter="[tag[$:/tags/plugin/plugin-info]sort[title]]">
+		<$button to=<<currentTiddler>> tag="li">	
+			<div class="card shadow h-100">
+				<div class="ratio ratio-16x9 cover-image">
+					<$transclude tiddler={{!!cover-image}}/>
+				</div>
+				<div class="card-body p-3 p-xl-5">
+					<h3 class="card-title h5">{{!!title}}</h3>
+					<h6 class="card-subtitle text-muted">{{!!description}}</h6>
+				</div>
+				<div class="card-footer text-muted">
+					<span class="nowrap">Status <$transclude tiddler={{{ [<currentTiddler>!status[stable]then[$:/sq/sandbox/images/warning]else[$:/sq/sandbox/images/green-circle]] }}}/></span> 
+					<span class="nowrap">Examples <$transclude tiddler={{{ [tag<currentTiddler>tag[$:/tags/plugin/example]] [<currentTiddler>has[plugin-site]] :and[limit[1]] :map[[$:/sq/sandbox/images/checkmark]] :else[[$:/sq/sandbox/images/cross]] }}}/></span> 
+					<span class="nowrap">Docs <$transclude tiddler={{{ [tag<currentTiddler>tag[
+$:/tags/plugin/docs]] [<currentTiddler>has[plugin-site]] :and[limit[1]] :map[[$:/sq/sandbox/images/checkmark]] :else[[$:/sq/sandbox/images/cross]] }}}/></span>
+				</div>
+			</div>
+		</$button>	
+	</$list>
+	</ul>
+	<button type="button" class="slider-nav" aria-label="Go left"></button>
+	<button type="button" class="slider-nav slider-nav-next" aria-label="Go right"></button>
+	<div class="slider-indicators">
+		<button class="active" aria-label="Go to slide"></button>
+		<$let
+			count={{{ [tag[$:/tags/plugin/plugin-info]count[]] }}}
+			indicators={{{ [<count>subtract[1]] }}}>
+		<$list filter="[range[1],<indicators>]">
+			<button aria-label="Go to slide"></button>
+		</$list>
+		</$let>
+	</div>
+</div>
+</$swiffy-slider>
+</$let>

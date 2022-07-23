@@ -1,0 +1,12 @@
+created: 20220718180538621
+modified: 20220718183215174
+tags: 
+title: $:/sq/sandbox/macros/list-links-if
+type: text/vnd.tiddlywiki
+
+\define list-links-if(heading,filter,type,subtype,class,emptyMessage)
+<$list filter="[subfilter<__filter__>limit[1]]" variable="null">
+<h2><$text text=<<__heading__>>/></h2>
+<$macrocall $name="list-links" filter=<<__filter__>> type=<<__type__>> subtype=<<__subtype__>> class=<<__class__>> emptyMessage=<<__emptyMessage__>> />
+</$list>
+\end

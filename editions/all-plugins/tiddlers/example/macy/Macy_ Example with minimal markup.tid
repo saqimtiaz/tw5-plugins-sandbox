@@ -1,0 +1,40 @@
+created: 20220717125717227
+modified: 20220723094652451
+tags: $:/tags/plugin/example Macy
+title: Macy: Example with minimal markup
+type: text/vnd.tiddlywiki
+
+<$macy>
+<$image source="http://unsplash.it/557/387"  />
+<$image source="http://unsplash.it/602/660"  />
+<$image source="http://unsplash.it/660/646"  />
+<$image source="http://unsplash.it/741/375"  />
+<$image source="http://unsplash.it/813/455"  />
+<$image source="http://unsplash.it/470/896"  />
+<$image source="http://unsplash.it/664/653"  />
+<$image source="http://unsplash.it/664/653"  />
+<$image source="http://unsplash.it/708/313"  />
+<$image source="http://unsplash.it/738/578"  />
+<$image source="http://unsplash.it/458/482"  />
+<$image source="http://unsplash.it/439/856"  />
+<$image source="http://unsplash.it/549/315"  />
+<$image source="http://unsplash.it/877/693"  />
+<$image source="http://unsplash.it/542/805"  />
+<$image source="http://unsplash.it/683/445"  />
+<$image source="http://unsplash.it/616/340"  />
+<$image source="http://unsplash.it/533/317"  />
+<$image source="http://unsplash.it/700/894"  />
+<$image source="http://unsplash.it/663/541"  />
+<$image source="http://unsplash.it/368/575"  />
+<$image source="http://unsplash.it/353/454"/>
+<$image source="http://unsplash.it/468/737"/>
+<$image source="http://unsplash.it/600/784"/>
+<$image source="http://unsplash.it/777/833"/>
+<$image source="http://unsplash.it/801/576"/>
+<$image source="http://unsplash.it/826/564"/>
+<$image source="http://unsplash.it/390/240"/>
+<$image source="http://unsplash.it/390/130"/>
+</$macy> 
+
+
+

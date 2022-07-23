@@ -1,0 +1,9 @@
+created: 20220723071029308
+modified: 20220723080328079
+tags: 
+title: $:/config/EmptyStoryMessage
+type: text/vnd.tiddlywiki
+
+<div class="sandbox-empty-message">
+{{$:/sq/sandbox/emptyMessage||$:/sq/sandbox/templates/default-view-template}}
+</div>

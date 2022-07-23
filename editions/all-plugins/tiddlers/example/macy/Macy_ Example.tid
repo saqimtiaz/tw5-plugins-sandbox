@@ -1,0 +1,53 @@
+created: 20220717125516165
+modified: 20220723094709015
+tags: $:/tags/plugin/example Macy
+title: Macy: Example
+type: text/vnd.tiddlywiki
+
+<$macy>
+<$let imgs="""
+http://unsplash.it/557/387
+http://unsplash.it/602/660
+http://unsplash.it/660/646
+http://unsplash.it/741/375
+http://unsplash.it/813/455
+http://unsplash.it/470/896
+http://unsplash.it/664/653
+http://unsplash.it/708/313
+http://unsplash.it/738/578
+http://unsplash.it/458/482
+http://unsplash.it/439/856
+http://unsplash.it/549/315
+http://unsplash.it/877/693
+http://unsplash.it/542/805
+http://unsplash.it/683/445
+http://unsplash.it/616/340
+http://unsplash.it/533/317
+http://unsplash.it/700/894
+http://unsplash.it/663/541
+http://unsplash.it/368/575
+http://unsplash.it/696/538
+http://unsplash.it/571/460
+http://unsplash.it/892/379
+http://unsplash.it/473/729
+http://unsplash.it/657/632
+http://unsplash.it/311/796
+http://unsplash.it/588/561
+http://unsplash.it/812/564
+http://unsplash.it/353/454
+http://unsplash.it/468/737
+http://unsplash.it/600/784
+http://unsplash.it/777/833
+http://unsplash.it/801/576
+http://unsplash.it/826/564
+http://unsplash.it/390/240
+http://unsplash.it/390/130
+"""
+>
+<$list filter="[enlist<imgs>]" variable="img">
+<div class="item-container">
+<$image source=<<img>>  class="item" />
+</div>
+</$list>
+</$let>
+</$macy>

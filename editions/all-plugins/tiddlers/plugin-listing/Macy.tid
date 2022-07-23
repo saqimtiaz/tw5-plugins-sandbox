@@ -1,0 +1,13 @@
+cover-image: $:/sq/sandbox/images/plugin-cover/macy
+created: 20220718172841639
+description: A lightweight and responsive masonry style layout for images to sort items vertically into columns by finding an optimum layout.
+modified: 20220723094813022
+plugin-tiddler: $:/plugins/sq/macy
+sqpl: no
+tags: $:/tags/plugin/plugin-info images layout masonry
+title: Macy
+type: text/vnd.tiddlywiki
+
+> Macy.js is a lightweight dependency-free ~JavaScript library designed to sort items vertically into columns by finding an optimum layout with a minimum height.
+
+Based on the [[Macy.js|http://macyjs.com]] ~JavaScript library.

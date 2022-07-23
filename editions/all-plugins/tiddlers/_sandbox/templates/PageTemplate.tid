@@ -1,0 +1,28 @@
+created: 20220719142152475
+description: Layout for plugins sandbox
+modified: 20220721205955426
+name: Sandbox
+tags: $:/tags/Layout
+title: $:/sq/sandbox/templates/PageTemplate
+type: text/vnd.tiddlywiki
+
+\whitespace trim
+\define containerClasses()
+tc-page-container tc-page-view-$(storyviewTitle)$ tc-language-$(languageTitle)$ sq-sandbox-layout
+\end
+\import [[$:/core/ui/PageMacros]] [all[shadows+tiddlers]tag[$:/tags/Macro]!has[draft.of]]
+
+<div class=<<containerClasses>>>
+<$navigator story="$:/StoryList" history="$:/HistoryList" openLinkFromInsideRiver={{$:/config/Navigation/openLinkFromInsideRiver}} openLinkFromOutsideRiver={{$:/config/Navigation/openLinkFromOutsideRiver}} relinkOnRename={{$:/config/RelinkOnRename}}>
+<section class="sq-above-story">
+<$transclude tiddler="$:/sq/sandbox/ui/Topbar" mode="inline"/>
+<$transclude tiddler="$:/sq/sandbox/ui/plugins-slider" mode="inline"/>
+</section>
+<section class="sq-story-river" role="main">
+
+<$list filter="[list[$:/StoryList]]" history="$:/HistoryList" template="$:/sq/sandbox/templates/StoryTiddlerTemplate" storyview={{$:/view}} emptyMessage={{$:/config/EmptyStoryMessage}}/>
+
+</section>
+
+</$navigator>
+</div>

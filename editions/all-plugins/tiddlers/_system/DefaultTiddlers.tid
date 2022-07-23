@@ -1,6 +1,6 @@
 created: 20220716153123091
-modified: 20220717104909528
+modified: 20220717114440355
 title: $:/DefaultTiddlers
 type: text/vnd.tiddlywiki
 
-[[HelloThere]]
+[list[$:/StoryList]]

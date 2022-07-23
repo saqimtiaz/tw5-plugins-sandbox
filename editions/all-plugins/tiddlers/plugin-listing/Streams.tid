@@ -1,0 +1,14 @@
+cover-image: $:/sq/sandbox/images/plugin-cover/streams.svg
+created: 20220719123254221
+description: Rapid data entry with a keyboard driven workflow. Divide content into smaller tiddlers as you write.
+icon: $:/sq/sandbox/images/plugin-cover/streams.svg
+modified: 20220723094836006
+plugin-site: https://saqimtiaz.github.io/streams/
+plugin-tiddler: 
+sqpl: yes
+status: stable
+tags: $:/tags/plugin/plugin-info notes writing
+title: Streams
+type: text/vnd.tiddlywiki
+
+Streams is a keyboard friendly way to write and easily divide your text into separate tiddlers while writing. Every time you want a new tiddler, just hit <kbd>Enter</kbd>. A new tiddler is created in the background and you can just continue writing. 

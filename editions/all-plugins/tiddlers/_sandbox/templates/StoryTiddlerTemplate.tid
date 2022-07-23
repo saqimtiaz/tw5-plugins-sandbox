@@ -1,0 +1,10 @@
+created: 20220719143524395
+modified: 20220721073401369
+tags: 
+title: $:/sq/sandbox/templates/StoryTiddlerTemplate
+type: text/vnd.tiddlywiki
+
+\whitespace trim
+<$let storyTiddler=<<currentTiddler>> >
+<$transclude tiddler={{{ [<currentTiddler>] :cascade[all[shadows+tiddlers]tag[$:/tags/sq/StoryTiddlerTemplateFilter]!is[draft]get[text]] :and[!is[blank]else{$:/sq/sandbox/templates/default-view-template}] }}} />
+</$let>

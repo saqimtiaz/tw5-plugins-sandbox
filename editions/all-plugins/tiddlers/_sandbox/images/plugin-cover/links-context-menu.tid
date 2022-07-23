@@ -1,0 +1,32 @@
+created: 20220719112212701
+modified: 20220719175030491
+title: $:/sq/sandbox/images/plugin-cover/links-context-menu
+type: text/vnd.tiddlywiki
+
+<svg height="22pt" width="22pt" x="0px" y="0px"
+	 viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
+<g id="Layer_8">
+	<g>
+		<defs>
+			<polygon id="SVGID_1_" points="14,14 32,14 32,0 0,0 0,32 14,32 			"/>
+		</defs>
+		<clipPath id="SVGID_2_">
+			<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+		</clipPath>
+		<path style="clip-path:url(#SVGID_2_);fill:#4DA6FF;" d="M11,1v6.084c1.1,0,2,0.9,2,2V13h8V9.084C21,4.664,17.42,1,13,1H11z"/>
+		<path style="clip-path:url(#SVGID_2_);fill:#405580;" d="M13,0h-2h-1H9C4.028,0,0,4.112,0,9.084v4v10C0,28.056,4.028,32,9,32h4
+			c4.972,0,9-3.944,9-8.916V14v-1V9.084C22,4.112,17.972,0,13,0z M20,9.084V12h-6V9.084c-0.003-1.304-0.839-2.4-2-2.815V2h1
+			C16.868,2,19.993,5.216,20,9.084z M12,13.044c0,0.55-0.45,1.021-1,1.022c-0.55-0.001-0.999-0.428-1-0.978v-4
+			c0.001-0.55,0.45-0.999,1-1V8c0.543,0,0.999,0.541,1,1.084V13V13.044z M9,2h1v4.272C8.838,6.686,8.001,7.783,8,9.088V12H2V9.084
+			C2.007,5.216,5.132,2,9,2z M20,23.084C19.993,26.952,16.868,30,13,30H9c-3.868,0-6.993-3.048-7-6.916V14h6.158
+			c0.39,1.194,1.507,2.043,2.842,2.044c1.35-0.001,2.478-0.705,2.855-2.044H20V23.084z"/>
+	</g>
+	<rect x="18" y="20" style="fill:#FFFFFF;" width="12" height="10"/>
+	<path style="fill:#4DA6FF;" d="M16,16v16h16V16H16z M30,30H18V18h12V30z"/>
+	<rect x="16" y="16" style="fill:#4DA6FF;" width="16" height="4"/>
+	<rect x="20" y="22" style="fill:#4DA6FF;" width="8" height="2"/>
+	<rect x="20" y="26" style="fill:#4DA6FF;" width="8" height="2"/>
+</g>
+<g id="Layer_1">
+</g>
+</svg>

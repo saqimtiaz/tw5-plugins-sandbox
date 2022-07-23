@@ -1,0 +1,23 @@
+created: 20220723050225273
+icon: $:/sq/sandbox/images/warning
+modified: 20220723080336537
+tags: 
+title: $:/sq/sandbox/emptyMessage
+type: text/vnd.tiddlywiki
+
+<div class="message-box warning">
+<span>{{$:/sq/sandbox/images/warning}}</span>
+These plugins are made available without any support and most of them are highly experimental. 
+<br>
+Please backup your data and use them with care.
+</div>
+
+
+
+!! Experimental? What does it mean?
+
+If you are trying to understand exactly what experimental means in this context and whether you should use a plugin, please pay attention to the version number of the plugin:
+
+* a version number less than 0.2.0 indicates that the plugin is new, relatively untested and highly subject to change.
+* a version number less than 1.0.0 but higher than 0.2.0 indicates that the plugin is used in my own wikis on a regular basis and reliable for my own use, though it might not fit all use cases and changes may not always be backwards compatible.
+* version numbers 1.0.0 and higher indicate that the plugin is considered stable and any changes will be backwards compatible, though still without any user support unless otherwise specified.

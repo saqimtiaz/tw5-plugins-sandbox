@@ -1,0 +1,112 @@
+created: 20220721192531049
+modified: 20220723094205824
+tags: $:/tags/Stylesheet
+title: $:/sq/sandbox/styles/topbar
+type: text/vnd.tiddlywiki
+
+\rules only filteredtranscludeinline transcludeinline macrodef macrocallinline macrocallblock
+
+ .sandbox-bar {
+	padding: 10px;
+	justify-content: space-between;
+}
+
+.sandbox-topbar-wrapper {
+	display: flex;
+	justify-content: space-between;
+}
+
+.sandbox-bar.sandbox-topbar {
+	background: <<colour page-background>>ee;
+	padding: 15px 20px 0;
+	display: flex;
+}
+
+
+.sandbox-bar .tc-block-dropdown.tc-search-drop-down {
+	margin-left: 0;
+	width: 400px;
+	border: 0;
+	box-shadow: 0 0 6px 0 rgba(0, 0, 0, .2);
+	border-radius: 6px;
+	/*	padding: 20px 0;*/
+}
+
+.sandbox-bar .tc-list-item-selected a.tc-tiddlylink {
+	background-color: tomato;
+	color: #ffffff;
+}
+
+.sandbox-bar .tc-menu-list-item {
+	line-height: 2em;
+}
+
+.sandbox-bar p,
+.sandbox-topbar-wrapper p {
+	margin: 0;
+}
+
+.sandbox-bar .tc-block-dropdown {
+	max-height: 70vh;
+	overflow: auto;
+}
+
+.sandbox-bar .left {
+	display: flex;
+}
+
+.sandbox-bar .left button {
+	margin-right: 1em;
+	fill: #bbb;
+}
+
+.sandbox-bar .left button:hover {
+	fill: #cd595a;
+	fill: tomato;
+}
+
+.plugin-view-controls {
+	display: flex;
+}
+
+@media (max-width: 62rem) {
+
+	.sandbox-topbar-wrapper {
+		border-top: none;
+	}
+
+	.sandbox-bar.sandbox-topbar {
+		background: transparent;
+		padding: 10px 20px 9px;
+		margin: 0 auto;
+		position: fixed;
+		bottom: 0;
+		z-index: 999;
+		width: auto;
+	}
+
+	.sq-sandbox-layout .sq-story-river {
+		padding-bottom: 3em;
+		margin-top: 0;
+	}
+
+	.sandbox-bar .tc-block-dropdown.tc-search-drop-down {
+		width: 300px;
+		transform: translateY(-100%);
+		top: -65px;
+	}
+
+	.plugin-view-controls {
+		display: none;
+	}
+
+	.sandbox-bar .right {
+		display: none;
+	}
+
+	.site-title-container {
+		margin: 1em 0 0 1.5em;
+	}
+
+
+}

@@ -1,0 +1,7 @@
+created: 20220720112940919
+modified: 20220720112946737
+title: $:/core/ui/RootTemplate
+type: text/vnd.tiddlywiki
+
+<$transclude tiddler={{{ [{$:/sq/sandbox/config/layout}has[text]] ~[[$:/core/ui/PageTemplate]] }}} mode="inline"/>
+
