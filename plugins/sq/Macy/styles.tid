@@ -31,13 +31,13 @@ title: $:/plugins/sq/macy/styles
 	height: auto
 }
 
-.macy-container>.item-container {
+.macy-container > .item-container {
 	opacity: 0.5;
 	/*transition: all 0.5s ease;*/
 	/** make this a config setting **/
 }
 
-.macy-container.macy-ready>.item-container {
+.macy-container.macy-ready > .item-container {
 	opacity: 1;
 	transition: all 0.2s ease;
 }
