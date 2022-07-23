@@ -1,0 +1,27 @@
+tags: $:/tags/PageTemplate
+title: $:/plugins/sq/links-context-menu/contextmenu
+
+\define menu-item(title,subtitle:"",actions:"")
+	<$button class="tc-menu-list-item tc-btn-invisible" actions=<<__actions__>> >
+		<span class="sq-contextmenu-itemwrapper">
+			<span class="sq-contextmenu-itemtext"><$text text=<<__title__>>/></span>
+			<span class="sq-contextmenu-itemicon"><$text text=<<__subtitle__>>/></span>
+		</span>
+	</$button>
+\end
+
+\define menu-divider() <div class="sq-contextmenu-divider"/>
+<$vars currentTiddler={{{[[$:/state/sq/links-context-menu/]get[current]]}}}>
+	<$reveal type="popup" state="$:/state/sq/links-context-menu/">
+		<div class="tc-drop-down sq-contextmenu sq-etl-contexmenu">
+			<$list filter="[all[shadows+tiddlers]tag[$:/tags/links-context-menu/menuitems]sort[sq-contextmenu-name]]" variable="listItem">
+				<$macrocall
+					$name="menu-item"
+					title={{{[<listItem>get[sq-contextmenu-name]]}}}
+					subtitle={{{[<listItem>get[sq-contextmenu-subtitle]]}}}
+					actions={{{[<listItem>get[text]]}}}
+				/>
+			</$list>
+		</div>
+	</$reveal>
+</$vars>

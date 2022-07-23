@@ -1,0 +1,5 @@
+sq-contextmenu-name: Open in new window
+tags: $:/tags/links-context-menu/menuitems
+title: $:/plugins/sq/links-context-menu/menuitems/new-window
+
+<$action-sendmessage $message="tm-open-window" $param=<<currentTiddler>>/>

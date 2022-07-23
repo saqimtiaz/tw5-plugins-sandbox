@@ -1,0 +1,5 @@
+sq-contextmenu-name: Open for editing
+tags: $:/tags/links-context-menu/menuitems
+title: $:/plugins/sq/links-context-menu/menuitems/edit-tiddler
+
+<$action-sendmessage $message="tm-edit-tiddler" $param=<<currentTiddler>>/>

@@ -1,0 +1,10 @@
+{
+	"title": "$:/plugins/sq/links-context-menu",
+	"name": "Links Context Menu",
+	"description": "Context menu for tiddler links",
+	"author": "Saq Imtiaz",
+	"core-version": ">=5.2.0",
+	"plugin-priority": 0,
+	"list": "readme settings",
+	"version": "0.0.1"
+}
