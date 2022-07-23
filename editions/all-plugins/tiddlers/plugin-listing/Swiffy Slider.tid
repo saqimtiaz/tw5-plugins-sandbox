@@ -1,7 +1,7 @@
 cover-image: $:/sq/sandbox/images/plugin-cover/swiffy-slider
 created: 20220719005153615
 description: Super fast and lightweight slider and carousel that is heavily customizable via CSS and HTML.
-modified: 20220723094843136
+modified: 20220723111218769
 plugin-tiddler: $:/plugins/sq/swiffy-slider
 sqpl: no
 tags: $:/tags/plugin/plugin-info images sliders layout
@@ -10,6 +10,8 @@ type: text/vnd.tiddlywiki
 
 > A whole new approach to sliders and carousels utilizing todays browser features.
 
-Based on the [[Swiffy Slider JavaScript library|https://swiffyslider.com/]].
+Based on the tiny [[Swiffy Slider JavaScript library|https://swiffyslider.com/]].
 
-See the [[extensive examples|https://swiffyslider.com/examples/]] on the Swiffy Slider website and [[explore the different options|https://swiffyslider.com/configuration/]] that can be configured via CSS classes. Combine with Bootstrap, Tailwind or Shiraz to create amazing layouts.
+The contents of the slides are completely customizable via HTML and CSS, and the behaviour of the slider can be configured by means of the classes used on the `swiffy-slider` wrapper DIV.
+
+See the [[extensive examples|https://swiffyslider.com/examples/]] of the customisation possible on the Swiffy Slider website, and [[explore the different options|https://swiffyslider.com/configuration/]] for the behaviour of the slider that can be configured via CSS classes. Combine with Bootstrap, Tailwind or Shiraz to create amazing layouts.

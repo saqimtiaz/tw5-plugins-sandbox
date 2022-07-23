@@ -1,10 +1,10 @@
+caption: Advanced usage with JSON
 created: 20220709182415671
-modified: 20220723094601279
+description: Override global configuration on a per slide basis by passing a JSON object describing the gallery to display in the lightbox.
+modified: 20220723112635777
 tags: $:/tags/plugin/example Spotlight
 title: Spotlight: Example 4 - advanced usage with JSON
 type: text/vnd.tiddlywiki
-
-
 
 \define spotlight-actions()
 <$action-spotlight
@@ -17,6 +17,4 @@ type: text/vnd.tiddlywiki
 	$start="Brooklyn Bridge"/>
 \end
 
-Override global configuration on a per slide basis by passing a JSON object describing the gallery to display in the lightbox:
-
-<$button actions=<<spotlight-actions>> >go </$button> 
+<$button actions=<<spotlight-actions>> >open lightbox</$button> 

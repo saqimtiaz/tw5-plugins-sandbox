@@ -1,47 +1,50 @@
+caption: An example of styling the masonry display.
 created: 20220717125516165
-modified: 20220723094709015
+description: Images wrapped in DIVs for styling. The images can be specified literally or provided by a filter. Animations are customizable via CSS.
+modified: 20220723120131537
 tags: $:/tags/plugin/example Macy
 title: Macy: Example
 type: text/vnd.tiddlywiki
 
 <$macy>
 <$let imgs="""
-http://unsplash.it/557/387
-http://unsplash.it/602/660
-http://unsplash.it/660/646
-http://unsplash.it/741/375
-http://unsplash.it/813/455
-http://unsplash.it/470/896
-http://unsplash.it/664/653
-http://unsplash.it/708/313
-http://unsplash.it/738/578
-http://unsplash.it/458/482
-http://unsplash.it/439/856
-http://unsplash.it/549/315
-http://unsplash.it/877/693
-http://unsplash.it/542/805
-http://unsplash.it/683/445
-http://unsplash.it/616/340
-http://unsplash.it/533/317
-http://unsplash.it/700/894
-http://unsplash.it/663/541
-http://unsplash.it/368/575
-http://unsplash.it/696/538
-http://unsplash.it/571/460
-http://unsplash.it/892/379
-http://unsplash.it/473/729
-http://unsplash.it/657/632
-http://unsplash.it/311/796
-http://unsplash.it/588/561
-http://unsplash.it/812/564
-http://unsplash.it/353/454
-http://unsplash.it/468/737
-http://unsplash.it/600/784
-http://unsplash.it/777/833
-http://unsplash.it/801/576
-http://unsplash.it/826/564
-http://unsplash.it/390/240
-http://unsplash.it/390/130
+https://source.unsplash.com/49b9l_29ceA/557x387
+https://source.unsplash.com/nKAglN6HBH8/602x660
+https://source.unsplash.com/E9ZwWcMGzj8/660x646
+https://source.unsplash.com/zW1XiaYDKBw/741x375
+https://source.unsplash.com/ddWeXB7XblY/813x455
+https://source.unsplash.com/wSAefyqFmWQ/470x896
+https://source.unsplash.com/oyXYkH0jxJY/664x653
+https://source.unsplash.com/exxWKBGrNqA/664x653
+https://source.unsplash.com/ULrJ3TdpMOw/708x313
+https://source.unsplash.com/Ydq18IzVFuU/738x578
+https://source.unsplash.com/YaGuCQL_EzQ/458x482
+https://source.unsplash.com/GrjQ0ZlY9R0/439x856
+https://source.unsplash.com/PDaNXnMEfGo/549x315
+https://source.unsplash.com/NI6lulJLUgY/877x693
+https://source.unsplash.com/4v5QtR7f0hg/542x805
+https://source.unsplash.com/Pbztnji2t6k/683x445
+https://source.unsplash.com/TS_RMNAO7Lo/616x340
+https://source.unsplash.com/ya7R1JbS-5w/533x317
+https://source.unsplash.com/nlMiiYZM2Hk/700x894
+https://source.unsplash.com/tWMVbh0MCFY/663x541
+https://source.unsplash.com/dwJ0imjVifs/368x575
+https://source.unsplash.com/mf28LpWMecw/696x538
+https://source.unsplash.com/8fMj0tJcM2A/571x460
+https://source.unsplash.com/DDf0VmWgI7o/892x379
+https://source.unsplash.com/BMxyU_Hkvs4/473x729
+https://source.unsplash.com/1hE2TGX3EzI/657x632
+https://source.unsplash.com/XAssPDMly2E/311x796
+https://source.unsplash.com/cwOHmicyFcY/588x561
+https://source.unsplash.com/y1D3MOgFsWE/812x564
+https://source.unsplash.com/5EIzCF9oeA0/353x454
+https://source.unsplash.com/9QFd5NlZG8M/468x737
+https://source.unsplash.com/7dA8PbMmPJU/600x784
+https://source.unsplash.com/LEf3EOBPs_A/777x833
+https://source.unsplash.com/9xwLf_csaQ8/801x576
+https://source.unsplash.com/bj6ztkbk6PY/826x564
+https://source.unsplash.com/5GM_lm9PUn4/390x240
+https://source.unsplash.com/CgWZ6utorlg/390x130
 """
 >
 <$list filter="[enlist<imgs>]" variable="img">

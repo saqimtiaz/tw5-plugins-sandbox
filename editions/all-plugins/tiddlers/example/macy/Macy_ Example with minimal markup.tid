@@ -1,39 +1,48 @@
+caption: Minimal example: Bare images wrapped in a $macy widget.
 created: 20220717125717227
-modified: 20220723094652451
+modified: 20220723120352351
 tags: $:/tags/plugin/example Macy
 title: Macy: Example with minimal markup
 type: text/vnd.tiddlywiki
 
 <$macy>
-<$image source="http://unsplash.it/557/387"  />
-<$image source="http://unsplash.it/602/660"  />
-<$image source="http://unsplash.it/660/646"  />
-<$image source="http://unsplash.it/741/375"  />
-<$image source="http://unsplash.it/813/455"  />
-<$image source="http://unsplash.it/470/896"  />
-<$image source="http://unsplash.it/664/653"  />
-<$image source="http://unsplash.it/664/653"  />
-<$image source="http://unsplash.it/708/313"  />
-<$image source="http://unsplash.it/738/578"  />
-<$image source="http://unsplash.it/458/482"  />
-<$image source="http://unsplash.it/439/856"  />
-<$image source="http://unsplash.it/549/315"  />
-<$image source="http://unsplash.it/877/693"  />
-<$image source="http://unsplash.it/542/805"  />
-<$image source="http://unsplash.it/683/445"  />
-<$image source="http://unsplash.it/616/340"  />
-<$image source="http://unsplash.it/533/317"  />
-<$image source="http://unsplash.it/700/894"  />
-<$image source="http://unsplash.it/663/541"  />
-<$image source="http://unsplash.it/368/575"  />
-<$image source="http://unsplash.it/353/454"/>
-<$image source="http://unsplash.it/468/737"/>
-<$image source="http://unsplash.it/600/784"/>
-<$image source="http://unsplash.it/777/833"/>
-<$image source="http://unsplash.it/801/576"/>
-<$image source="http://unsplash.it/826/564"/>
-<$image source="http://unsplash.it/390/240"/>
-<$image source="http://unsplash.it/390/130"/>
+<$image source="https://source.unsplash.com/49b9l_29ceA/557x387"/>
+<$image source="https://source.unsplash.com/nKAglN6HBH8/602x660"/>
+<$image source="https://source.unsplash.com/E9ZwWcMGzj8/660x646"/>
+<$image source="https://source.unsplash.com/zW1XiaYDKBw/741x375"/>
+<$image source="https://source.unsplash.com/ddWeXB7XblY/813x455"/>
+<$image source="https://source.unsplash.com/wSAefyqFmWQ/470x896"/>
+<$image source="https://source.unsplash.com/oyXYkH0jxJY/664x653"/>
+<$image source="https://source.unsplash.com/exxWKBGrNqA/664x653"/>
+<$image source="https://source.unsplash.com/ULrJ3TdpMOw/708x313"/>
+<$image source="https://source.unsplash.com/Ydq18IzVFuU/738x578"/>
+<$image source="https://source.unsplash.com/YaGuCQL_EzQ/458x482"/>
+<$image source="https://source.unsplash.com/GrjQ0ZlY9R0/439x856"/>
+<$image source="https://source.unsplash.com/PDaNXnMEfGo/549x315"/>
+<$image source="https://source.unsplash.com/NI6lulJLUgY/877x693"/>
+<$image source="https://source.unsplash.com/4v5QtR7f0hg/542x805"/>
+<$image source="https://source.unsplash.com/Pbztnji2t6k/683x445"/>
+<$image source="https://source.unsplash.com/TS_RMNAO7Lo/616x340"/>
+<$image source="https://source.unsplash.com/ya7R1JbS-5w/533x317"/>
+<$image source="https://source.unsplash.com/nlMiiYZM2Hk/700x894"/>
+<$image source="https://source.unsplash.com/tWMVbh0MCFY/663x541"/>
+<$image source="https://source.unsplash.com/dwJ0imjVifs/368x575"/>
+<$image source="https://source.unsplash.com/mf28LpWMecw/696x538"/>
+<$image source="https://source.unsplash.com/8fMj0tJcM2A/571x460"/>
+<$image source="https://source.unsplash.com/DDf0VmWgI7o/892x379"/>
+<$image source="https://source.unsplash.com/BMxyU_Hkvs4/473x729"/>
+<$image source="https://source.unsplash.com/1hE2TGX3EzI/657x632"/>
+<$image source="https://source.unsplash.com/XAssPDMly2E/311x796"/>
+<$image source="https://source.unsplash.com/cwOHmicyFcY/588x561"/>
+<$image source="https://source.unsplash.com/y1D3MOgFsWE/812x564"/>
+<$image source="https://source.unsplash.com/5EIzCF9oeA0/353x454"/>
+<$image source="https://source.unsplash.com/9QFd5NlZG8M/468x737"/>
+<$image source="https://source.unsplash.com/7dA8PbMmPJU/600x784"/>
+<$image source="https://source.unsplash.com/LEf3EOBPs_A/777x833"/>
+<$image source="https://source.unsplash.com/9xwLf_csaQ8/801x576"/>
+<$image source="https://source.unsplash.com/bj6ztkbk6PY/826x564"/>
+<$image source="https://source.unsplash.com/5GM_lm9PUn4/390x240"/>
+<$image source="https://source.unsplash.com/CgWZ6utorlg/390x130"/>
 </$macy> 
 
 
