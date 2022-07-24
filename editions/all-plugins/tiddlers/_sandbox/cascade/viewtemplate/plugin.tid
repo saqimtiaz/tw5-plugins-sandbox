@@ -1,0 +1,7 @@
+created: 20220724095707251
+modified: 20220724095834929
+tags: $:/tags/sq/StoryTiddlerTemplateFilter
+title: $:/sq/sandbox/cascade/viewtemplate/plugin
+type: text/vnd.tiddlywiki
+
+[has[plugin-type]then[$:/sq/sandbox/templates/plugin-view-template]]
