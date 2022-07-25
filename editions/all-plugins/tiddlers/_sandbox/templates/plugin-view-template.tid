@@ -11,7 +11,8 @@ type: text/vnd.tiddlywiki
 			   tv-config-toolbar-icons="yes"
 			   tv-config-toolbar-class="tc-btn-invisible"
 			>
-			   {{||$:/core/ui/Buttons/close}}
+				{{||$:/core/ui/Buttons/permalink}}
+				{{||$:/core/ui/Buttons/close}}
 			</$let>
 		</span>
 		<span class="tc-tiddler-title-icon">
