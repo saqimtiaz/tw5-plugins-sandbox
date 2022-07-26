@@ -10,7 +10,8 @@
         "sq/Spotlight",
         "sq/WindowResize",
         "sq/ResizeObserver",
-        "sq/SwiffySlider"
+        "sq/SwiffySlider",
+        "sq/EditorAutoLists"
     ],
     "themes": [
         "tiddlywiki/vanilla",

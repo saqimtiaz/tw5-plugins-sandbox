@@ -1,0 +1,14 @@
+condition: [<targetTiddler>!has[type]] [<targetTiddler>type[text/vnd.tiddlywiki]]
+icon: $:/plugins/sq/editor-autolist/indent.svg
+shortcuts: ((autolist-indent))
+tags: $:/tags/EditorToolbar
+title: $:/plugins/sq/editor-autolist/EditorToolbar/autolist-indent
+list-after: $:/core/ui/EditorToolbar/list-number
+caption: Indent list items
+description: Indent list items
+
+<$action-sendmessage
+	$message="tm-edit-text-operation"
+	$param="autolist"
+	mode="indent"
+/>

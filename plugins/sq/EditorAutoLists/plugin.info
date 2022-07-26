@@ -1,0 +1,10 @@
+{
+	"title": "$:/plugins/sq/editor-autolist",
+	"name": "Editor AutoList",
+	"description": "Editor extension to automatically continue lists",
+	"author": "Saq Imtiaz",
+	"core-version": ">=5.2.0",
+	"plugin-priority": 0,
+	"list": "readme",
+	"version": "0.1.13"
+}

@@ -1,0 +1,10 @@
+title: $:/plugins/sq/editor-autolist/readme
+
+@@color:red;''Experimental plugin - no support available. Use at your own risk.''@@
+
+Automatically continue lists when creating new lines. Indent and unindent line(s) with list markup.
+
+!!Known limitations:
+* no support for mixing block quotes with numbered and unordered lists.
+* no support for classname syntax in list markup, e.g.: `*.myclass hello there`
+* treats list items separated by empty lines are separate lists

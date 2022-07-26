@@ -1,0 +1,14 @@
+condition: [<targetTiddler>!has[type]] [<targetTiddler>type[text/vnd.tiddlywiki]]
+icon: $:/plugins/sq/editor-autolist/unindent.svg
+shortcuts: ((autolist-unindent))
+tags: $:/tags/EditorToolbar
+title: $:/plugins/sq/editor-autolist/EditorToolbar/autolist-unindent
+list-after: $:/core/ui/EditorToolbar/list-number
+caption: Unindent list items
+description: Unindent list items
+
+<$action-sendmessage
+	$message="tm-edit-text-operation"
+	$param="autolist"
+	mode="unindent"
+/>

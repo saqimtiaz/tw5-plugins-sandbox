@@ -1,0 +1,6 @@
+tags: $:/tags/Stylesheet
+title: $:/plugins/sq/editor-autolist/styles
+
+.sq-text-editor-btn-hidden {
+	display: none;
+}

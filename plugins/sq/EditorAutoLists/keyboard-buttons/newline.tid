@@ -1,0 +1,12 @@
+button-classes: sq-text-editor-btn-hidden
+condition: [<targetTiddler>!has[type]] [<targetTiddler>type[text/vnd.tiddlywiki]]
+icon: $:/core/images/list-bullet
+shortcuts: ((autolist-newline))
+tags: $:/tags/EditorToolbar
+title: $:/plugins/sq/editor-autolist/EditorToolbar/autolist-newline
+
+<$action-sendmessage
+	$message="tm-edit-text-operation"
+	$param="autolist"
+	mode="newline"
+/>

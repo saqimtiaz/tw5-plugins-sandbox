@@ -1,0 +1,11 @@
+cover-image: $:/plugins/sq/editor-autolist/icon
+created: 20220726092049077
+description: Editor extension to automatically continue lists when creating new lines. Indent and unindent line(s) with list markup.
+modified: 20220726092228349
+plugin-tiddler: $:/plugins/sq/editor-autolist
+sqpl: no
+tags: $:/tags/plugin/plugin-info editor lists toolbar
+title: Editor AutoList
+type: text/vnd.tiddlywiki
+
+ 
