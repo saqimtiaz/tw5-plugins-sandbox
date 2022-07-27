@@ -31,16 +31,16 @@ jobs:
               sha: context.sha
             })
             
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2-beta
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          node-version: '14'
+          node-version: '16'
 
       - name: Install Dependency
-        run: npm install
+        run: npm install --production
       - name: Build
         run: |
-            npm run build
+            npm run build-gh
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
