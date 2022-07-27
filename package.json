@@ -21,7 +21,7 @@
     "rollup-plugin-uglify": "^6.0.4"
   },
   "scripts": {
-    "build-gh": "TIDDLYWIKI_PLUGIN_PATH=plugins node ./node_modules/tiddlywiki/tiddlywiki.js editions/all-plugins --build index";
+    "build-gh": "TIDDLYWIKI_PLUGIN_PATH=plugins node ./node_modules/tiddlywiki/tiddlywiki.js editions/all-plugins --build index",
     "build": "cross-env TIDDLYWIKI_PLUGIN_PATH=plugins node ./node_modules/tiddlywiki/tiddlywiki.js editions/all-plugins --build index",
     "dev": "cross-env TIDDLYWIKI_PLUGIN_PATH=plugins npx nodemon -e tid,multids,js,info,css,json,meta --watch plugins ./node_modules/tiddlywiki/tiddlywiki.js editions/all-plugins --listen port=7555",
     "local": "cross-env TIDDLYWIKI_PLUGIN_PATH=plugins npx nodemon -e tid,multids,js,info,css,json,meta --watch plugins ./node_modules/tiddlywiki/tiddlywiki.js editions/all-plugins --listen host=192.168.1.115 port=8080",
