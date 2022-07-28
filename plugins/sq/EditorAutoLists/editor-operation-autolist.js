@@ -67,6 +67,7 @@ exports["autolist"] = function(event,operation) {
 			operation.newSelEnd = operation.newSelStart;
 		}
 	} else if(mode === "indent" || mode === "unindent") {
+		let selModifier;
 		state.startSelectedLines = $tw.utils.findPrecedingLineBreak(operation.text,operation.selStart);
 		// if there is a selection move the marker back by one to make sure we don't include a trailing line break
 		let endMarker = (operation.selStart !== operation.selEnd) ? operation.selEnd - 1 : operation.selEnd;
@@ -89,6 +90,7 @@ exports["autolist"] = function(event,operation) {
 			let prevListItemInfo,
 				listItemInfo,
 				prevNewListType;
+			selModifier = 1;
 			state.selectedLines.forEach(function(element,index,array) {
 				/// exclude lines that dont start with a list prefix, they will have listItemInfo as null
 				listItemInfo = listItemInfo || getListLevelInfoForLine(state,index + state.prefixLinesCount); // use from selectedLinesInfo XXX
@@ -135,6 +137,7 @@ exports["autolist"] = function(event,operation) {
 				prevNewListType = newlistType;
 			},this);			
 		} else if(mode === "unindent") {
+			selModifier = -1;
 			state.selectedLines.forEach(function(element,index,array) {
 				let listItemInfo = state.selectedLinesInfo[index];
 				if(listItemInfo) {
@@ -151,8 +154,14 @@ exports["autolist"] = function(event,operation) {
 			operation.replacement = state.modifiedLines.join("\n");
 			operation.cutStart = state.startSelectedLines;
 			operation.cutEnd = state.endSelectedLines;
-			operation.newSelStart = state.startSelectedLines;
-			operation.newSelEnd = state.startSelectedLines + operation.replacement.length;		
+			if(operation.selStart !== operation.selEnd) {
+				operation.newSelStart = state.startSelectedLines;
+				operation.newSelEnd = state.startSelectedLines + operation.replacement.length;
+			} else {
+				// we did not have a selection to start so just modify the selection start and end to accomodate the change in indentation
+				operation.newSelEnd = operation.selEnd + selModifier;
+				operation.newSelStart = operation.newSelEnd;
+			}
 		}
 	} 
 };
