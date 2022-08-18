@@ -21,8 +21,7 @@ type: text/vnd.tiddlywiki
 				<div class="card-footer text-muted">
 					<span class="nowrap">Status <$transclude tiddler={{{ [<currentTiddler>!status[stable]then[$:/sq/sandbox/images/warning]else[$:/sq/sandbox/images/green-circle]] }}}/></span> 
 					<span class="nowrap">Examples <$transclude tiddler={{{ [tag<currentTiddler>tag[$:/tags/plugin/example]] [<currentTiddler>has[plugin-site]] :and[limit[1]] :map[[$:/sq/sandbox/images/checkmark]] :else[[$:/sq/sandbox/images/cross]] }}}/></span> 
-					<span class="nowrap">Docs <$transclude tiddler={{{ [tag<currentTiddler>tag[
-$:/tags/plugin/docs]] [<currentTiddler>has[plugin-site]] :and[limit[1]] :map[[$:/sq/sandbox/images/checkmark]] :else[[$:/sq/sandbox/images/cross]] }}}/></span>
+					<span class="nowrap">Docs <$transclude tiddler={{{ [tag<currentTiddler>tag[$:/tags/plugin/docs]] [<currentTiddler>has[plugin-site]] :and[limit[1]] :map[[$:/sq/sandbox/images/checkmark]] :else[[$:/sq/sandbox/images/cross]] }}}/></span>
 				</div>
 			</div>
 		</$button>	
