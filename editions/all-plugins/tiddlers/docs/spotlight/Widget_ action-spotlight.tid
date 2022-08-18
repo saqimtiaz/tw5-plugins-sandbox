@@ -1,6 +1,6 @@
 caption: Documentation for widget action-spotlight
 created: 20141025120850184
-modified: 20220818082455749
+modified: 20220818163428142
 owner-plugin: Spotlight
 tags: $:/tags/plugin/docs Spotlight
 title: Widget: action-spotlight
@@ -49,11 +49,11 @@ $images="
  in-tiddler-embeded-photo04.jpg
  with-canonical-uri-photo05.jpg 
  https://company.com/gallery/photo06.jpg
+"""
  >
  
 <$action-spotlight $images=<<imgList>>
 ...
-"""
 ```
 
 </div>

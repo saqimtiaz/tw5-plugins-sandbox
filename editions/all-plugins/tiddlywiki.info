@@ -11,7 +11,10 @@
         "sq/WindowResize",
         "sq/ResizeObserver",
         "sq/SwiffySlider",
-        "sq/EditorAutoLists"
+        "sq/EditorAutoLists",
+        "sq/WebDAVUtils",
+        "sq/Pica",
+        "sq/filter-images"
     ],
     "themes": [
         "tiddlywiki/vanilla",
