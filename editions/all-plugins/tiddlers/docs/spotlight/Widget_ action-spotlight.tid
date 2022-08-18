@@ -1,0 +1,59 @@
+caption: Documentation for widget action-spotlight
+created: 20141025120850184
+modified: 20220818082455749
+owner-plugin: Spotlight
+tags: $:/tags/plugin/docs Spotlight
+title: Widget: action-spotlight
+type: text/vnd.tiddlywiki
+
+
+Use the [[live and configurable demo|https://nextapps-de.github.io/spotlight/]] of the Spotlight library to familiarize yourself with its behaviour and options.
+
+!! Attributes
+
+The ''action-spotlight'' widget has the following attributes:
+
+|!Attribute |!Type |!Description |
+|$images |required |Accepts a list in which each item can be any of the following: (1) image tiddler, (2) canonical URI image tiddler, (3) URI to an image|
+|$labels |optional |Accepts a list of labels for the lightbox images in the same order as the `$images` attribute. |
+|$start |optional |Specifies the image at which to open the lightbox|
+|$gallery |optional |If passed, then `$images` and `$labels` are ignored. `$gallery` should be JSON in same format as [[Spotlight documentation|https://github.com/nextapps-de/spotlight#example-options--group-inheritance-api]]|
+|//{any attributes not starting with $}// |optional |Any other attributes the user provides to the widget that do not start with `$` are passed to Spotlight. So you can pass [[other options supported by spotlight|https://github.com/nextapps-de/spotlight#options]]|
+
+!! Remarks
+
+The `$images` attribute accepts list of items in any of following forms:
+
+* a literal list like <div>
+
+```
+<$action-spotlight 
+$images="
+ images/photo-01.jpg 
+ images/photo-02.jpg 
+ images/photo-03.jpg 
+ in-tiddler-embeded-photo04.jpg
+ with-canonical-uri-photo05.jpg 
+ https://company.com/gallery/photo06.jpg"
+ ...
+```
+</div>
+
+* a variable containing a list of images <div>
+
+```
+<$let imgList="""
+ images/photo-01.jpg 
+ images/photo-02.jpg 
+ images/photo-03.jpg 
+ in-tiddler-embeded-photo04.jpg
+ with-canonical-uri-photo05.jpg 
+ https://company.com/gallery/photo06.jpg
+ >
+ 
+<$action-spotlight $images=<<imgList>>
+...
+"""
+```
+
+</div>

@@ -39,7 +39,7 @@ type: text/vnd.tiddlywiki
 		
 		<<list-links-if heading:"Examples:" filter:"[tag<currentTiddler>tag[$:/tags/plugin/example]]">>
 		
-		<<list-links-if heading:"Documentation:" filter:"[tag<currentTiddler>tag[docs]]">>
+		<<list-links-if heading:"Documentation:" filter:"[tag<currentTiddler>tag[$:/tags/plugin/docs]]">>
 		
 		<h2> Installation:</h2>
 		

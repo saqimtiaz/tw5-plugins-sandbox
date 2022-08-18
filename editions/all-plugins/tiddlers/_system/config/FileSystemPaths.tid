@@ -1,5 +1,5 @@
 created: 20220717082458039
-modified: 20220723110806294
+modified: 20220818082450780
 tags: 
 title: $:/config/FileSystemPaths
 type: text/vnd.tiddlywiki
@@ -12,3 +12,4 @@ type: text/vnd.tiddlywiki
 [tag[Spotlight]tag[$:/tags/plugin/example]addprefix[example/spotlight/]]
 [tag[Macy]tag[$:/tags/plugin/example]addprefix[example/macy/]]
 [tag[Swiffy Slider]tag[$:/tags/plugin/example]addprefix[example/swiffy/]]
+[tag[Spotlight]tag[$:/tags/plugin/docs]addprefix[docs/spotlight/]]

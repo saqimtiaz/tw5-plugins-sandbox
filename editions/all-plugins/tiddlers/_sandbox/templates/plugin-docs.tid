@@ -1,7 +1,7 @@
-created: 20220719064853436
-modified: 20220818081405849
+created: 20220818080913126
+modified: 20220818081335967
 tags: 
-title: $:/sq/sandbox/templates/plugin-example
+title: $:/sq/sandbox/templates/plugin-docs
 type: text/vnd.tiddlywiki
 
 \import $:/sq/sandbox/macros/list-links-if
@@ -26,27 +26,7 @@ type: text/vnd.tiddlywiki
 			<h3 class="card-title h5">
 				<$text text={{!!caption}}/>
 			</h3>
-			<$transclude field="description" mode="block"/>
 			<div>
-				<$let state=<<qualify "$:/state/plugin-examples">> >
-				<$button
-					tag="a"
-					class="btn btn-primary"
-					set=<<state>>
-					setTo={{{ [<state>get[text]match[show]then[hide]else[show]] }}}
-				>
-					<$text text={{{ [<state>get[text]match[show]then[Hide code]else[Show code]] }}}/>
-				</$button>
-				<$reveal type="match" state=<<state>> text="show" tag="div">
-					<$codeblock
-						code={{{ [<currentTiddler>get[text]] }}}
-						language={{{ [<currentTiddler>get[type]else[text/vnd.tiddlywiki]] }}}
-					/>
-				</$reveal>
-				</$let>
-			</div>
-			<hr class="subtle-divider">
-			<div class="example-content">
 				<$transclude mode="block"/>
 			</div>
 		</div>
