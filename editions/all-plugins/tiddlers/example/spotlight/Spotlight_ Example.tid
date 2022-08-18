@@ -1,5 +1,5 @@
 created: 20220621154257733
-modified: 20220723140212167
+modified: 20220818083641237
 owner-plugin: Spotlight
 tags: $:/tags/plugin/example Spotlight
 title: Spotlight: Example
@@ -7,8 +7,8 @@ type: text/vnd.tiddlywiki
 
 \define spotlight-actions()
 <$action-spotlight
-	$images="images/photo-1655744348513-7e48315b7769.avif images/photo-1655747508339-7cc94a19ac2b.avif images/photo-1655747945989-e4db8f9bcbf4.avif stephen-leonardi-c2nYwbfXCPM-unsplash.jpg parsa-mahmoudi-8T9l_sInnbs-unsplash.jpg omar-lopez-zS3nwvUpg9A-unsplash.jpg"
-	$start="photo-1655747945989-e4db8f9bcbf4.avif"
+	$images="files/photo-1655744348513-7e48315b7769.avif files/photo-1655747508339-7cc94a19ac2b.avif files/photo-1655747945989-e4db8f9bcbf4.avif stephen-leonardi-c2nYwbfXCPM-unsplash.jpg parsa-mahmoudi-8T9l_sInnbs-unsplash.jpg omar-lopez-zS3nwvUpg9A-unsplash.jpg"
+	$start="files/photo-1655747945989-e4db8f9bcbf4.avif"
 />
 \end
 
