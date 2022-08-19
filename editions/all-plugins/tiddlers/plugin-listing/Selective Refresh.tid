@@ -1,0 +1,14 @@
+cover-image: $:/sq/sandbox/images/plugin-cover/selective-refresh.svg
+created: 20220819181021335
+description: Selectively refreshes the contents of the widget. Helps performance with complex layouts where some components may not need to be constantly updated.
+modified: 20220819181601537
+plugin-tiddler: $:/plugins/sq/selective-refresh
+sqpl: no
+tags: $:/tags/plugin/plugin-info refresh performance
+title: Selective Refresh
+type: text/vnd.tiddlywiki
+
+
+* Avoids refreshing children if no filter is provided.
+* If a filter is provided via the `filter` attribute, then children are refreshed only if there is a matching tiddler that changes.
+* Can be disabled restoring normal refresh behaviour by setting the attribute `enabled` to `no`.

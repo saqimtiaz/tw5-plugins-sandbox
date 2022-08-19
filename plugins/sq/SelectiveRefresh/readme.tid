@@ -1,0 +1,8 @@
+title: $:/plugins/sq/selective-refresh/readme
+
+@@color:red;''Experimental plugin - no support available. Use at your own risk.''@@
+
+Selectively refreshes the contents of the widget:
+
+* Avoids refreshing children if no filter is provided.
+* If a filter is provided then children are refreshed only if there is a matching tiddler that changes.

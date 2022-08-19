@@ -14,7 +14,8 @@
         "sq/EditorAutoLists",
         "sq/WebDAVUtils",
         "sq/Pica",
-        "sq/filter-images"
+        "sq/filter-images",
+        "sq/SelectiveRefresh"
     ],
     "themes": [
         "tiddlywiki/vanilla",
