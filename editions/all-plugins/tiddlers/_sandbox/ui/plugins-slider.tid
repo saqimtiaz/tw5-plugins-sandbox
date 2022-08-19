@@ -8,7 +8,7 @@ type: text/vnd.tiddlywiki
 <$swiffy-slider>
 <div class={{{ [<plugin-overview-mode>match[slider]then[swiffy-slider slider-item-show2 slider-item-reveal slider-nav-outside  slider-nav-visible slider-indicators-outside slider-indicators-round slider-indicators-dark slider-nav-animation slider-nav-animation-fadein slider-item-first-visible slider-nav-dark]] sq-plugin-slider :and[join[ ]] }}}>
 	<ul class={{{ [<plugin-overview-mode>match[slider]then[slider-container]else[grid-cards]] py-4 :and[join[ ]] }}}>
-	<$list filter="[tag[$:/tags/plugin/plugin-info]sort[title]]">
+	<$list filter="[tag[$:/tags/plugin/plugin-info]!sort[modified]]">
 		<$button to=<<currentTiddler>> tag="li">	
 			<div class="card shadow h-100">
 				<div class="ratio ratio-16x9 cover-image">
