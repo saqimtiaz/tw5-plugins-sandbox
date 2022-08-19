@@ -1,7 +1,8 @@
 cover-image: $:/sq/sandbox/images/plugin-cover/selective-refresh.svg
 created: 20220819181021335
 description: Selectively refreshes the contents of the widget. Helps performance with complex layouts where some components may not need to be constantly updated.
-modified: 20220819181601537
+icon: $:/sq/sandbox/images/plugin-cover/selective-refresh.svg
+modified: 20220819182054309
 plugin-tiddler: $:/plugins/sq/selective-refresh
 sqpl: no
 tags: $:/tags/plugin/plugin-info refresh performance
