@@ -1,0 +1,7 @@
+created: 20220820061533521
+modified: 20220820061916140
+tags: $:/tags/StartupAction/Browser
+title: $:/sq/sandbox/StartupActions/shuffle-plugin-list
+type: text/vnd.tiddlywiki
+
+<$action-setfield $tiddler="$:/temp/sq/sandbox/shuffled-plugin-list-order" text={{{ [tag[$:/tags/plugin/plugin-info]_shuffle[]format:titlelist[]join[ ]] }}}/>
