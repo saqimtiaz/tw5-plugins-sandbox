@@ -1,0 +1,15 @@
+{
+	"description": "SQ plugin tests",
+	"plugins": [
+		"tiddlywiki/jasmine",
+		"sq/SQ-Filters"
+	],
+	"themes": [
+		"tiddlywiki/vanilla",
+		"tiddlywiki/snowwhite"
+	],
+	"build": {
+		"index": [
+			"--rendertiddler","$:/core/save/all","test.html","text/plain"]
+	}
+}

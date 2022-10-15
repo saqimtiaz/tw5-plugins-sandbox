@@ -24,6 +24,7 @@
     "build-gh": "TIDDLYWIKI_PLUGIN_PATH=plugins node ./node_modules/tiddlywiki/tiddlywiki.js editions/all-plugins --build index && cp -R editions/all-plugins/files editions/all-plugins/output/",
     "build": "cross-env TIDDLYWIKI_PLUGIN_PATH=plugins node ./node_modules/tiddlywiki/tiddlywiki.js editions/all-plugins --build index",
     "dev": "cross-env TIDDLYWIKI_PLUGIN_PATH=plugins npx nodemon -e tid,multids,js,info,css,json,meta --watch plugins ./node_modules/tiddlywiki/tiddlywiki.js editions/all-plugins --listen port=7555",
+    "tests": "cross-env TIDDLYWIKI_PLUGIN_PATH=plugins node ./node_modules/tiddlywiki/tiddlywiki.js editions/test",
     "local": "cross-env TIDDLYWIKI_PLUGIN_PATH=plugins npx nodemon -e tid,multids,js,info,css,json,meta --watch plugins ./node_modules/tiddlywiki/tiddlywiki.js editions/all-plugins --listen host=192.168.1.115 port=8080",
     "update-tw": "npm install --save github:Jermolene/TiddlyWiki5"
   }

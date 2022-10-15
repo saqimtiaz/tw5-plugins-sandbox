@@ -1,0 +1,22 @@
+title: $:/plugins/sq/sq-filters/readme
+
+@@color:red;''Experimental plugin - no support available. Use at your own risk.''@@
+
+These filters are highly subject to change.
+
+You may wish to drag and drop and install the individual filters that you need rather than the entire plugin.
+
+!!Filters:
+<$list filter="[[$:/plugins/sq/sq-filters]plugintiddlers[]prefix[$:/plugins/sq/sq-filters/filters/]]">
+
+<$link to=<<currentTiddler>> ><$text text={{{ [<currentTiddler>removeprefix[$:/plugins/sq/sq-filters/filters/]] }}}/></$link>: {{!!description}}
+
+</$list>
+
+
+!!Filter run prefixes:
+<$list filter="[[$:/plugins/sq/sq-filters]plugintiddlers[]prefix[$:/plugins/sq/sq-filters/filterrunprefix/]]">
+
+<$link to=<<currentTiddler>> ><$text text={{{ [<currentTiddler>removeprefix[$:/plugins/sq/sq-filters/filterrunprefix/]] }}}/></$link>: {{!!description}}
+
+</$list>

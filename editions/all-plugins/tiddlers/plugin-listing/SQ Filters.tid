@@ -1,0 +1,11 @@
+cover-image: $:/plugins/sq/sq-filters/icon
+created: 20221015201832053
+description: Additional filter run prefixes and filter operators.
+modified: 20221015202212209
+plugin-tiddler: $:/plugins/sq/sq-filters
+sqpl: no
+tags: $:/tags/plugin/plugin-info filters
+title: SQ Filters
+type: text/vnd.tiddlywiki
+
+ 
