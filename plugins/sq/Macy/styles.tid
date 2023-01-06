@@ -53,3 +53,8 @@ title: $:/plugins/sq/macy/styles
     transition: top .2s ease-in-out,left .2s ease-in-out,opacity .2s ease-in-out,transform .2s ease-in-out opacity 0.2s width 0.2;
 }
 **/
+
+/** classic story view workaround for flicker when opening a tiddler with a macy widget **/
+.macy-container:not(.macy-ready) {
+	display:none;
+}

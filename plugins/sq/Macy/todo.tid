@@ -1,0 +1,48 @@
+title: $:/macy issues
+
+weird artifact when story river is not empty and macy tiddler is opened with classic story view active
+
+See https://github.com/bigbite/macy.js/issues/94
+	try waitforimages: true in macy : failed
+	Macy does some kind of scrolling!
+
+seems like the animation and handling in macy is blocking, so the animation from the classic story view happens after that
+	to be clear I think the scrolling in class sw is happening after, and this might be why the problem doesnt happen with pop story view'
+	
+	ok so ctrl click to avoid scrolling also doesnt work in classic story view but only when opening macy tiddler
+		wtf
+		does Macy have some kind of scrolling behaviour?
+	
+increase animation duration to 2000 and observe
+
+
+
+idea: delay in Macy, can be overriden and set to 0 but default to animation duration + 50
+	or try to make macy async? wont be enough to do raf as animation takes a lot longer than that but maybe we just need it to go to the next tick
+
+
+temp fix with css, in classic story view hide all images until all are loaded (macy complete)	
+	
+----
+newer forks:
+	https://github.com/bigbite/macy.js/issues/94
+	https://github.com/zenithlight/macy.js
+	https://github.com/piotnet/macy.js
+	https://github.com/normmcgarry/macy.js
+	https://github.com/mcculloughjchris/macy.js
+	https://github.com/luthfimasruri/macy.js
+	https://github.com/lukereative/macy.js
+	https://github.com/JoeSz/macy.js
+	https://github.com/hufer/macy.js
+	https://github.com/DrMartinGonzo/macy.js
+	https://github.com/CelesteComet/macy.js
+	
+	
+	
+----------------------
+
+
+IDEA:
+	sometimes you see the first image really large since Macy has not yet initialized
+	but based on macy parameters we already know the max with of the image, its based on the number of columns for the breakPoints
+		can we set some css vars and have css control max width and aspect ratio, until macy ready and then macy takes over?

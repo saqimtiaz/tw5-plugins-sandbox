@@ -80,8 +80,7 @@ MacyWidget.prototype.render = function(parent,nextSibling) {
 	this.domNode.className = "macy-container";
 	this.domNode.style.position = "relative";
 	parent.insertBefore(this.domNode,nextSibling);
-	this.renderChildren(this.domNode,null);
-	this.domNodes.push(this.domNode);
+
 /*
 	$tw.sq.data = new Map();
 	$tw.sq.data[this.domNode] = this;
@@ -91,15 +90,14 @@ MacyWidget.prototype.render = function(parent,nextSibling) {
 		$tw.sq.Macy = require("$:/plugins/sq/macy/macy.js");
 	}
 	this.macy = new $tw.sq.Macy($tw.utils.extend(this.macyConfig,{"container":this.domNode}));
+	this.renderChildren(this.domNode,null);
+	this.domNodes.push(this.domNode);
 	// add event listener on root widget and re-use?
 		// https://stackoverflow.com/questions/66109481/how-to-utilize-resizeobserver-for-multiple-behaviors
 		// https://stackoverflow.com/questions/51528940/resizeobserver-one-vs-multiple-performance
 	this.macy.on(this.macy.constants.EVENT_IMAGE_COMPLETE, function (ctx) {
-		self.attachResizeObserver(self.domNode,100,true,true,function(){self.macy.recalculate(true,true)});
-		
-	});
-	this.macy.on(this.macy.constants.EVENT_IMAGE_COMPLETE,function(ctx) {
 		$tw.utils.addClass(self.domNode,"macy-ready");
+		self.attachResizeObserver(self.domNode,100,true,true,function(){self.macy.recalculate(true,true);});
 	});
 };
 
