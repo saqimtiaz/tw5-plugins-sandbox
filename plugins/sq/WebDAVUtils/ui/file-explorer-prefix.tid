@@ -1,0 +1,6 @@
+title: $:/plugins/sq/webdav-utils/ui/file-explorer/prefix
+
+\define dataTiddlerPrefix() $:/temp/webdav/filesystem/directory
+\define getDataTiddler() [<currentPath>match[/]then[/root/]else<currentPath>addprefix<dataTiddlerPrefix>]
+\define getDirectories() [<dataTiddler>get[text]jsonextract[tiddlers]jsonindexes[]] :filter[<dataTiddler>get[text]jsonget[tiddlers],<currentTiddler>,[item-type]match[directory]] :except[<currentPath>]
+\define getFiles() [<dataTiddler>get[text]jsonextract[tiddlers]jsonindexes[]] :filter[<dataTiddler>get[text]jsonget[tiddlers],<currentTiddler>,[item-type]match[file]]

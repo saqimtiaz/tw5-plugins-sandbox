@@ -1,0 +1,4 @@
+title: $:/config/file-uploads/webdav/defaultUploadDirectory
+description: Default upload directory relative to server root.
+
+files/

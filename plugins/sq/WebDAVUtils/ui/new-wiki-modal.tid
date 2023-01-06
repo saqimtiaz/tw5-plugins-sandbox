@@ -1,0 +1,74 @@
+title: $:/plugins/sq/webdav-utils/ui/modal-new-wiki
+class: tc-modal-centered squi-modal-centered
+footer: <$button message="tm-close-tiddler">Close</$button>
+subtitle: Create a new wiki
+mask-closable: yes
+
+\import [[$:/plugins/sq/webdav-utils/create-wiki-actions]] [[$:/plugins/sq/webdav-utils/ui/file-explorer/prefix]]
+\define filename-temp() $:/temp/sq/fs/new-wiki-name
+
+\define create-new-wiki()
+<$let
+ 	currentDir={{{ [<currentDir>!is[blank]else[/]] }}}
+	destinationURL={{{ [<currentDir>trim:suffix[/]addsuffix[/]addsuffix{$:/temp/sq/fs/new-wiki-name}] }}}
+	currentPath=<<currentDir>>
+	dataTiddler={{{ [subfilter<getDataTiddler>] }}}
+	fileExists={{{ [subfilter<getFiles>] :intersection[<destinationURL>] :and[count[]match[1]then[yes]else[no]] }}} 
+	>
+	<$action-confirm $prompt=<<fileExists>> $message="This will overwrite an existing wiki. Do you wish to continue?" >
+		<<createWikiActions>>
+	</$action-confirm>
+</$let>
+\end
+\parsermode inline
+<div class="sq-fs-addwiki">
+	<fieldset>
+	<label><div>Create a new ~TiddlyWiki file in ''<$text text={{{ [<currentDir>decodeuricomponent[]] }}}/>'' called:</div>
+		<$edit-text tiddler=<<filename-temp>> placeholder="filename.html" tag="input" default="" class="sq-search-input"/>
+	</label>
+	</fieldset>
+	<fieldset>
+	<label>
+		<div>Use the template:</div>
+		<div class="squi-radio2">
+			<$list filter="[all[shadows+tiddlers]tag[$:/tags/Edition]sort[name]]">
+				<$radio tiddler="$:/config/sq/webdav/new-wiki/selected-edition" field="text" value=<<currentTiddler>>>
+					<$text text={{!!text}}/>
+				</$radio>
+			</$list>
+			<$radio tiddler="$:/config/sq/webdav/new-wiki/selected-edition" field="text" value="FROMURL">use the file from this URL:</$radio>
+			<$list filter="[{$:/config/sq/webdav/new-wiki/selected-edition}match[FROMURL]]" variable="null">
+				<$edit-text tiddler="$:/temp/sq/fs/new-wiki-template-url" placeholder="https://" tag="input" default="" class="sq-search-input" />
+			</$list>
+		</div>
+	</label>
+	</fieldset>
+	<fieldset>
+		<legend>Customize new wiki:</legend>
+		<details>
+			<summary>Add plugins</summary>
+			<ul class="squi-list-group squi-list-group-flush sq-fs-addplugins">
+				<$list filter="[plugin-type[plugin]sort[name]] -$:/core">
+					<li class="squi-list-group-item tc-flex tc-flex-row squi-align-items-center">
+						<$checkbox tiddler="$:/config/sq/webdav/new-wiki/selected-plugins" index=<<currentTiddler>> checked="yes" unchecked="no" default="no" class="squi-form-switch"/>
+						<label class="squi-form-label"><$link tooltip={{!!name}}><$text text={{!!name}}/></$link></label>
+					</li>
+				</$list>
+			</ul>
+		</details>
+		<details>
+			<summary>Include additional tiddlers</summary>
+			<p class="tc-big-gap-right tc-big-gap-left">
+				<$select tiddler="$:/config/sq/webdav/new-wiki/selected-tiddlers-option" default="none" class="squi-form-select">
+					<option value="none">none</option>
+					<option value="default-WebDAV-configuration">default ~WebDAV configuration</option>
+					<option value="custom-filter">custom filter</option>
+				</$select>
+				<$list filter="default-WebDAV-configuration custom-filter :intersection[[$:/config/sq/webdav/new-wiki/selected-tiddlers-option]get[text]]" variable="selected-option">
+					<p><$edit-text tiddler={{{ [<selected-option>addprefix[$:/config/sq/webdav/new-wiki/tiddlers-filter/]] }}} placeholder="" tag="textarea" default="" class="squi-form-textarea tc-max-width" /></p>
+				</$list>
+			</p>
+		</details>
+	</fieldset>
+	<$button class="squi-btn-big" actions=<<create-new-wiki>> disabled={{{ [<filename-temp>get[text]!is[blank]suffix[.html]then[no]else[yes]] }}}>create new wiki</$button>
+</div>

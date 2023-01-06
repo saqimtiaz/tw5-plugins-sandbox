@@ -1,0 +1,13 @@
+title: $:/plugins/sq/webdav-utils/templates/new-wiki-plugins
+
+`<script class="tiddlywiki-tiddler-store" type="application/json">[`
+	<$let 
+		newline={{{ [charcode[10]] }}}
+		allTiddlers="[all[]]"
+		tiddlerFilter={{{ [[$:/config/sq/webdav/new-wiki/selected-tiddlers-option]get[text]addprefix[$:/config/sq/webdav/new-wiki/tiddlers-filter/]get[text]!is[blank]] :else[<allTiddlers>] }}}
+	>
+		<$text text=<<newline>>/>
+		<$list filter="[[$:/config/sq/webdav/new-wiki/selected-plugins]indexes[]] :filter[[$:/config/sq/webdav/new-wiki/selected-plugins]getindex<currentTiddler>match[yes]] [subfilter<tiddlerFilter>]" counter="counter" template="$:/core/templates/html-json-tiddler"/>
+		<$text text=<<newline>>/>
+	</$let>
+`]</script>`

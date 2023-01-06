@@ -1,0 +1,49 @@
+title: $:/plugins/sq/webdav-utils/styles/squi-lists
+tags: $:/tags/Stylesheet
+
+.squi-list-group {
+	display: flex;
+	flex-direction: column;
+	padding-left: 0;
+	margin-bottom: 0;
+	margin-top: 0;
+}
+
+.squi-list-group-box-shadow {
+	box-shadow:1px 1px 5px <<color foreground>>4d;	
+	border-radius: .25rem;
+}
+	
+.squi-list-group-item	{
+	position: relative;
+	display: block;
+	padding: 0.75rem 1.25rem;
+	background-color:  <<color background>>;
+	border: 1px solid <<color foreground>>20;
+    margin-bottom: -1px;
+}
+
+.squi-list-group-item:first-child {
+	border-top-left-radius: .25rem;
+	border-top-right-radius: .25rem;
+}
+
+.squi-list-group-item:last-child {
+	border-bottom-left-radius: .25rem;
+	border-bottom-right-radius: .25rem;
+}
+
+.squi-list-group-flush .squi-list-group-item {
+    border-right: 0;
+    border-left: 0;
+    border-radius: 0;
+}
+
+.squi-list-group-flush .squi-list-group-item:first-child {
+    border-top: 0;
+}
+
+
+.squi-list-group-flush .squi-list-group-item:last-child {
+    border-bottom: 0;
+}

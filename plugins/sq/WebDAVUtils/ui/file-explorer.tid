@@ -1,0 +1,151 @@
+title: $:/FileExplorer
+
+\define FileExplorer()
+<!-- 
+	filters to get the contents of a directory
+	would be desirable to not have to set the dataTiddler variable inside the widget tree
+-->
+\import [[$:/plugins/sq/webdav-utils/ui/file-explorer/prefix]]
+\define displayTreeItem() [trim[/]split[/]last[]decodeuricomponent[]]
+
+\define navigate-actions()
+<$action-sendmessage $message="tm-webdav-ls" $param=<<currentPath>> />
+<$action-setfield $tiddler=<<treeState>> text=<<currentPath>>/>
+\end navigate-actions
+
+\define file-click-actions()
+<$action-sendmessage $message="tm-open-external-window" $param=<<currentFile>>/>
+\end file-click-actions
+
+\define breadcrumbs()
+<ul aria-label="breadcrumbs">
+	<li>
+		<$let currentPath="/">
+			<$button class="tc-btn-invisible" actions=<<navigate-actions>> >{{$:/core/images/home-button}}</$button>
+		</$let>
+	</li>
+	<$list filter="[<currentPath>split[/]!is[blank]]" variable="location" counter="count">
+		<$let currentPath={{{ [<currentPath>split[/]!is[blank]first<count>join[/]addsuffix[/]addprefix[/]]  }}} >
+			<!--
+				instead of splitting currentPath and then resconstructing it, consider:
+					- a recursive macro that starts at the root level and progresses on folder each time
+					- for displaying the correct text, use the filter displayTreeItem to format it.
+			-->
+			<$list filter="[<count-last>!match[yes]]" variable="ignore">
+				<li>
+					<$button class="tc-btn-invisible" actions=<<navigate-actions>> >
+						<$text text={{{ [<location>decodeuricomponent[]] }}}/>
+					</$button>
+				</li>
+			</$list>
+			<$list filter="[<count-last>match[yes]]" variable="ignore">
+				<li>
+					<span aria-current="location">
+						<$text text={{{ [<location>decodeuricomponent[]] }}}/>
+					</span>
+				</li>
+			</$list>
+		</$let>
+	</$list>
+</ul>
+\end breadcrumbs
+<!-- idea: optional filter to show only files of a certain type or exclude files of a certain type-->
+
+\define popup-more-menu()
+\define menu-item(title,subtitle:"",actions:"")
+	<$button class="tc-menu-list-item tc-btn-invisible" actions=<<__actions__>> >
+		<span class="squi-contextmenu-itemwrapper">
+			<span class="squi-contextmenu-itemtext"><$text text=<<__title__>>/></span>
+			<span class="squi-contextmenu-itemicon"><$text text=<<__subtitle__>>/></span>
+		</span>
+	</$button>
+\end menu-item
+\define menu-divider() <div class="squi-contextmenu-divider"/>
+	<$reveal tag="div" type="popup" state=<<popupMenuState>>  position="belowleft" updatePopupPosition="yes">
+		<div class="tc-drop-down squi-contextmenu">
+			<$let currentPath={{{ [<popupMenuState>get[current]] }}}
+				conditionFilter="[<currentTiddler>!has[condition]then[yes]] :else[subfilter{!!condition}]"
+			>
+				<$list filter="[all[shadows+tiddlers]tag[$:/tags/file-explorer/more-popup-menu/menuitems]sort[sq-contextmenu-name]filter<conditionFilter>] :filter[lookup[$:/config/filexplorer/moremenu/visibility/]!match[hide]]" variable="listItem">
+					<$macrocall
+						$name="menu-item"
+						title={{{[<listItem>get[squi-contextmenu-name]]}}}
+						subtitle={{{[<listItem>get[squi-contextmenu-subtitle]]}}}
+						actions={{{[<listItem>get[text]]}}}
+					/>
+				</$list>
+			</$let>
+		</div>
+	</$reveal>
+\end popup-more-menu
+
+<$let
+	treeState=<<qualify $:/temp/webdav/exporer/current-root>>
+	currentPath={{{ [<treeState>get[text]!is[blank]else[/]] }}}
+	popupMenuState=<<qualify $:/temp/webdav/explorer/more-popup>>
+	>
+	<$macrocall $name="popup-more-menu"/>
+	<nav class="explorer" role="tree">
+		<ul role="group" style="--depth:0">
+			<li role="treeitem" aria-expanded="true" tabindex="0">
+				<menu role="menubar" class="folder root-folder" title="breadcrumbs">
+					<$button class="location"actions=<<navigate-action>> tag="li" role="menuitem" tooltip="navigate">
+						<$macrocall $name="breadcrumbs"/>
+					</$button>
+					<$button role="menuitem" class={{{ more-options [<popupMenuState>get[current]match<currentPath>then[popup-active]] :and[join[ ]] }}} tag="li" title="more options" popup=<<popupMenuState>> >
+						<$action-popup/>
+						<$action-setfield $tiddler=<<popupMenuState>> current=<<currentPath>> />
+					</$button>
+				</menu>
+				<ul role="group" style="--depth:1">
+					<$let dataTiddler={{{ [subfilter<getDataTiddler>] }}}>
+						<$list filter="[subfilter<getDirectories>]" variable="currentPath">
+							<li role="treeitem" tabindex="0" item-type="directory">
+								<menu role="menubar" class="folder" title="Unfold folder">
+									<$button class="location" actions=<<navigate-actions>> tag="li" role="menuitem" tooltip="navigate">
+										<span><$text text={{{ [<currentPath>subfilter<displayTreeItem>] }}}/></span>
+									</$button>
+									<!--
+									<li role="menuitem" class="more-options" title="more options"></li>
+									-->
+									<$button role="menuitem" class={{{ more-options [<popupMenuState>get[current]match<currentPath>then[popup-active]] :and[join[ ]] }}} tag="li" title="more options" popup=<<popupMenuState>> >
+										<$action-popup/>
+										<$action-setfield $tiddler=<<popupMenuState>> current=<<currentPath>> />
+									</$button>
+								</menu>
+							</li>
+						</$list>
+						<$list filter="[subfilter<getFiles>]" variable="currentFile">
+							<li role="treeitem" tabindex="0" item-type="file">
+								<menu role="menubar" class="file" title="Open">
+									<$button role="menuitem" class="tc-btn-invisible location" actions=<<file-click-actions>> >
+										<$text text={{{ [<currentFile>subfilter<displayTreeItem>] }}}/>
+									</$button>
+									<!-- disabled until we have sensible actions that can be performed on wikis, such as delete, rename or clone
+										also disable the rule .explorer [role="menubar"].file .location:after and .explorer [role="menubar"].file .location:after
+									-->
+									<!--
+									<li role="menuitem" class="more-options" title="more options"></li>
+									-->
+								</menu>
+							</li>
+						</$list>
+					</$let>
+				</ul>
+			</li>
+		</ul>
+	</nav>
+</$let>
+\end FileExplorer
+
+<$macrocall $name="FileExplorer"/>
+
+<!-- 
+References:
+Breadcrumbs: https://w3c.github.io/aria-practices/examples/breadcrumb/index.html
+
+Tree:
+https://w3c.github.io/aria-practices/examples/treeview/treeview-1/treeview-1a.html
+https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/treeitem_role
+https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/tree_role
+-->

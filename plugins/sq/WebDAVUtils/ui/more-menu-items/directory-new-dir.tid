@@ -1,0 +1,27 @@
+squi-contextmenu-name: Create a new directory
+tags: $:/tags/file-explorer/more-popup-menu/menuitems
+title: $:/plugins/sq/webdav-utils/more-menu/menuitems/new-directory
+condition: [<currentPath>is[blank]]
+
+
+
+\define callback()
+\define failureHandler()
+<$let message="[<status>match[405]then[The directory already exists.]else[There was an error creating the directory.]]">
+	<$action-setfield $tiddler={{{ [[$:/temp/webdav/error/]addsuffix<now [UTC]YYYY0MM0DD0hh0mm0ssXXX]>] }}} text={{{ [<message>addsuffix<error>] }}} component="WebDAV create new directory" tags="$:/tags/Alert"/>
+</$let>
+\end failureHandler
+<$list filter="[<status>match[201]]" variable="null" emptyValue=<<failureHandler>> >
+	<$action-sendmessage $message="tm-notify" $param="$:/plugins/sq/webdav-utils/ui/templates/wiki-created" path=<<url>> />
+	<$action-sendmessage $message="tm-webdav-ls" $param=<<currentPath>>/>
+</$list>
+\end callback
+
+<$action-sendmessage
+	$message="sqtm-http-request"
+	method="MKCOL"
+	bind-status="$:/state/webdav/http-status"
+	oncompletion=<<callback>>
+	url={{{ [<currentPath>addsuffix[testfolder]] }}}
+	var-url={{{ {{{ [<currentPath>addsuffix[testfolder]] }}} }}}
+	>

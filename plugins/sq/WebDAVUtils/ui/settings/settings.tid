@@ -1,0 +1,18 @@
+title: $:/plugins/sq/webdav-utils/settings
+
+! Uploader for File Uploads
+
+{{$:/plugins/sq/webdav-utils/settings/uploader}}
+
+---
+
+! Backups
+
+<$tiddler tiddler="$:/config/webdav/enableBackups">
+<div style="justify-content: space-between!important;display: flex;">
+<label class="squi-form-label"><$link tooltip={{!!description}}>{{!!caption}}</$link></label><$checkbox field="text" checked="yes" unchecked="no" class="squi-form-switch"/>
+</div>
+</$tiddler>
+
+[[WebDAV saver backup path (is wikified)|$:/config/webdav/backupPath]]
+<$edit-text tiddler="$:/config/webdav/backupPath" field="text" tag="input" class="tc-edit-texteditor"/>

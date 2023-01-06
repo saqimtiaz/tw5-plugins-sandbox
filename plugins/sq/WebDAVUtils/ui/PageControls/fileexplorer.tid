@@ -1,0 +1,21 @@
+caption: {{$:/plugins/sq/webdav-utils/images/file-explorer}} ~WebDAV File Explorer
+description: ~WebDAV File Explorer
+tags: $:/tags/PageControls
+title: $:/plugins/sq/webdav-utils/ui/PageControls/file-explorer
+
+\whitespace trim
+\define webdav-filexplorer-button(class)
+\whitespace trim
+<$button to="$:/FileExplorer" tooltip="Open WebDAV File Explorer" aria-label="Open ~WebDAV File Explorer" class="""$(tv-config-toolbar-class)$ $class$""">
+<$list filter="[<tv-config-toolbar-icons>match[yes]]">
+{{$:/plugins/sq/webdav-utils/images/file-explorer}}
+</$list>
+<$list filter="[<tv-config-toolbar-text>match[yes]]">
+<span class="tc-btn-text"><$text text="Open ~WebDAV File Explorer"/></span>
+</$list>
+</$button>
+\end
+
+<$list filter="[list<tv-story-list>] +[field:title[$:/FileExplorer]]" emptyMessage=<<webdav-filexplorer-button>>>
+<<webdav-filexplorer-button "tc-selected">>
+</$list>

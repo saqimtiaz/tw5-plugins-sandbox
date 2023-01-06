@@ -1,0 +1,7 @@
+title: $:/config/sq/webdav/new-wiki/selected-plugins
+type: application/json
+
+{
+    "$:/plugins/commons/file-uploads": "yes",
+    "$:/plugins/sq/webdav-utils": "yes"
+}

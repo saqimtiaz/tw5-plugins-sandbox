@@ -1,0 +1,6 @@
+squi-contextmenu-name: Refresh this directory
+tags: $:/tags/file-explorer/more-popup-menu/menuitems
+title: $:/plugins/sq/webdav-utils/more-menu/menuitems/refresh-directory
+condition: [<currentPath>!is[blank]]
+
+<$action-sendmessage $message="tm-webdav-ls" $param=<<currentPath>> />

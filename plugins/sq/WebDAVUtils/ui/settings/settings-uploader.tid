@@ -1,0 +1,16 @@
+title: $:/plugins/sq/webdav-utils/settings/uploader
+
+[[Default upload directory|$:/config/file-uploads/webdav/defaultUploadDirectory]]: 
+<$edit-text tiddler="$:/config/file-uploads/webdav/defaultUploadDirectory" field="text" tag="input" class="tc-edit-texteditor"/>
+
+//Hint: use a leading `/` to specify a path relative to the root//
+
+[[Filters to customize file path for uploads|$:/config/file-uploads/webdav/uploadPathFilters]]:
+
+<$edit-text tiddler="$:/config/file-uploads/webdav/uploadPathFilters" field="text" tag="textarea" class="tc-edit-texteditor" />
+
+<$tiddler tiddler="$:/config/file-uploads/webdav/generateUniqueURIs">
+<div style="justify-content: space-between!important;display: flex;">
+<label class="squi-form-label"><$link tooltip={{!!description}}>{{!!caption}}</$link></label><$checkbox field="text" checked="yes" unchecked="no" class="squi-form-switch"/>
+</div>
+</$tiddler>

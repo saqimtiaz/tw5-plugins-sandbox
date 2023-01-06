@@ -1,0 +1,8 @@
+tags: $:/tags/StartupAction/PostRender
+title: $:/plugins/sq/webdav-utils/startup-actions
+
+<$list filter="[prefix[$:/state/webdav/exporer/current-root]get[text]]" emptyMessage="""
+    <$action-sendmessage $message="tm-webdav-ls" $param="/" />
+""">
+    <$action-sendmessage $message="tm-webdav-ls" $param=<<currentTiddler>> />
+</$list>

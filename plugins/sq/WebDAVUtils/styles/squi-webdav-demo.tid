@@ -1,0 +1,304 @@
+title: $:/plugins/sq/webdav-utils/styles/squi-webdav-demo
+tags: $:/tags/Stylesheet
+
+/rules except dash list
+.sqtc-overview-col3 {
+	flex: 1;
+}
+
+.sq-fs-addwiki {
+	min-width: 500px;
+}
+
+.sq-fs-addwiki fieldset {
+	padding: 0 0 0.5em 0;
+	border: none;
+}
+
+.sq-fs-addwiki label > :first-child,
+.sq-fs-addwiki fieldset legend {
+	font-size: 110%;
+	margin-bottom: 0.2em;
+}
+
+.sq-fs-addwiki .sq-search-input {
+	margin-top: 0.5em;
+}
+
+.sq-fs-addwiki details {
+	margin-bottom: 0.5em;
+}
+
+.sq-fs-addwiki details summary {
+	cursor: pointer;
+}
+
+.sq-fs-addplugins.sq-list-group {
+	width: 90%;
+	margin: 0 auto;
+}
+
+.sq-fs-addplugins .sq-list-group-item {
+	justify-content: unset!important;
+}
+
+.sq-fs-addplugins .squi-form-label {
+	padding-left : 1em;
+}
+
+.sq-fs-list .sq-list-group-item svg.tc-image-open-window.tc-image-button,
+.sq-fs-list .sq-list-group-item .tc-image-chevron-down.tc-image-button {
+	fill: #00000026;
+}
+
+.sq-fs-list .sq-list-group-item:hover svg.tc-image-open-window.tc-image-button,
+.sq-fs-list .sq-list-group-item:hover .tc-image-chevron-down.tc-image-button {
+	fill: #444;
+}
+
+.sq-fs-list .sq-list-group .sq-list-group .sq-list-group-item {
+	padding-left: 2.5rem;
+	border-right: 0;
+	border-left: 0;
+	border-radius: 0;
+}
+
+.sq-fs-list .sq-list-group-item {
+	padding-left: 2.5rem;
+}
+
+.sq-fs-list .sq-fs-list-root .sq-list-group-item {
+	padding-left: 1.25rem;
+}
+
+.sq-fs-list .sq-list-group .sq-list-group .sq-list-group .sq-list-group-item {
+	padding-left: 5rem;
+}
+
+.sq-fs-list .sq-list-group .sq-list-group .sq-list-group .sq-list-group .sq-list-row-container .sq-list-group-item {
+	padding-left: 5rem;
+}
+
+.sq-fs-list .sq-list-group .sq-list-group .sq-list-group .sq-list-group .sq-list-group-item {
+	padding-left: 7rem;
+}
+
+.sq-fs-list .sq-list-group-box-shadow .sq-list-group-box-shadow {
+	box-shadow: none;
+	border-radius: 0;
+}
+
+.sq-fs-list .sq-list-group+.sq-list-group-item {
+	border-top-width: 0;
+}
+
+
+/** nested **/
+
+span+.sq-list-row-container {
+	border-top-width: 0;
+}
+
+.sq-list-row-container {
+	width: 100%;
+	display: flex;
+	border: 1px solid rgba(0, 0, 0, .125);
+}
+
+.sq-list-row-container .sq-list-group-item:first-child {
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+}
+
+.sq-list-row-container:last-child {
+	border-bottom-left-radius: .25rem;
+	border-bottom-right-radius: .25rem;
+}
+
+.sq-fs-list .sq-list-row-container+.sq-list-row-container {
+	border-top-width: 0;
+}
+
+.sq-fs-list .sq-list-group+.sq-list-row-container {
+	border-top-width: 0;
+}
+
+.sq-fs-list .sq-list-row-container+.sq-list-group {
+	border-top-width: 0;
+}
+
+.sq-fs-list .sq-list-row-container+.sq-list-group .sq-list-group-item {
+	border-top-width: 0;
+}
+
+.sq-fs-list .sq-list-row-container+.sq-list-group .sq-list-row-container {
+	border-top-width: 0;
+}
+
+.sq-list-group-item:first-child {
+	border-top-left-radius: .25rem;
+	border-top-right-radius: .25rem;
+}
+
+.sq-list-row-container button {
+	border: none;
+}
+
+.sq-fs-list button.sq-list-group-item {
+	cursor: pointer;
+	width: 100%;
+	text-align: left;
+	justify-content: left!important;
+}
+
+button.sq-list-group-item:focus,
+button.sq-list-group-item:hover {
+	z-index: 1;
+	color: #495057;
+	text-decoration: none;
+	background-color: #f8f9fa;
+	outline-color: #fff;
+}
+
+.sq-fs-list button.sqtc-overview-col-small.sqtc-overview-col-label {
+	width: 4em;
+	position: relative;
+	display: block;
+	padding: 0.75rem 1.25rem;
+	background-color: #fff;
+	color: #495057;
+	text-align: inherit;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between!important;
+	align-items: center!important;
+	word-spacing: 0.1em;
+	border-left: 1px solid rgba(0, 0, 0, .125);
+	cursor: pointer;
+}
+
+.sq-fs-list button.sqtc-overview-col-small.sqtc-overview-col-label svg {
+	margin-left: 0em;
+	fill: #00000026;
+}
+
+button.sqtc-overview-col-small.sqtc-overview-col-label:hover svg {
+	fill: #444;
+}
+
+button.sqtc-overview-col-small.sqtc-overview-col-label:focus,
+button.sqtc-overview-col-small.sqtc-overview-col-label:hover {
+	z-index: 1;
+	color: #495057;
+	text-decoration: none;
+	background-color: #f8f9fa;
+	outline-color: #fff;
+}
+
+.sq-list-row-container .sq-list-group-item:first-child {
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+}
+
+.sq-fs-list .sq-list-group-item .sq-list-icon {
+	padding-right: 0.3em;
+}
+
+
+/**** sq-ui-btn-big ****/
+
+.squi-btn-big {
+	box-shadow: inset 0px 1px 0px 0px #ffffff;
+	background: linear-gradient(to bottom, #ffffff 5%, #dedbdb 100%);
+	/* f6f6f6*/
+	background-color: #ffffff;
+	border-radius: 6px;
+	border: 1px solid #dcdcdc;
+	display: inline-block;
+	cursor: pointer;
+	color: #666666;
+	font-family: Arial;
+	font-size: 18px;
+	font-weight: bold;
+	padding: 19px 32px;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px #ffffff;
+}
+
+.squi-btn-big:enabled:hover {
+	background: linear-gradient(to bottom, #dedbdb 5%, #ffffff 100%);
+	background-color: #f6f6f6;
+}
+
+.squi-btn-big:disabled {
+	background: linear-gradient(to bottom, #ccc 5%, #ccc 100%);
+	background-color: #ccc;
+	opacity: 0.6;
+	cursor: default;
+}
+
+.squi-btn-big:active {
+	position: relative;
+	top: 1px;
+}
+
+
+/**** end sq-ui-btn-big ***/
+
+
+
+/** mobile **/
+@media only screen and (max-width: 1000px)  {
+	.tc-modal-centered.squi-modal-centered .tc-modal {
+		top: 1em;
+		left: 1em;
+		transform:translateY(0px)!important;
+	}
+
+	.sq-fs-addwiki {
+		min-width: 300px;
+	}
+
+}
+
+/** details **/
+.sq-fs-addwiki details {
+	width: 100%;
+	min-height: 5px;
+	max-width: 700px;
+	padding: 0px;
+	margin: 0 auto;
+	position: relative;
+	border: 1px solid rgba(0, 0, 0, .1);
+	box-sizing: border-box;
+	transition: all .3s;
+}
+
+.sq-fs-addwiki details[open]+details,
+.sq-fs-addwiki details+details[open] {
+	margin-top: 20px;
+}
+
+.sq-fs-addwiki details[open] {
+	min-height: 50px;
+	box-shadow: 2px 2px 20px rgba(0, 0, 0, .2);
+}
+
+.sq-fs-addwiki details[open] summary,
+.sq-fs-addwiki details summary:hover {
+	background-color: #f6f7f8;
+}
+
+.sq-fs-addwiki summary {
+	cursor: pointer;
+	padding: 10px;
+}
+
+.sq-fs-addwiki summary:focus {
+	outline: none;
+
+}
+
+.sq-fs-addwiki details p {
+	color: #96999d;
+}

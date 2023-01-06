@@ -1,0 +1,3 @@
+title: $:/plugins/sq/webdav-utils/ui/templates/wiki-created
+
+New wiki created at <$text text=<<path>> />

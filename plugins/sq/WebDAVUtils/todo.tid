@@ -1,0 +1,20 @@
+title: $:/plugins/sq/webdav-utils/todo
+
+! ~WebDAV-utils
+* Provide a global filter that can be used to get the contents of a directory (files or directories). Will be easier with parameterized transclusions
+
+---
+
+! Explorer
+* optimize template by creating macros for portions that repeat
+* consider elements that do not have the attribute role set to button and are not button elements either
+* consider removing special handling of root directory in terms of where data is stored
+* refactor to use eventcatcher if performance becomes an issue
+
+---
+
+!! Breadcrumbs
+* breadcrumbs need an overflow mechanism
+** move them outside of the tree?
+** consider limiting breadcrumbs to max 4 items and adding an ellipsis if there are more.
+* optimize breadcrumbs with a recursive macro?

@@ -1,0 +1,39 @@
+title: $:/Gallery
+
+\define gallery()
+\import [[$:/plugins/sq/webdav-utils/ui/file-explorer/prefix]]
+\define gallerystate() $:/temp/volatile/sq/webdav/gallery/activedirectory
+\define emptyMessage()
+    <div class="squi-messagebox squi-messagebox-muted" style="max-width: 80%;">
+        <$list filter="[<dataTiddler>is[tiddler]]" emptyMessage="<p>The contents of this directory are not available.</p>">
+            <p> There are no photos to display.</p>
+        </$list>
+    </div>
+\end emptyMessage
+\parsermode inline
+<p>
+    Viewing the directory: <!-- 
+    <$edit-text tiddler=<<gallerystate>> tag="input" class="squi-form-input" default="/" placeholder="WebDAV server path to view as gallery" disabled="yes"/> -->
+    <$text text={{{ [<gallerystate>get[text]!is[blank]else[/]]}}}/>
+</p>
+<$let 
+    currentPath={{{ [<gallerystate>get[text]!is[blank]else[/]] }}}
+    dataTiddler={{{ [subfilter<getDataTiddler>] }}}
+>
+    <$list filter="[subfilter<getFiles>regexp[(?i)\.(jpg|jpeg|png|webp)$]] :and[format:titlelist[]join[ ]]" variable="imgs" emptyMessage=<<emptyMessage>> >
+        <$macy columns="6" breakAt="1300:5:15:15 940:3:10:10 520:2:5:5 400:1:1:1">
+            <$list filter="[enlist<imgs>]" variable="img">
+                <$button class="tc-btn-invisible item-container" tag="div" role="button" actions="""
+                    <$action-spotlight
+                        $images=<<imgs>>
+                        $start=<<img>>
+                    />""">
+                    <$image source=<<img>>  class="item" />
+                </$button>
+            </$list>
+        </$macy>
+    </$list>
+</$let>
+\end gallery
+
+<$macrocall $name="gallery" />

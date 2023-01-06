@@ -1,0 +1,69 @@
+title: $:/plugins/sq/webdav-utils/create-wiki-actions
+
+\define createWikiActions(destinationURL)
+
+\define saveNewWikiActions()
+\define saveNewWikiCallback()
+\define failureHandler()
+<$action-log status="error saving new wiki to the server"/>
+<$action-setfield $tiddler={{{ [[$:/temp/webdav/error/]addsuffix<now [UTC]YYYY0MM0DD0hh0mm0ssXXX]>] }}} text={{{ [[There was an error creating the new wiki. ]addsuffix<error>] }}} component="WebDAV save new wiki" tags="$:/tags/Alert"/>
+\end failureHandler
+<$list filter="201 204 :intersection[<status>]" variable="null" emptyMessage=<<saveNewWikiCallbackFailure>> >
+	<$action-sendmessage $message="tm-notify" $param="$:/plugins/sq/webdav-utils/ui/templates/wiki-created" path=<<destinationURL>> />
+	<$action-deletetiddler $filter="$:/temp/sq/fs/new-wiki-template-url $:/temp/sq/fs/new-wiki-name"/>
+	<$action-sendmessage $message="tm-webdav-ls" $param={{{ [<destinationURL>split[/]butlast[]join[/]trim[/]!is[blank]addsuffix[/]addprefix[/]] :else[[/]] }}} />
+</$list>
+\end saveNewWikiCallback
+<$wikify name="myplugins" text={{$:/plugins/sq/webdav-utils/templates/new-wiki-plugins}}>
+	<$action-sendmessage
+		$message="sqtm-http-request"
+		method="PUT"
+		bind-status="$:/state/webdav/http-status"
+		oncompletion=<<saveNewWikiCallback>>
+		url=<<destinationURL>>
+		body={{{ [<data>addprefix<myplugins>] }}}
+		var-destinationURL=<<destinationURL>>
+		>
+</$wikify>
+\end saveNewWikiActions
+
+\define getWikiTemplateCallback()
+\define failureHandler()
+<$action-log status="error fetching the template for the new wiki"/>
+<$action-setfield $tiddler={{{ [[$:/temp/webdav/error/]addsuffix<now [UTC]YYYY0MM0DD0hh0mm0ssXXX]>] }}} text={{{ [[There was an error fetching the template for a new wiki. ]addsuffix<error>] }}} component="WebDAV get template for new wiki" tags="$:/tags/Alert"/>
+\end failureHandler
+<$list filter="[<status>match[200]]" variable="null" emptyValue=<<failureHandler>> >
+	<$action-log data=<<data>> status="succcess" destinationURL=<<destinationURL>> />
+	<$macrocall $name="saveNewWikiActions" />
+</$list>
+\end getWikiTemplateCallback
+
+\define getWikiTemplateActions()
+	<$action-sendmessage
+		$message="sqtm-http-request"
+		method="GET"
+		bind-status="$:/state/webdav/http-status"
+		oncompletion=<<getWikiTemplateCallback>>
+		url=<<templateURL>>
+		var-saveNewWikiActions=<<saveNewWikiActions>>
+		var-destinationURL=<<destinationURL>>
+		>
+\end getWikiTemplateActions
+
+<$let
+	templateURL={{{ [{$:/config/sq/webdav/new-wiki/selected-edition}match[FROMURL]then{$:/temp/sq/fs/new-wiki-template-url}!is[blank]] :else[{$:/config/sq/webdav/new-wiki/selected-edition}get[url]] }}}
+	>
+	<$macrocall $name="getWikiTemplateActions"/>
+</$let>
+
+\end createWikiActions
+
+<$button actions=<<createWikiActions>> >
+go
+</$button>
+
+<!--
+	hardcoded destination URL
+
+	$url={{{ [<currentDir>trim:suffix[/]addsuffix[/]addsuffix{$:/temp/sq/fs/new-wiki-name}] }}}
+-->

@@ -1,0 +1,7 @@
+squi-contextmenu-name: Create a new wiki
+tags: $:/tags/file-explorer/more-popup-menu/menuitems
+title: $:/plugins/sq/webdav-utils/more-menu/menuitems/new-wiki
+condition: [<currentPath>!is[blank]]
+
+<$action-sendmessage $message="tm-webdav-ls" $param=<<currentPath>>/>
+<$action-sendmessage $message="tm-modal" $param="$:/plugins/sq/webdav-utils/ui/modal-new-wiki" currentDir=<<currentPath>>/>

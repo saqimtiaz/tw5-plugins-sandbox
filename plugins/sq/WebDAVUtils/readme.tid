@@ -1,0 +1,11 @@
+title: $:/plugins/sq/webdav-utils/readme
+
+@@color:red;''Experimental plugin - no support available. Use at your own risk.''@@
+
+* Improved ~WebDAV saver that creates backups
+** Recommend disabling ~AutoSave when backups are enabled
+* ~FileUploads plugin support for ~WebDAV
+** supports a path filter cascade to customize the upload path
+** See settings for ~FileUploads to determine which tiddlers are uploaded
+* A file explorer showing what files are present on the server $:/FileExplorer
+** affordances to retrieve the list of contents of folders on the server via the widget message `tm-webdav-ls`

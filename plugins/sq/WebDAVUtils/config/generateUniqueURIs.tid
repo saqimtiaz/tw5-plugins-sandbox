@@ -1,0 +1,5 @@
+title: $:/config/file-uploads/webdav/generateUniqueURIs
+description: Generate a unique canonical_uri for each tiddler
+caption: Generate a unique canonical_uri for each tiddler
+
+yes

@@ -1,0 +1,6 @@
+title: $:/config/file-uploads/webdav/uploadPathFilters
+
+\\ in all images, replace forward and back slashes and place it in the images directory inside the default upload directory
+[is[image]search-replace:g:regexp[/|\\],[_]addprefix[images/]addprefix{$:/config/file-uploads/webdav/defaultUploadDirectory}]
+\\ last filter matches all remaining tiddlers. replace forward and back slashes and place it inside the default upload directory
+[search-replace:g:regexp[/|\\],[_]addprefix{$:/config/file-uploads/webdav/defaultUploadDirectory}]

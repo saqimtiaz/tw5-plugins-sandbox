@@ -1,0 +1,230 @@
+title: $:/plugins/sq/webdav-utils/styles/file-explorer
+tags: $:/tags/Stylesheet
+creator: telumire
+
+<!--
+/* by Telumire */
+-->
+\rules except dash list
+\define url(svg)
+
+<$text text={{{
+[[url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="22pt" height="22pt">]]
+[<__svg__>get[text]else<__svg__>]
+[[</svg>')]]+[join[]search-replace:g[#],[%23]search-replace:g[
+],[]]
+}}}/>
+\end
+
+/*
+
+TODO: 
+
+- Try the same layout but with grid and see what works best.
+- Check if accessibility can be improved further (color contrasts ? Touch screens ?)
+- Make the layout entirely dynamic with widgets (and avoid useless html generation)
+- Fix the overflow issue on small screen width
+
+*/
+
+/* reset */
+.explorer :is(ul,li,menu){
+	all:unset;
+}
+
+/* CSS variables */
+.explorer{
+/* border:solid 2px <<color modal-border>>;*/
+	border-radius:3px;
+	<<box-shadow "1px 1px 5px rgba(0, 0, 0, 0.3)">>
+
+/* sizes */
+	--line-height:50px;
+	--icon-height:20px;
+	--icon-margin:calc((var(--line-height) - var(--icon-height)) / 2);
+
+/* colors */
+	--color-muted:<<color muted-foreground>>;
+	--color-icon-muted:<<color tiddler-controls-foreground>>;
+	--color-icon-selected:<<color tiddler-controls-foreground-hover>>;
+	--color-separator:<<color table-border>>;
+	--border-separator:1px solid var(--color-separator);
+	--background-hover:<<color "table-header-background">>;
+
+/* icons */
+	--icon-file: <<url "$:/core/images/file">>;
+	--icon-folder: <<url "$:/core/images/folder">>;
+	--icon-open: <<url "$:/core/images/open-window">>;
+	--icon-new: <<url "$:/core/images/new-button">>;
+	--icon-more: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22pt' height='22pt' class='tc-image-button' viewBox='0 0 20 20'%3E%3Cpath d='M10.001 7.8a2.2 2.2 0 1 0 0 4.402A2.2 2.2 0 0 0 10 7.8zm0-2.6A2.2 2.2 0 1 0 9.999.8a2.2 2.2 0 0 0 .002 4.4zm0 9.6a2.2 2.2 0 1 0 0 4.402 2.2 2.2 0 0 0 0-4.402z'/%3E%3C/svg%3E");
+
+/*
+Note: Using CSS svg masks remove the need for svg HTML elements.
+*/
+}
+
+.explorer [role="treeitem"]{
+	display:flex;
+	flex-direction:column;
+}
+
+/* Separators */
+
+/*
+.explorer [role="treeitem"]:not(:first-child){
+	border-top:var(--border-separator);
+}
+*/
+
+.explorer :not(:first-child) [role="treeitem"]{
+	border-top:var(--border-separator);
+}
+
+/* Menu */
+.explorer [role="menubar"]:not(.root-folder):hover{
+	background-color:var(--background-hover);
+}
+
+.explorer :is([role="menubar"],[role="menuitem"]){
+	display: flex;
+	align-items: center;
+}
+
+.explorer [role="menubar"]:not(.root-folder),
+.explorer .more-options[role="menuitem"] {
+	cursor:pointer;
+}
+
+.explorer [role="menuitem"]:before,
+.explorer [role="menubar"].file .location:after{
+	aspect-ratio:1/1;
+	background-color:var(--color-icon-muted);
+	content:"";
+	display:inline-block;
+	-webkit-mask: center / contain no-repeat var(--mask);
+	mask: center / contain no-repeat var(--mask);
+	height:var(--icon-height);
+	margin:var(--icon-margin);
+/* <<transition "background 150ms ease-in-out">> */
+}
+
+.explorer [role="menubar"] [role="menuitem"]:hover:before,
+.explorer [role="menubar"] [role="menuitem"].more-options.popup-active:before,
+.explorer [role="menubar"]:is(:focus-within,:hover) .folder:before,
+.explorer [role="menubar"].file:hover .location:after{
+	background-color:var(--color-icon-selected);
+}
+
+/*
+.explorer [role="menuitem"]:not(:first-child, .open){
+	border-left:solid 1px var(--color-separator);
+}
+*/
+
+.explorer [role="menuitem"]:first-child {
+	border-right: solid 1px var(--color-separator);
+}
+
+.explorer .location{
+	margin-left:calc(var(--line-height) / 2  * var(--depth));
+	flex: 1;
+/*    height: var(--line-height);*/
+}
+
+.explorer .location,
+.explorer .location span {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.explorer .folder .location:before{
+	--mask:var(--icon-folder);
+}
+
+.explorer .file .location:before{
+	--mask:var(--icon-file);
+}
+
+
+.explorer [role="menubar"].file .location:after{
+	--mask:var(--icon-open);
+	margin-left: auto;
+}
+
+
+.explorer .more-options:before{
+	--mask:var(--icon-more); 
+	/*background:unset;
+	content:"\2026";
+	font-weight: bolder;
+	font-size: x-large;*/
+}
+
+.explorer .more-options.popup-active {
+    background-color:var(--background-hover);
+}
+
+/* Breadcrumbs */
+
+
+/*
+
+.explorer ul[aria-label="breadcrumbs"] {
+	display:flex;
+	list-style:none;
+	align-items: center;
+	height: 100%;
+}
+
+.explorer ul[aria-label="breadcrumbs"] li {
+	align-items: center;
+	height: 100%;
+	display: inline-flex;
+}
+*/
+
+.explorer ul[aria-label="breadcrumbs"] button {
+	height: calc(var(--line-height) - 10px);
+	border-radius: 5px;
+}
+
+.explorer [aria-label="breadcrumbs"] li:not(:last-child,:hover){
+	opacity:.6;
+}
+
+.explorer [aria-label="breadcrumbs"] li:not(:last-child):after{
+	content:"/";
+	width:1ch;
+	padding:0ch;
+	opacity:.33;
+}
+
+.explorer .root-folder[role="menubar"]:hover button{
+	background-color:var(--background-hover);
+}
+
+.explorer .root-folder[role="menubar"] button,
+.explorer [aria-label="breadcrumbs"] [aria-current="location"] {
+	padding: 5px 10px;
+	white-space: nowrap;
+}
+
+/* Hide items not opened */
+
+/*
+.explorer [role="treeitem"]:not(:focus-within,[aria-expanded="true"]) [role="group"] {
+	display: none;
+}
+*/
+
+/*
+Hide the breadcrumbs except on active directory
+*/
+
+/*
+.explorer [role="treeitem"]:not(:focus-within) [aria-label="breadcrumbs"] a, 
+.explorer [role="treeitem"]:not(:focus-within) [aria-label="breadcrumbs"] li:after{
+display:none;
+}
+*/

@@ -1,0 +1,3 @@
+title: $:/config/webdav/backupPath
+
+backups/<<filebasename>>_backups/<<filebasename>>-<<now YYYY0MM0DD0hh0mm0ssXXX>>.html

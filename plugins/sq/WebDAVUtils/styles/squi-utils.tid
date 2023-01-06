@@ -1,0 +1,33 @@
+title: $:/plugins/sq/webdav-utils/styles/squi-utils
+tags: $:/tags/Stylesheet
+
+
+.squi-justify-content-between {
+    justify-content: space-between;
+}
+
+.squi-justify-content-start {
+    justify-content: flex-start;
+}
+
+.squi-justify-content-start {
+    justify-content: flex-end;
+}
+
+.squi-align-items-center {
+    align-items: center;
+}
+
+.squi-messagebox.squi-messagebox-muted {
+    color: <<color foreground>>;
+    background-color: <<color tiddler-info-background>>;
+    border-color: <<color tiddler-info-border>>;
+}
+
+.squi-messagebox {
+    position: relative;
+    padding: 1rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.5rem;
+}

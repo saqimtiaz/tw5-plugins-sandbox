@@ -1,0 +1,11 @@
+{
+	"title": "$:/plugins/sq/webdav-utils",
+	"name": "WebDAV Utilities for a wiki farm",
+	"description": "Saver, FileUploader & FileExplorer",
+	"author": "Saq Imtiaz",
+	"core-version": ">=5.2.5",
+	"plugin-priority": 0,
+	"list": "readme settings",
+	"version": "0.1.50",
+	"dependents": "$:/plugins/commons/file-uploads"
+}

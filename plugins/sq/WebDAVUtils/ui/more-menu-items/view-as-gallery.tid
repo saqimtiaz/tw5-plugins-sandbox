@@ -1,0 +1,8 @@
+squi-contextmenu-name: View as photo gallery
+tags: $:/tags/file-explorer/more-popup-menu/menuitems
+title: $:/plugins/sq/webdav-utils/more-menu/menuitems/view-as-gallery
+condition: [[$:/plugins/sq/macy]is[tiddler]]
+
+<$action-sendmessage $message="tm-webdav-ls" $param=<<currentPath>> />
+<$action-setfield $tiddler="$:/temp/volatile/sq/webdav/gallery/activedirectory" text=<<currentPath>> />
+<$action-navigate $to="$:/Gallery"/>
