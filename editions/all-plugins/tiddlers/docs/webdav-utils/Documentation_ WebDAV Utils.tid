@@ -1,0 +1,67 @@
+caption: Documentation for WebDAV Utils
+created: 20230109112933914
+modified: 20230109132022273
+owner-plugin: WebDAV Utils
+tags: $:/tags/plugin/docs [[WebDAV Utils]]
+title: Documentation: WebDAV Utils
+type: text/vnd.tiddlywiki
+
+!Requirements:
+
+ 1. A ~WebDAV spec compliant server. Most third party services that offer ~WebDAV access are unlikely to be sufficient.
+
+* Known ~WebDAV configurations that work:
+** most apache and nginx based setups
+** rclone serving local files over ~WebDAV
+** this includes RCX for Android
+** [[hacdias/webdav|https://github.com/hacdias/webdav]]
+
+2. The ~WebDAV server is at the root of a domain or subdomain and not a subfolder. That is the URL path `/` on the server must be a ~WebDAV folder.
+
+3.  The [[FileUploads|https://saqimtiaz.github.io/tw5-file-uploads/]] plugin is installed.
+
+---
+
+! Features
+* Saves a backup on each save with a configurable back up path.
+* Uploads binary tiddlers to the file system creating a canonical_uri tiddler for them, via the File Uploads plugin
+* $:/FileExplorer (see page control button) allows browsing directories to see their contents as well as creating new wikis
+** Just for demonstration purposes, you can view any directory as a photo gallery via the popup menu for each directory (three dots icon to the right). This is a demo of how you can get the contents of a directory in wikitext and then use it to display the images or creates links to them etc.
+** This gallery view is implemented by passing the list of images in the directory to the Macy plugin. There is occasionally a flicker when the gallery view is first opened, this is unrelated to the ~WebDAV features and is an issue with Macy. You can use the list of images to create any HTML layout for the images.
+** the contents of the directories are retrieved on demand with the widget message `tm-webdav-ls` and saved in temporary JSON tiddlers. That is, this information is not saved with the wiki but fetched on demand from the server. 
+
+To understand how to work with the JSON tiddlers holding the directory contents, explore the wikitext for the $:/Gallery and $:/FileExplorer tiddlers.
+
+
+! Configuration
+
+Configuration options are available via the "settings" tab of the plugin tiddler <$link to="$:/plugins/sq/webdav-utils"/>
+
+!! File Uploads
+
+* The default upload directory is configurable
+* Additionally you can specify filters to customize the upload path for each tiddler. These filters also make sure that the file path and file name used are valid. I like the flexibility and control this offers but recognize that it isn't particularly user friendly.
+* See settings for the ~FileUploads plugin to determine which tiddlers are uploaded
+
+!! Backups
+
+The backup path is configurable and is wikified before use. The following variables are provided:
+
+* filebasename
+
+---
+
+! Future features expected to be released:
+
+!! Next phase of testing:
+* rename, delete wikis
+* create, rename and delete folders
+* option to automatically create an RSS feed when saving a wiki
+* some documentation on how to retrieve the contents of a directory and how to work with that data in wikitext.
+
+!! Maybe some day 
+
+* searching across wikis
+* locking wikis to prevent concurrent editing
+
+//These features are present in my private implementation but I am unsure that I will have the opportunity to rewrite and generalize them for public distribution.//

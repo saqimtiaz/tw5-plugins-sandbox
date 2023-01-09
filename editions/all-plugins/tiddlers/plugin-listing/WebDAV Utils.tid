@@ -1,0 +1,13 @@
+cover-image: $:/plugins/sq/webdav-utils/icon
+created: 20230109112316426
+description: ~WebDAV Utilities for a wiki farm.
+modified: 20230109113356907
+plugin-tiddler: $:/plugins/sq/webdav-utils
+sqpl: no
+tags: $:/tags/plugin/plugin-info images
+title: WebDAV Utils
+type: text/vnd.tiddlywiki
+
+Save wikis with backups, upload files to the server as canonical URI tiddlers, and create new wikis easily.
+
+This plugin is a rewrite of [[my personal wiki farm setup|https://saqimtiaz.github.io/sq-tw/webdav/]] for others to use as a starting point for others to implement functionality and workflows that suit their own needs via wikitext.
