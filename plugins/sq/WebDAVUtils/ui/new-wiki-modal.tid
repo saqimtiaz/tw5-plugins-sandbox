@@ -23,13 +23,13 @@ mask-closable: yes
 \parsermode inline
 <div class="sq-fs-addwiki">
 	<fieldset>
-	<label><div>Create a new ~TiddlyWiki file in ''<$text text={{{ [<currentDir>decodeuricomponent[]] }}}/>'' called:</div>
+	<label><div>1) Create a new ~TiddlyWiki file in ''<$text text={{{ [<currentDir>decodeuricomponent[]] }}}/>'' called:</div>
 		<$edit-text tiddler=<<filename-temp>> placeholder="filename.html" tag="input" default="" class="sq-search-input"/>
 	</label>
 	</fieldset>
-	<fieldset>
+	<fieldset class={{{ [<filename-temp>get[text]!is[blank]suffix[.html]then[]else[disabled]] }}}>
 	<label>
-		<div>Use the template:</div>
+		<div>2) Use the template:</div>
 		<div class="squi-radio2">
 			<$list filter="[all[shadows+tiddlers]tag[$:/tags/Edition]sort[name]]">
 				<$radio tiddler="$:/config/sq/webdav/new-wiki/selected-edition" field="text" value=<<currentTiddler>>>
@@ -43,8 +43,8 @@ mask-closable: yes
 		</div>
 	</label>
 	</fieldset>
-	<fieldset>
-		<legend>Customize new wiki:</legend>
+	<fieldset class={{{ [<filename-temp>get[text]!is[blank]suffix[.html]then[]else[disabled]] }}}>
+		<legend>3) Customize new wiki:</legend>
 		<details>
 			<summary>Add plugins</summary>
 			<ul class="squi-list-group squi-list-group-flush sq-fs-addplugins">
