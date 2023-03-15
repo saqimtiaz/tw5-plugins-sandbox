@@ -1,0 +1,60 @@
+{
+    "description": "Dev edition",
+    "plugins": [
+        "tiddlywiki/tiddlyweb",
+        "tiddlywiki/filesystem",
+        "tiddlywiki/highlight",
+        "sq/Macy",
+        "sq/MiniMasonry",
+        "sq/TinySwiper",
+        "sq/Spotlight",
+        "sq/WindowResize",
+        "sq/ResizeObserver",
+        "sq/SwiffySlider",
+        "sq/EditorAutoLists",
+        "sq/WebDAVUtils",
+        "sq/Pica",
+        "sq/SelectiveRefresh",
+        "sq/SQ-Filters",
+        "sq/Deserialize"
+    ],
+    "themes": [
+        "tiddlywiki/vanilla",
+        "tiddlywiki/snowwhite"
+    ],
+    "includeWikis": [
+        {
+            "path": "../all-plugins"
+        }
+    ],
+    "config": {
+		"retain-original-tiddler-path": true	
+	},
+    "build": {
+        "index": [
+            "--rendertiddler",
+            "$:/plugins/tiddlywiki/tiddlyweb/save/offline",
+            "index.html",
+            "text/plain"
+        ],
+        "static": [
+            "--rendertiddler",
+            "$:/core/templates/static.template.html",
+            "static.html",
+            "text/plain",
+            "--rendertiddler",
+            "$:/core/templates/alltiddlers.template.html",
+            "alltiddlers.html",
+            "text/plain",
+            "--rendertiddlers",
+            "[!is[system]]",
+            "$:/core/templates/static.tiddler.html",
+            "static",
+            "text/plain",
+            "--rendertiddler",
+            "$:/core/templates/static.template.css",
+            "static/static.css",
+            "text/plain"
+        ]
+    }
+}
