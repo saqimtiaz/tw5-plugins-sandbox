@@ -6,6 +6,6 @@
 	"core-version": ">=5.2.5",
 	"plugin-priority": 0,
 	"list": "readme settings",
-	"version": "0.1.54",
+	"version": "0.1.55",
 	"dependents": "$:/plugins/commons/file-uploads"
 }

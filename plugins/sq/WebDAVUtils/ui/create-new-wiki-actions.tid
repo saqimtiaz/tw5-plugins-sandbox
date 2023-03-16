@@ -32,7 +32,7 @@ title: $:/plugins/sq/webdav-utils/create-wiki-actions
 <$action-log status="error fetching the template for the new wiki"/>
 <$action-setfield $tiddler={{{ [[$:/temp/webdav/error/]addsuffix<now [UTC]YYYY0MM0DD0hh0mm0ssXXX]>] }}} text={{{ [[There was an error fetching the template for a new wiki. ]addsuffix<error>] }}} component="WebDAV get template for new wiki" tags="$:/tags/Alert"/>
 \end failureHandler
-<$list filter="[<status>match[200]]" variable="null" emptyValue=<<failureHandler>> >
+<$list filter="[<status>match[200]]" variable="null" emptyMessage=<<failureHandler>> >
 	<$action-log data=<<data>> status="succcess" destinationURL=<<destinationURL>> />
 	<$macrocall $name="saveNewWikiActions" />
 </$list>
