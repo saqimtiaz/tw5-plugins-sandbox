@@ -8,34 +8,36 @@ description: Does nothing if there are no input titles. Receives no input but pr
 \*/
 (function(){
 
-/*jslint node: true, browser: true */
-/*global $tw: false */
-"use strict";
-
-/*
-Export our filter prefix function
-*/
-exports.then = function(operationSubFunction) {
-	return function(results,source,widget) {
-		if(results.length > 0) { 
-			var __input = $tw.utils.stringifyList(results.toArray()),
-				__count = results.length;
-			results.clear();
-			var filtered = operationSubFunction(source,{
-				getVariable: function(name) {
-					switch(name) {
-						case "__input":
-							return "" + __input;
-						case "__count":
-							return "" + __count;
-						default:
-							return widget.getVariable(name);
+	/*jslint node: true, browser: true */
+	/*global $tw: false */
+	"use strict";
+	
+	/*
+	Export our filter prefix function
+	*/
+	exports.then = function(operationSubFunction) {
+		return function(results,source,widget) {
+			if(results.length !== 0) {
+				// Only run if previous run(s) produced results
+				var thisRunResult = operationSubFunction(source,{
+					getVariable: function(name) {
+						switch(name) {
+							case "__input":
+								return "" + __input;
+							case "__count":
+								return "" + __count;
+							default:
+								return widget.getVariable(name);
+						}
 					}
+				});
+				if(thisRunResult.length !== 0) {
+					// Replace results only if this run actually produces a result
+					results.clear();
+					results.pushTop(thisRunResult);
 				}
-			});
-			results.pushTop(filtered);
-		}
+			}
+		};
 	};
-};
-
-})();
+	
+	})();

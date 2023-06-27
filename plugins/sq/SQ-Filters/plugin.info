@@ -3,8 +3,8 @@
 	"name": "SQ Filters",
 	"description": "Filter extensions for convenience",
 	"author": "Saq Imtiaz",
-	"core-version": ">=5.2.0",
+	"core-version": ">=5.3.0",
 	"plugin-priority": 0,
 	"list": "readme",
-	"version": "0.1.1"
+	"version": "0.1.2"
 }
