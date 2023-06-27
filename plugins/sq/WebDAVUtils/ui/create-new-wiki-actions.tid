@@ -16,7 +16,7 @@ title: $:/plugins/sq/webdav-utils/create-wiki-actions
 \end saveNewWikiCallback
 <$wikify name="myplugins" text={{$:/plugins/sq/webdav-utils/templates/new-wiki-plugins}}>
 	<$action-sendmessage
-		$message="sqtm-http-request"
+		$message="tm-http-request"
 		method="PUT"
 		bind-status="$:/state/webdav/http-status"
 		oncompletion=<<saveNewWikiCallback>>
@@ -40,7 +40,7 @@ title: $:/plugins/sq/webdav-utils/create-wiki-actions
 
 \define getWikiTemplateActions()
 	<$action-sendmessage
-		$message="sqtm-http-request"
+		$message="tm-http-request"
 		method="GET"
 		bind-status="$:/state/webdav/http-status"
 		oncompletion=<<getWikiTemplateCallback>>

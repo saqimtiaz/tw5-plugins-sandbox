@@ -18,7 +18,7 @@ condition: [<currentPath>is[blank]]
 \end callback
 
 <$action-sendmessage
-	$message="sqtm-http-request"
+	$message="tm-http-request"
 	method="MKCOL"
 	bind-status="$:/state/webdav/http-status"
 	oncompletion=<<callback>>
