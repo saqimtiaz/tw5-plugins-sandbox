@@ -4,7 +4,8 @@ module-type: filteroperator
 description: Filter operator to wikify the tiddler specified in the input titles and return the source attributes of all images found. //Only for use inside action strings// NB! Very hacky! Requires wikimethods.js from this plugin.
 \*/
 (function(){
-getImagesWikified = function(title,selector,exclude,options) {
+
+function getImagesWikified(title,selector,exclude,options) {
 	let wiki = options.wiki,
 		wikifyText = wiki.getTiddlerText(title),
 		wikifyWidgetNode,
