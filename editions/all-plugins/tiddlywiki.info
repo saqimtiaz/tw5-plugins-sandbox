@@ -15,7 +15,8 @@
         "sq/WebDAVUtils",
         "sq/Pica",
         "sq/SelectiveRefresh",
-        "sq/SQ-Filters"
+        "sq/SQ-Filters",
+        "sq/ChatGPTImporter"
     ],
     "themes": [
         "tiddlywiki/vanilla",

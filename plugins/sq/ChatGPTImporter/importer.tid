@@ -1,0 +1,7 @@
+title: $:/plugins/sq/chatgptimporter/importer
+
+<$dropzone deserializer="application/x-chatgpt">
+<div style="width:100%;height:20em;border: 1px solid red;line-height:20em;text-align:center;font-size:200%;">
+Drag and drop to import conversations.json from ChatGPT
+</div>
+</$dropzone>

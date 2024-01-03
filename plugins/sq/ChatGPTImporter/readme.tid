@@ -1,0 +1,8 @@
+title: $:/plugins/sq/chatgptimporter/readme
+
+@@color:red;''Experimental plugin - no support available. Use at your own risk.''@@
+
+* Imports the conversations.json file exported from a ChatGPT account.
+* Drag and drop the file on the dropzone in the `importer` tab of this plugin, or rename the file to have the extension `.chatgpt` and drag and drop anywhere in your TiddlyWiki.
+
+Note that ChatGPT responses that timeout and are incomplete sometimes have malformed markup that can cause issues with how the conversation is displayed, which can be fixed by editing the offending conversation tiddler.
