@@ -1,0 +1,58 @@
+title: $:/core/ui/EditTemplate/body/default
+
+\procedure customImportFileActions()
+\procedure tv-action-refresh-policy() always
+\procedure replacement-text-image() [img[$1$]]
+\procedure replacement-text-file() [[$1$]]
+<$let
+	tiddlerJSON={{{[<importTitle>get[text]jsonextract[tiddlers]]}}}
+	>
+	<!-- iterate over each position in the array -->
+	<$list filter="[<tiddlerJSON>jsonindexes[]]" variable="index">
+		<!-- get the tiddler at that position in the array from the JSON -->
+		<$let
+			tiddler={{{ [<tiddlerJSON>jsonextract<index>] }}} 
+			title={{{ [<tiddler>jsonget[title]] }}}
+		>
+			<!-- make sure we have a title for the tiddler -->
+			<$list filter="[<title>!is[blank]]">
+				<$wikify name="currentTiddler" text=`<<unusedtitle baseName:"${ [<title>split[.]butlast[]join[]] }$" separator:"-" template:"$:/images/$basename$$separator$$count:5$.${ [<title>split[.]last[]] }$">>`>
+					<$action-setmultiplefields
+						$fields="[<tiddler>jsonindexes[]] :except[[title]] created modified quickimage"
+						$values="[<tiddler>jsonindexes[]] :except[[title]] :map[<tiddler>jsonget<currentTiddler>] [<now [UTC]YYYY0MM0DD0hh0mm0ssXXX>] :all[<now [UTC]YYYY0MM0DD0hh0mm0ssXXX>] yes"
+						$timestamp="no"
+						/>
+					<$list filter="[<currentTiddler>] :map[get[type]prefix[image]then<replacement-text-image>else<replacement-text-file>substitute<currentTiddler>]" variable="imageTitle">
+						<$action-transmit actions=`<$action-sendmessage
+							$message="tm-edit-text-operation"
+							$param="insert-text" text="$(imageTitle)$"/>` target="editor-import"/>
+					</$list>
+					<$action-deletetiddler $tiddler=<<importTitle>>/>
+				</$wikify>
+			</$list>
+		</$let>
+	</$list>
+</$let>
+\end customImportFileActions
+
+\widget $dropzone(importTitle, autoOpenOnImport, contentTypesFilter, class, enable, filesOnly, actions)
+<$let
+	configTitle="$:/config/sq/quickimage/import/enable"
+	quickimageEnabled={{{ [<configTitle>get[text]trim[]match[no]else[yes]]  }}}
+	>
+	<$genesis
+		$remappable="no" 
+		$type="$dropzone"
+		importTitle=<<importTitle>>
+		autoOpenOnImport="no"
+		contentTypesFilter=<<contentTypesFilter>>
+		class=<<class> enable=<<enable>>
+		filesOnly=<<filesOnly>>
+		actions={{{ [<quickimageEnabled>match[yes]then<customImportFileActions>else<actions>]  }}}
+	>
+		<$slot $name="ts-raw"/>
+	</$genesis>
+</$let>
+\end
+
+<$transclude $tiddler="$:/core" $subtiddler="$:/core/ui/EditTemplate/body/default"/>

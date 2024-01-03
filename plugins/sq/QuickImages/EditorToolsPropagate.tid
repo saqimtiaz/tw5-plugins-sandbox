@@ -1,0 +1,5 @@
+title: $:/plugins/sq/quickimages/ui/EditorToolsPropagate
+condition: [<targetTiddler>!has[type]] [<targetTiddler>type[text/vnd.tiddlywiki]]
+tags: $:/tags/EditorTools
+
+<$propagate name="editor-import"/>

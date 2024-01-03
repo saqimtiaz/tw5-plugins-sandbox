@@ -1,0 +1,11 @@
+title: $:/plugins/sq/quickimages/readme
+
+Quickly and silently import images that are pasted or dropped on to the editor, generating unique titles to ensure that new imports do not overwrite existing tiddlers.
+
+''To do:''
+
+* make the title format for imported tiddlers configurable
+* customization options for the image transclusion wikitext inserted in the editor (size, class options)
+* consider adding a field reference from each image tiddler to the tiddler in which they were imported
+* extend the editor with links to images used in the tiddler being edited, with affordances to rename or delete them
+* consider a log or report of all tiddlers silently imported, grouped by date and the tiddler from which they were imported

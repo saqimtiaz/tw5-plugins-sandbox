@@ -16,7 +16,12 @@
         "sq/Pica",
         "sq/SelectiveRefresh",
         "sq/SQ-Filters",
-        "sq/Deserialize"
+        "sq/Deserialize",
+        "sq/NodeLS",
+        "sq/ExternalContent",
+        "sq/Essentials",
+        "sq/QuickImages",
+        "sq/ChatGPTImporter"
     ],
     "themes": [
         "tiddlywiki/vanilla",

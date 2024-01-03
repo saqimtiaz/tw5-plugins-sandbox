@@ -1,0 +1,3 @@
+title: $:/plugins/sq/quickimages/settings
+
+<$checkbox tiddler="$:/config/sq/quickimage/import/enable" field="text" checked="yes" unchecked="no" default="yes"> Enable QuickImages</$checkbox>
