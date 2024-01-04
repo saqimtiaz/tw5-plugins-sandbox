@@ -1,0 +1,14 @@
+title: $:/plugins/sq/ExternalContent/startupActions
+tags: $:/tags/StartupAction/PostRender
+code-body: yes
+
+\import [[$:/plugins/sq/ExternalContent/loadWikiActions]]
+
+<$list filter="[<startupConfigTitle>get[text]trim[]match[yes]] :then[tag[$:/tags/load-external-content]!is[draft]]">
+	<$transclude
+		$variable="loadWikiActions"
+		wikiURL={{{ [<currentTiddler>get[text]] }}}
+		contentFilter={{{ [<currentTiddler>get[content-filter]] }}}
+		deseralizer={{{ [<currentTiddler>get[deseralizer]] }}}
+		/>
+</$list>

@@ -1,0 +1,38 @@
+title: $:/plugins/sq/ExternalContent/readme
+
+!!Import content from other online wikis
+
+Note that content is loaded immediately after the wiki starts up, therefore JavaScript modules and tiddlers that are meant to influence the startup behaviour will not take effect if loaded in this manner. The wiki from which content is to be imported must be hosted on a server with CORS support, such as TiddlyHost or GitHub pages.
+
+
+!! Loading content on startup
+
+For each wiki from which you want to load content on startup, create a tiddler tagged with `$:/tags/load-external-content` with the following fields:
+
+|tags |~$:/tags/load-external-content |
+|text |the URL of the wiki from which to import tiddlers |
+|content-filter |(optional) filter that determines which tiddlers to import from the target wiki. Note you can filter out system tiddlers or config tiddlers that might not be desirable. |
+|deserializer|(optional) defaults to `text/html` which is appropriate for TiddlyWiki files |
+
+Note: for TiddlyHost files the plugin automatically downloads just the tiddler.json file provided by TiddlyHost and chooses the appropriate deserializer, to decrease the bandwidth used.
+
+!! Loading content on demand
+
+Import variables from the tiddler `$:/plugins/sq/ExternalContent/loadWikiActions` and use the procedure `loadWikiActions` in an action string.
+
+Example:
+
+```
+\procedure loadMyWiki()
+\import [[$:/plugins/sq/ExternalContent/loadWikiActions]]
+<$transclude
+    $variable="loadWikiActions"
+    wikiURL="https://tiddlywiki.com"
+    contentFilter="[!is[system]tag[Working with TiddlyWiki]]"
+    deseralizer="text/html"
+    />
+\end
+
+<$button actions=<<loadMyWiki>> load content </button>
+
+```
