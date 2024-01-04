@@ -17,7 +17,8 @@
         "sq/SelectiveRefresh",
         "sq/SQ-Filters",
         "sq/ChatGPTImporter",
-        "sq/QuickImages"
+        "sq/QuickImages",
+        "sq/ExternalContent"
     ],
     "themes": [
         "tiddlywiki/vanilla",
