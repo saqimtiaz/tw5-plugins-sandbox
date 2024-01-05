@@ -7,7 +7,9 @@ title: $:/plugins/sq/webdav-utils/templates/new-wiki-plugins
 		tiddlerFilter={{{ [[$:/config/sq/webdav/new-wiki/selected-tiddlers-option]get[text]addprefix[$:/config/sq/webdav/new-wiki/tiddlers-filter/]get[text]!is[blank]] :else[<allTiddlers>] }}}
 	>
 		<$text text=<<newline>>/>
-		<$list filter="[[$:/config/sq/webdav/new-wiki/selected-plugins]indexes[]] :filter[[$:/config/sq/webdav/new-wiki/selected-plugins]getindex<currentTiddler>match[yes]] [subfilter<tiddlerFilter>]" counter="counter" template="$:/core/templates/html-json-tiddler"/>
+		<$list filter="[[$:/config/sq/webdav/new-wiki/selected-plugins]indexes[]] :filter[[$:/config/sq/webdav/new-wiki/selected-plugins]getindex<currentTiddler>match[yes]] [subfilter<tiddlerFilter>]" counter="counter">
+			<$list filter="[<counter>!match[1]]">`,`<$text text=<<newline>>/></$list><$jsontiddler tiddler=<<currentTiddler>> escapeUnsafeScriptChars="yes"/>
+		</$list>
 		<$text text=<<newline>>/>
 	</$let>
 `]</script>`

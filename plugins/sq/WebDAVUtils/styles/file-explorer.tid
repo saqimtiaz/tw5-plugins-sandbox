@@ -6,14 +6,11 @@ creator: telumire
 /* by Telumire */
 -->
 \rules except dash list
-\define url(svg)
 
-<$text text={{{
-[[url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="22pt" height="22pt">]]
-[<__svg__>get[text]else<__svg__>]
-[[</svg>')]]+[join[]search-replace:g[#],[%23]search-replace:g[
-],[]]
-}}}/>
+\procedure url(svg)
+<$wikify name="svgtext" text=`<$transclude $tiddler="$(svg)$"/>`  output="html" mode="inline">
+<$text text="""url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="22pt" height="22pt">"""/><$text text={{{ [<svgtext>search-replace:g[#],[%23]search-replace:g[
+],[]] }}}/></svg></$wikify>')
 \end
 
 /*
