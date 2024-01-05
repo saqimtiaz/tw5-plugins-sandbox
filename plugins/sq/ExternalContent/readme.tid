@@ -39,6 +39,6 @@ Example:
     />
 \end
 
-<$button actions=<<loadMyWiki>> load content </button>
+<$button actions=<<loadMyWiki>> > load content </$button>
 
 ```
