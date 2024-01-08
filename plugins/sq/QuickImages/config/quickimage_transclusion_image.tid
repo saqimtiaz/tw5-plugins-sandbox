@@ -1,0 +1,3 @@
+title: $:/config/sq/quickimage/image-transclusion-text
+
+[img[$(currentTiddler)$]]

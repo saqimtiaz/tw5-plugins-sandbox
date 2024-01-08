@@ -2,10 +2,12 @@ title: $:/core/ui/EditTemplate/body/default
 
 \procedure customImportFileActions()
 \procedure tv-action-refresh-policy() always
-\procedure replacement-text-image() [img[$1$]]
-\procedure replacement-text-file() [[$1$]]
+\procedure imageTextTitle() $:/config/sq/quickimage/image-transclusion-text
+\procedure defaultTextTitle() $:/config/sq/quickimage/default-transclusion-text
 <$let
 	tiddlerJSON={{{[<importTitle>get[text]jsonextract[tiddlers]]}}}
+	replacement-text-image={{{ [<imageTextTitle>get[text]] }}}
+	replacement-text-file={{{ [<defaultTextTitle>get[text]] }}}
 	>
 	<!-- iterate over each position in the array -->
 	<$list filter="[<tiddlerJSON>jsonindexes[]]" variable="index">
@@ -22,7 +24,7 @@ title: $:/core/ui/EditTemplate/body/default
 						$values="[<tiddler>jsonindexes[]] :except[[title]] :map[<tiddler>jsonget<currentTiddler>] [<now [UTC]YYYY0MM0DD0hh0mm0ssXXX>] :all[<now [UTC]YYYY0MM0DD0hh0mm0ssXXX>] yes"
 						$timestamp="no"
 						/>
-					<$list filter="[<currentTiddler>] :map[get[type]prefix[image]then<replacement-text-image>else<replacement-text-file>substitute<currentTiddler>]" variable="imageTitle">
+					<$list filter="[<currentTiddler>] :map[get[type]prefix[image]then<replacement-text-image>else<replacement-text-file>substitute[]]" variable="imageTitle">
 						<$action-transmit actions=`<$action-sendmessage
 							$message="tm-edit-text-operation"
 							$param="insert-text" text="$(imageTitle)$"/>` target="editor-import"/>
