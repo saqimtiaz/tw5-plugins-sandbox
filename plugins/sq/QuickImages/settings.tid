@@ -1,11 +1,53 @@
 title: $:/plugins/sq/quickimages/settings
 
+\procedure infoState() $:/state/sq/quickimage/settings/info
+\procedure imageSyntax()
+<div style="margin:1em;padding:1em;border:1px solid #eee;border-radius:1em;background:#eee;">
+
+
+!!!Substitution
+
+The replacement text is run through the `substitute[]` operator and can thus make use of substitution of variables `$(varname)$` and embedded filter expressions `${ filter expression }$`.
+
+!!!Image Syntax
+
+A tooltip can be specified:
+
+```
+[img[An explanatory tooltip|Motovun Jack.jpg]]
+```
+
+Attributes can be provided to specify CSS classes and the image width and height:
+
+```
+[img width=32 [Motovun Jack.jpg]]
+[img width=32 class="tc-image" [Motovun Jack.jpg]]
+```
+
+Note that attributes can be specified as transclusions or variable references:
+
+```
+[img width={{!!mywidth}} class=<<image-classes>> [Motovun Jack.jpg]]
+```
+
+</div>
+\end
+
 <$checkbox tiddler="$:/config/sq/quickimage/import/enable" field="text" checked="yes" unchecked="no" default="yes"> Enable QuickImages</$checkbox>
 
-Image transclusion text:
+<$button set=<<infoState>> setTo={{{ [<infoState>get[text]match[show]then[hide]else[show]] }}} tooltip="syntax documentation" class="btn-big btn-muted tc-float-right tc-btn-invisible" style="font-size:1.5em;">
+    <$transclude $tiddler="$:/core/images/help"/> <!--<$transclude tiddler={{{[<infoState>get[text]match[show]then[$:/core/images/up-arrow]else[$:/core/images/down-arrow]]}}} />-->
+</$button>
+
+!!Image transclusion text:
+
+<$reveal type="match" state=<<infoState>> text="show" tag="div" class="form-group" retain="yes" animate="yes">
+
+    <<imageSyntax>>
+</$reveal>
 
 <$edit-text tiddler="$:/config/sq/quickimage/image-transclusion-text" class="tc-edit-texteditor"/>
 
-Default tranclusion text:
+!!Default tranclusion text:
 
 <$edit-text tiddler="$:/config/sq/quickimage/default-transclusion-text" class="tc-edit-texteditor"/>
