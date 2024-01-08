@@ -15,7 +15,7 @@ description: Does nothing if there are no input titles. Receives no input but pr
 	/*
 	Export our filter prefix function
 	*/
-	exports.then = function(operationSubFunction) {
+	exports.xthen = function(operationSubFunction) {
 		return function(results,source,widget) {
 			if(results.length !== 0) {
 				// Only run if previous run(s) produced results
