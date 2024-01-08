@@ -8,6 +8,7 @@ title: $:/core/ui/EditTemplate/body/default
 	tiddlerJSON={{{[<importTitle>get[text]jsonextract[tiddlers]]}}}
 	replacement-text-image={{{ [<imageTextTitle>get[text]] }}}
 	replacement-text-file={{{ [<defaultTextTitle>get[text]] }}}
+	contentTiddler={{{ [<currentTiddler>get[draft.of]else<currentTiddler>] }}}
 	>
 	<!-- iterate over each position in the array -->
 	<$list filter="[<tiddlerJSON>jsonindexes[]]" variable="index">
@@ -15,10 +16,12 @@ title: $:/core/ui/EditTemplate/body/default
 		<$let
 			tiddler={{{ [<tiddlerJSON>jsonextract<index>] }}} 
 			title={{{ [<tiddler>jsonget[title]] }}}
+			type={{{ [<tiddler>jsonget[type]] :else[[text/vnd.tiddlywiki]] }}}
+			unusedtitle={{{ [<title>] :cascade[{$:/config/sq/quickimage/file-title-cascade}splitregexp[\n]!prefix[\\]!is[blank]] }}}
 		>
+		<$action-log $$filter="title unusedtitle"/>
 			<!-- make sure we have a title for the tiddler -->
-			<$list filter="[<title>!is[blank]]">
-				<$wikify name="currentTiddler" text=`<<unusedtitle baseName:"${ [<title>split[.]butlast[]join[]] }$" separator:"-" template:"$:/images/$basename$$separator$$count:5$.${ [<title>split[.]last[]] }$">>`>
+			<$list filter="[<unusedtitle>!is[blank]]">
 					<$action-setmultiplefields
 						$fields="[<tiddler>jsonindexes[]] :except[[title]] created modified quickimage"
 						$values="[<tiddler>jsonindexes[]] :except[[title]] :map[<tiddler>jsonget<currentTiddler>] [<now [UTC]YYYY0MM0DD0hh0mm0ssXXX>] :all[<now [UTC]YYYY0MM0DD0hh0mm0ssXXX>] yes"
@@ -30,7 +33,6 @@ title: $:/core/ui/EditTemplate/body/default
 							$param="insert-text" text="$(imageTitle)$"/>` target="editor-import"/>
 					</$list>
 					<$action-deletetiddler $tiddler=<<importTitle>>/>
-				</$wikify>
 			</$list>
 		</$let>
 	</$list>

@@ -1,0 +1,8 @@
+title: $:/config/sq/quickimage/file-title-cascade
+
+\\ rename automatic names for screenshots/pasted images
+[<title>match[image.png]] :then[[screenshots/]addsuffix<now "YYYY0MM0DD0hh0mm0ss0XXX">addprefix[$:/images/]unusedfiletitle[]]
+\\ prefix all image titles with $:/images
+[<type>prefix[image]] :then[<currentTiddler>addprefix[$:/images/]unusedfiletitle[]]
+\\ filter matches all remaining tiddlers
+[unusedfiletitle[]]

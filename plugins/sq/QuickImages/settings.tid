@@ -1,13 +1,14 @@
 title: $:/plugins/sq/quickimages/settings
 
 \procedure infoState() $:/state/sq/quickimage/settings/info
+\procedure cascadeInfoState() $:/state/sq/quickimage/settings/cascade
 \procedure imageSyntax()
 <div style="margin:1em;padding:1em;border:1px solid #eee;border-radius:1em;background:#eee;">
 
 
 !!!Substitution
 
-The replacement text is run through the `substitute[]` operator and can thus make use of substitution of variables `$(varname)$` and embedded filter expressions `${ filter expression }$`.
+The transclusion text is run through the `substitute[]` operator and can thus make use of substitution of variables `$(varname)$` and embedded filter expressions `${ filter expression }$`.
 
 !!!Image Syntax
 
@@ -36,7 +37,7 @@ Note that attributes can be specified as transclusions or variable references:
 <$checkbox tiddler="$:/config/sq/quickimage/import/enable" field="text" checked="yes" unchecked="no" default="yes"> Enable QuickImages</$checkbox>
 
 <$button set=<<infoState>> setTo={{{ [<infoState>get[text]match[show]then[hide]else[show]] }}} tooltip="syntax documentation" class="btn-big btn-muted tc-float-right tc-btn-invisible" style="font-size:1.5em;">
-    <$transclude $tiddler="$:/core/images/help"/> <!--<$transclude tiddler={{{[<infoState>get[text]match[show]then[$:/core/images/up-arrow]else[$:/core/images/down-arrow]]}}} />-->
+    <$transclude $tiddler="$:/core/images/help"/>
 </$button>
 
 !!Image transclusion text:
@@ -51,3 +52,31 @@ Note that attributes can be specified as transclusions or variable references:
 !!Default tranclusion text:
 
 <$edit-text tiddler="$:/config/sq/quickimage/default-transclusion-text" class="tc-edit-texteditor"/>
+
+<$button set=<<cascadeInfoState>> setTo={{{ [<cascadeInfoState>get[text]match[show]then[hide]else[show]] }}} tooltip="cascade documentation" class="btn-big btn-muted tc-float-right tc-btn-invisible" style="font-size:1.5em;">
+    <$transclude $tiddler="$:/core/images/help"/>
+</$button>
+
+!! Filter cascade for image tiddler titles:
+
+<$reveal type="match" state=<<cascadeInfoState>> text="show" tag="div" class="form-group" retain="yes" animate="yes">
+
+<div style="margin:1em;padding:1em;border:1px solid #eee;border-radius:1em;background:#eee;">
+
+!!!Cascade tips:
+
+* start a line with `\\` to comment out that filter.
+* the first filter to match is used.
+
+''Variables available:''
+
+|title |tiddler being imported |
+|contentTiddler |tiddler being edited into which image was imported|
+|type |type of tiddler being imported |
+|tiddler |json serialization of tiddler being imported |
+
+</div>
+
+</$reveal>
+
+<$edit-text tiddler="$:/config/sq/quickimage/file-title-cascade" class="tc-edit-texteditor"/>
