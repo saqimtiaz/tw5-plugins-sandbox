@@ -1,0 +1,42 @@
+title: Filters/JSONFilterTiddlers
+description: Filter a JSON payload by a filter expression
+type: text/vnd.tiddlywiki-multiple
+tags: [[$:/tags/wiki-test-spec]]
+
+title: Output
+
+\whitespace trim
+\procedure json-data()
+[{"type":"text/vnd.tiddlywiki","text":"Abacus","title":"Hello \"There\""},{"title":"Hello \"There\"","text":"Calculator"},{"title":"Hello \"There\"","text":"Protractor"},{"title":"Not Hello \"There\"","text":"Compass"}]
+\end
+
+\procedure invalid-tiddler-data()
+[{"type":"text/vnd.tiddlywiki","text":"Abacus","titles":"Hello \"There\""}]
+\end
+
+\procedure invalid-json-data()
+this is not JSON
+\end
+
+\procedure myfilter()
+[!prefix[Hello]]
+\end
+
+\procedure invalidfilter()
+[!prefix[Hello]
+\end
+
+(<$text text={{{ [<json-data>jsonfiltertiddlers<myfilter>]  }}}/>)
+(<$text text={{{ [<invalid-tiddler-data>jsonfiltertiddlers<myfilter>]  }}}/>)
+(<$text text={{{ [<invalid-json-data>jsonfiltertiddlers<myfilter>]  }}}/>)
+(<$text text={{{ [<json-data>jsonfiltertiddlers<missingfilter>]  }}}/>)
+(<$text text={{{ [<json-data>jsonfiltertiddlers<invalidfilter>]  }}}/>)
+
++
+title: ExpectedResult
+
+<p>([{"title":"Not Hello \"There\"","text":"Compass"}])
+([])
+([])
+([])
+([])</p>

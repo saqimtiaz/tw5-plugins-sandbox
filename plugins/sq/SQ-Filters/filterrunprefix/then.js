@@ -1,10 +1,10 @@
 /*\
-title: $:/plugins/sq/sq-filters/filterrunprefix/then.js
+title: $:/plugins/sq/sq-filters/filterrunprefix/xthen.js
 type: application/javascript
 module-type: filterrunprefix
-description: Does nothing if there are no input titles. Receives no input but provides the titles from the previous run as a stringified title list in the variable `__input`. Allows logic of the form if(X-Filter) :then(Y-Filter)
+description: Deprecated. Does nothing if there are no input titles. Receives no input but provides the titles from the previous run as a stringified title list in the variable `__input`. Allows logic of the form if(X-Filter) :xthen(Y-Filter)
 
-{{{ [tag[TableOfContents]] :then[enlist<__input>] }}}
+{{{ [tag[TableOfContents]] :xthen[enlist<__input>] }}}
 \*/
 (function(){
 

@@ -1,0 +1,49 @@
+title: Filters/Images
+description: Return the images used in a tiddler
+type: text/vnd.tiddlywiki-multiple
+tags: [[$:/tags/wiki-test-spec]]
+
+title: Data
+
+[img[https://source.unsplash.com/Pbztnji2t6k/683x445]]
+<$image source="https://source.unsplash.com/TS_RMNAO7Lo/616x340"/>
+<div>
+    <img src="https://source.unsplash.com/ya7R1JbS-5w/533x317"/>
+    <$image source="https://source.unsplash.com/tWMVbh0MCFY/663x541"/>		
+</div>
+
++
+
+title: Data2
+
+<$let imgs="""
+https://source.unsplash.com/Pbztnji2t6k/683x445
+https://source.unsplash.com/TS_RMNAO7Lo/616x340
+https://source.unsplash.com/ya7R1JbS-5w/533x317
+https://source.unsplash.com/nlMiiYZM2Hk/700x894
+https://source.unsplash.com/tWMVbh0MCFY/663x541
+https://source.unsplash.com/dwJ0imjVifs/368x575
+"""
+>
+<$list filter="[enlist<imgs>]" variable="img">
+<$button class="tc-btn-invisible" tag="div">
+<$image source=<<img>> />
+</$button>
+</$list>
+<img src="https://source.unsplash.com/dwJ0imjVifs/368x600"/>
+</$let>
+
++
+title: Output
+
+\whitespace trim
+(<$text text={{{ [title[Data]] :and[_images[]join[,]] }}}/>)
+(<$text text={{{ [title[Data2]_images[]join[,]] }}}/>)
+(<$text text={{{ [title[Data2]_images:all[]join[,]] }}}/>)
+
++
+title: ExpectedResult
+
+<p>(https://source.unsplash.com/Pbztnji2t6k/683x445,https://source.unsplash.com/TS_RMNAO7Lo/616x340,https://source.unsplash.com/ya7R1JbS-5w/533x317,https://source.unsplash.com/tWMVbh0MCFY/663x541)
+(https://source.unsplash.com/dwJ0imjVifs/368x600)
+(https://source.unsplash.com/Pbztnji2t6k/683x445,https://source.unsplash.com/TS_RMNAO7Lo/616x340,https://source.unsplash.com/ya7R1JbS-5w/533x317,https://source.unsplash.com/nlMiiYZM2Hk/700x894,https://source.unsplash.com/tWMVbh0MCFY/663x541,https://source.unsplash.com/dwJ0imjVifs/368x575,https://source.unsplash.com/dwJ0imjVifs/368x600)</p>
