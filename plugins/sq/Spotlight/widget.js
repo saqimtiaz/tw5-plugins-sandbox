@@ -63,6 +63,15 @@ SpotlightWidget.prototype.execute = function() {
 		this.gallery = images.map((image,index,images) => {
 			return {src: this.getImageURI(image),title: labels[index] || ""};
 		},this);
+		if(index === -1) {
+			this.gallery.every((el,i) => {
+				if(el.src === start) {
+					index = i;
+					return false;
+				}
+				return true;
+			});
+		}
 	}
 	
 	$tw.utils.each(this.attributes,function(attribute,name) {
