@@ -3,12 +3,12 @@ title: $:/plugins/sq/sq-filters/wikimethods.js
 module-type: wikimethod
 \*/
 
-exports.getTiddlerImages = function(title) {
+exports.getTiddlerImages = function(title,options) {
 	var self = this;
 	return this.getCacheForTiddler(title,"images",function(){
 		var parser = self.parseTiddler(title);
 		if(parser) {
-			return self.extractImages(parser.tree);
+			return self.extractImages(parser.tree,options);
 		}
 		return [];
 	});
@@ -19,7 +19,7 @@ exports.getTiddlerImagesWikified = function(title,options) {
 	return this.getCacheForTiddler(title,"imageswikified",function(){
 		var parser = self.wikifyParseTiddler(title,options);
 		if(parser) {
-			return self.extractImages(parser.tree);
+			return self.extractImages(parser.tree,options);
 		}
 		return [];
 	});
@@ -27,7 +27,7 @@ exports.getTiddlerImagesWikified = function(title,options) {
 };
 
 exports.wikifyParseTiddler = function(title,options) {
-	let wiki = options.wiki,
+	let wiki = this,
 		wikifyText = wiki.getTiddlerText(title),
 		wikifyWidgetNode,
 		wikifyContainer,
@@ -45,12 +45,34 @@ exports.wikifyParseTiddler = function(title,options) {
 	// Render the widget tree to the container
 	wikifyContainer = $tw.fakeDocument.createElement("div");
 	wikifyWidgetNode.render(wikifyContainer,null);
-	htmlParser = options.wiki.parseText("text/vnd.tiddlywiki",wikifyContainer.innerHTML);
+	htmlParser = wiki.parseText("text/vnd.tiddlywiki",wikifyContainer.innerHTML);
 	return htmlParser;
 };
 
-exports.extractImages = function(parseTreeRoot) {
+exports.extractImages = function(parseTreeRoot,options) {
 	var images = [];
+	function filterNode(node) {
+		if(!options.classes) {
+			return true;
+		} else if(!!options.classes) {
+			let classNames = classes.split("");
+			if(options.mode === "include") {
+				if(node.attributes.class) {
+					if(node.attributes.class.value.split(" ").some(c => classNames.includes(c))) {
+						return true;
+					}
+				}
+				return false;
+			} else if(options.mode === "exclude") {
+				if(node.attributes.class) {
+					if(node.attributes.class.value.split(" ").some(c => classNames.includes(c))) {
+						return false;
+					}
+				}
+				return true;
+			}
+		}
+	};
 	function checkParseTree(parseTree) {
 		for(var t=0; t<parseTree.length; t++) {
 			var parseTreeNode = parseTree[t],
@@ -74,3 +96,4 @@ exports.extractImages = function(parseTreeRoot) {
 	return images;
 };
 
+//exclude, include doesnt work because of the cache!!!

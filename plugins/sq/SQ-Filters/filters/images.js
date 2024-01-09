@@ -6,11 +6,13 @@ description: Filter operator to find the images directly used in a tiddler with 
 
 exports["_images"] = function(source,operator,options) {
 	var results = new $tw.utils.LinkedList(),
-		suffix = operator.suffix || "",
-		getImagesFn = suffix === "all" ? options.wiki.getTiddlerImagesWikified : options.wiki.getTiddlerImages;
+		suffixes = operator.suffixes || [],
+		wikify = suffixes[0] ? (suffixes[0][0] || "") : "",
+		mode = suffixes[1] ? (suffixes[1][0] || "include") : "include",
+		classes = operator.operand,
+		getImagesFn = wikify === "all" ? options.wiki.getTiddlerImagesWikified : options.wiki.getTiddlerImages;
 	source(function(tiddler,title) {
-		results.pushTop(getImagesFn.call(options.wiki,title,options));
+		results.pushTop(getImagesFn.call(options.wiki,title,{widget: options.widget, classes: classes, mode: mode}));
 	});
 	return results.makeTiddlerIterator(options.wiki);	
 };
-

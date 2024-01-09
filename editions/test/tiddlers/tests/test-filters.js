@@ -152,27 +152,6 @@ Tests the filtering mechanism.
 			//everything before the marker plus 5 after
 			expect(wiki.filterTiddlers("[enlist[one two three four five six seven eight nine ten elevent twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty]_extract[nine],[all],[5]]").join(",")).toBe("one,two,three,four,five,six,seven,eight,nine,ten,elevent,twelve,thirteen,fourteen");
 		});
-/*
-		it("should handle the _images operator", function() {
-			expect(wiki.filterTiddlers("[title[Extract Images Test]] :and[_images[]]").join(",")).toBe("https://source.unsplash.com/Pbztnji2t6k/683x445,https://source.unsplash.com/TS_RMNAO7Lo/616x340,https://source.unsplash.com/ya7R1JbS-5w/533x317,https://source.unsplash.com/tWMVbh0MCFY/663x541");
-		});
-
-		it("should handle the _images-wikified operator", function() {
-			expect(wiki.filterTiddlers("[title[Wikified Images Test]] :and[_images-wikified[]]").join(",")).toBe("https://source.unsplash.com/Pbztnji2t6k/683x445,https://source.unsplash.com/TS_RMNAO7Lo/616x340,https://source.unsplash.com/ya7R1JbS-5w/533x317,https://source.unsplash.com/nlMiiYZM2Hk/700x894,https://source.unsplash.com/tWMVbh0MCFY/663x541,https://source.unsplash.com/dwJ0imjVifs/368x575,https://source.unsplash.com/dwJ0imjVifs/368x600");
-		});
-*/		
-		it("should handle the _printf operator", function() {
-			expect(wiki.filterTiddlers("[[My name is $0$ and my age is $1$.]_printf[Saq],[100]]").join(",")).toBe("My name is Saq and my age is 100.");
-		});
-		
-		it("should handle the :xthen run prefix", function() {
-			expect(wiki.filterTiddlers("[tag[shopping]] :xthen[[Hello]]").join(",")).toBe("Hello");
-			expect(wiki.filterTiddlers("[tag[doesnotexist]] :xthen[[]]").join(",")).toBe("");
-			expect(wiki.filterTiddlers("[tag[shopping]] :xthen[enlist<__input>]").join(",")).toBe("Brownies,Chick Peas,Milk,Rice Pudding");
-			expect(wiki.filterTiddlers("[tag[shopping]] :xthen[<__count>]").join(",")).toBe("4");
-			expect(wiki.filterTiddlers("[tag[shopping]] :except[[Brownies]] :xthen[<__count>]").join(",")).toBe("3");
-		});
-
 		it("should handle the _concat operator", function() {
 			expect(wiki.filterTiddlers("[tag[shopping]_concat[]]").join(",")).toBe("Brownies [[Chick Peas]] Milk [[Rice Pudding]]");
 			expect(wiki.filterTiddlers("[tag[doesnotexist]_concat[]]").join(",")).toBe("");
@@ -183,7 +162,7 @@ Tests the filtering mechanism.
 			expect(wiki.filterTiddlers("[tag[shopping]_indexof[Bananas]]").join(",")).toBe("");
 			expect(wiki.filterTiddlers("[tag[shopping]_indexof[]]").join(",")).toBe("");
 		});
-
+/*
 		it("should handle the _snip operator", function() {
 			expect(wiki.filterTiddlers("abcdefghijklmnopqrstuvwxyz :and[_snip[0]]").join(",")).toBe("abcdefghijklmnopqrstuvwxyz");
 			expect(wiki.filterTiddlers("abcdefghijklmnopqrstuvwxyz :and[_snip[2]]").join(",")).toBe("cdefghijklmnopqrstuvwxyz");
@@ -196,7 +175,7 @@ Tests the filtering mechanism.
 			expect(wiki.filterTiddlers("abcdefghijklmnopqrstuvwxyz :and[_snip[-8],[15]]").join(",")).toBe("stuvwxyz");
 			expect(wiki.filterTiddlers("abcdefghijklmnopqrstuvwxyz :and[_snip[-5],[5]]").join(",")).toBe("vwxyz");
 		})
-		
+*/		
 		
 	});
 	

@@ -34,6 +34,17 @@ https://source.unsplash.com/dwJ0imjVifs/368x575
 </$let>
 
 +
+title: Data 3
+
+[img[https://source.unsplash.com/Pbztnji2t6k/683x445]]
+<$image source="https://source.unsplash.com/TS_RMNAO7Lo/616x340" class="myclass"/>
+<div>
+    <img class="myclass" src="https://source.unsplash.com/ya7R1JbS-5w/533x317"/>
+    <$image source="https://source.unsplash.com/tWMVbh0MCFY/663x541"/>		
+</div>
+
+
++
 title: Output
 
 \whitespace trim
