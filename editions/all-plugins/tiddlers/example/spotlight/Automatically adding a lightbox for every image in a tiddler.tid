@@ -13,7 +13,7 @@ type: text/vnd.tiddlywiki
 
 \end
 
-<$eventcatcher $click=<<spotlight-actions>> selector="img">
+<$eventcatcher $click=<<spotlight-actions>> selector="img" class="spotlight-mixmedia-example">
 
 [img class="tc-float-right" width="50%" [https://images.unsplash.com/photo-1592085156079-6926b5e08b5a?q=80&w=800]]I'm sorry. I'm so sorry. New-new-Doctor. I'd call you a genius, except I'm in the room. What? What?! WHAT?! Black tie...Whenever I wear this, something bad always happens. It is! It's the city of New New York! Strictly speaking, it's the fifteenth New York since the original, so that makes it New-New-New-New-New-New-New-New-New-New-New-New-New-New-New New York. I don't want to go. Oh, yes. Harmless is just the word: that's why I like it! Doesn't kill, doesn't wound, doesn't maim. But I'll tell you what it does do: it is very good at opening doors!
 
