@@ -1,0 +1,35 @@
+created: 20240109150707637
+modified: 20240110110335683
+tags: $:/tags/plugin/example Spotlight
+title: Automatically adding a lightbox for every image in a tiddler
+type: text/vnd.tiddlywiki
+
+<!-- also needs SQ Filters plugin -->
+\procedure spotlight-actions()
+<$action-spotlight
+	$images={{{ [<storyTiddler>_images[]format:titlelist[]join[ ]] }}}
+	$start=<<dom-src>>
+/>
+
+\end
+
+<$eventcatcher $click=<<spotlight-actions>> selector="img">
+
+[img class="tc-float-right" width="50%" [https://images.unsplash.com/photo-1592085156079-6926b5e08b5a?q=80&w=800]]I'm sorry. I'm so sorry. New-new-Doctor. I'd call you a genius, except I'm in the room. What? What?! WHAT?! Black tie...Whenever I wear this, something bad always happens. It is! It's the city of New New York! Strictly speaking, it's the fifteenth New York since the original, so that makes it New-New-New-New-New-New-New-New-New-New-New-New-New-New-New New York. I don't want to go. Oh, yes. Harmless is just the word: that's why I like it! Doesn't kill, doesn't wound, doesn't maim. But I'll tell you what it does do: it is very good at opening doors!
+
+You can spend the rest of your life with me, but I can't spend the rest of mine with you. I have to live on. Alone. That's the curse of the Time Lords. There was a war. A Time War. The Last Great Time War. My people fought a race called the Daleks, for the sake of all creation. And they lost. We lost. Everyone lost. They're all gone now. My family. My friends. Even that sky. I'm the Doctor, I can save the world with a kettle and some string! And look! I'm wearing a vegetable! I'd call you a genius, except I'm in the room. [img class="tc-float-right" width="50%" [https://images.unsplash.com/photo-1575824928808-abc8ae6cfbfc?q=80&w=800]]
+
+
+It is! It's the city of New New York! Strictly speaking, it's the fifteenth New York since the original, so that makes it New-New-New-New-New-New-New-New-New-New-New-New-New-New-New New York. Please, when Torchwood comes to write my complete history, don't tell people I travelled through time and space with her mother! I'm the Doctor, I can save the world with a kettle and some string! And look! I'm wearing a vegetable! I'm sorry. I'm so sorry. New-new-Doctor. There's something else I've always wanted to say: Allons-y, Alonso!
+
+Allons-y! I'm Dr. James McCrimmon from the township of Balamory. River, you know my name. You whispered my name in my ear! There's only one reason I would ever tell anyone my name. There's only one time I could... New-new-Doctor. Goodbye...my Sarah Jane! There was a war. A Time War. The Last Great Time War. My people fought a race called the Daleks, for the sake of all creation. And they lost. We lost. Everyone lost. They're all gone now. My family. My friends. Even that sky. Blimey, trying to make an Ood laugh...
+
+[img class="tc-float-left" [$:/images/tardis.png]] I'd call you a genius, except I'm in the room. There's something else I've always wanted to say: Allons-y, Alonso! River, you know my name. You whispered my name in my ear! There's only one reason I would ever tell anyone my name. There's only one time I could... Please, when Torchwood comes to write my complete history, don't tell people I travelled through time and space with her mother! I don't want to go. Goodbye...my Sarah Jane! You can spend the rest of your life with me, but I can't spend the rest of mine with you. I have to live on. Alone. That's the curse of the Time Lords.
+
+People assume that time is a strict progression of cause-and-effect... but actually, from a non-linear, non-subjective viewpoint, it's more like a big ball of wibbly-wobbly... timey-wimey... stuff. I'll tell you what, then: don't...step on any butterflies. What have butterflies ever done to you? Sweet, maybe... Passionate, I suppose... But don't ever mistake that for nice. There was a war. A Time War. The Last Great Time War. My people fought a race called the Daleks, for the sake of all creation. And they lost. We lost. Everyone lost. They're all gone now. My family. My friends. Even that sky.
+
+[img class="tc-float-left" width="50%" [https://images.unsplash.com/photo-1695449993716-832884bea972?q=80&w=800]] 
+
+<p>Oh, yes. Harmless is just the word: that's why I like it! Doesn't kill, doesn't wound, doesn't maim. But I'll tell you what it does do: it is very good at opening doors! Don't you think she looks tired? Goodbye...my Sarah Jane! I don't want to go. I'm the Doctor, I can save the world with a kettle and some string! And look! I'm wearing a vegetable! I'm Dr. James McCrimmon from the township of Balamory. Black tie...Whenever I wear this, something bad always happens. I'd call you a genius, except I'm in the room.</p>
+
+</$eventcatcher>

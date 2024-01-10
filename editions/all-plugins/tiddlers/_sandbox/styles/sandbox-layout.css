@@ -104,12 +104,10 @@
 	padding: 1.25rem 1.25rem;
 }
 
-@media (min-width: 1200px) .p-xl-5 {
-	padding: 3rem !important;
-}
-
-@media (min-width: 1200px) .p-xl-5 {
-	padding: 3rem !important;
+@media (min-width: 1200px) {
+	.p-xl-5 {
+		padding: 3rem !important;
+	}
 }
 
 .card-title {
@@ -381,4 +379,13 @@ svg.cover-swiffy-slider {
 .tc-site-title {
 	color: #cd595a;
 	text-shadow: 1px 1px 1px #45001A;
+}
+
+.tc-float-left {
+	float: left;
+}
+
+.tc-tiddler-body img{
+	clear: both;
+	margin: 1em;
 }
