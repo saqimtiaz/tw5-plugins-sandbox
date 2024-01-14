@@ -63,7 +63,7 @@ code-body: yes
 <!--  check if its a tiddlyhost URL and if so map it to the json file /tiddlers.json, also trim any trailing slashes  -->
 
 <$let isTiddlyHost={{{ [<wikiURL>regexp[(?i)^https:\/\/\S+tiddlyhost.com]then[yes]else[no]] }}}
-	wikiURL={{{ [<isTiddlyHost>match[yes]] :then[<wikiURL>!suffix[tiddlers.json]trim:suffix[/]addsuffix[/tiddlers.json]] :else[<wikiURL>] }}}
+	wikiURL={{{ [<isTiddlyHost>match[yes]] :then[<wikiURL>trim:suffix[/]trim:suffix[tiddlers.json]addsuffix[/tiddlers.json]] :else[<wikiURL>] }}}
 	deserializer={{{ [<isTiddlyHost>match[yes]then[application/json]else<deserializer>] }}}
 	>
 	<$action-log $$filter="isTiddlyHost wikiURL deserializer"/>
