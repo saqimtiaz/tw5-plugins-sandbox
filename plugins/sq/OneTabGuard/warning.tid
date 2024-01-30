@@ -1,0 +1,6 @@
+title: $:/plugins/sq/OneTabGuard/warning
+subtitle: <$transclude $tiddler="$:/core/images/warning"/> Warning
+
+This wiki is already open in another tab/window of this browser.
+
+Editing it here may result in data loss. Consider closing this tab and continuing in the existing tab for this wiki.

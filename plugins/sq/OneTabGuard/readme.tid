@@ -1,0 +1,3 @@
+title: $:/plugins/sq/OneTabGuard/readme
+
+Displays a warning on wiki load if the same wiki URL is loaded in another tab or window of the same browser.
