@@ -34,8 +34,8 @@ Example:
 <$transclude
     $variable="loadWikiActions"
     wikiURL="https://tiddlywiki.com"
-    contentFilter="[!is[system]tag[Working with TiddlyWiki]]"
-    deseralizer="text/html"
+    contentFilter=":[!is[system]tag[Working with TiddlyWiki]]"
+    deserializer="text/html"
     />
 \end
 
