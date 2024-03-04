@@ -3,71 +3,75 @@ code-body: yes
 
 \procedure startupConfigTitle() $:/config/sq/ExternalContent/load-on-startup
 \procedure loadWikiActions(wikiURL,contentFilter,deserializer)
-	<!-- actions invoked after fetching the remote data -->
-	\procedure getWikiCallback()
-		<!-- actions to turn the remote data into tiddlers -->
-		\procedure importTiddlers()
-			<$let
-				passthroughFilter="[all[]]"
-				defaultDeserializer="text/html"
-				contentFilter={{{ [<contentFilter>!is[blank]else<passthroughFilter>] }}}
-				deserializer={{{ [<deserializer>!is[blank]else<defaultDeserializer>] }}}
-				tiddlerJSON={{{[<data>deserialize<deserializer>jsonfiltertiddlers<contentFilter>]}}}
-				tiddlers={{{ [<tiddlerJSON>jsonindexes[]] :map[<tiddlerJSON>jsonget<currentTiddler>,[title]] :and[format:titlelist[]join[ ]] }}}
-			>
-			<$action-log $$filter="wikiURL contentFilter deserializer tiddlers tiddlerJSON"/>
-				<!-- iterate over each position in the array -->
-				<$list filter="[<tiddlerJSON>jsonindexes[]]" variable="index">
-					<!-- get the tiddler at that position in the array from the JSON -->
-					<$let
-						tiddler={{{ [<tiddlerJSON>jsonextract<index>] }}} 
-						title={{{ [<tiddler>jsonget[title]] }}}
-					>
-						<!-- make sure we have a title for the tiddler and exclude system tiddlers -->
-						<$list filter="[<title>!is[blank]]">
-							<$action-setmultiplefields
-								$fields="[<tiddler>jsonindexes[]] externalTiddler is_volatile includeTimestamp"
-								$values="[<tiddler>jsonindexes[]] :map[<tiddler>jsonget<currentTiddler>!is[blank]else[]] =yes =yes [<now [UTC]YYYY0MM0DD0hh0mm0ssXXX>]"
-								$timestamp="no"
-								/>
-						</$list>
-					</$let>
-				</$list>
-			</$let>
-		\end importTiddlers
-		<!-- actions invoked if there is an error fetching the data -->
-		\procedure failureHandler()
-			<$action-log status="error fetching the wiki"/>
-			<$action-setfield $tiddler={{{ [[$:/temp/http/error/]addsuffix<now [UTC]YYYY0MM0DD0hh0mm0ssXXX]>] }}} text={{{ [[There was an error fetching the wiki ]addsuffix<wikiURL>addsuffix<error>] }}} tags="$:/tags/Alert"/>
-		\end failureHandler
-		<$list filter="[<status>match[200]]" variable="null" emptyValue=<<failureHandler>> >
-			<$action-log data=<<data>> status="succcess" />
-			<<importTiddlers>>
-		</$list>
-	\end getWikiCallback
+    <!-- actions invoked after fetching the remote data -->
+    \procedure getWikiCallback()
+        <!-- actions to turn the remote data into tiddlers -->
+        \procedure importTiddlers()
+            <$let
+                passthroughFilter="[all[]]"
+                defaultDeserializer="text/html"
+                contentFilter={{{ [<contentFilter>!is[blank]else<passthroughFilter>] }}}
+                deserializer={{{ [<deserializer>!is[blank]else<defaultDeserializer>] }}}
+                tiddlerJSON={{{[<data>deserialize<deserializer>jsonfiltertiddlers<contentFilter>]}}}
+                tiddlers={{{ [<tiddlerJSON>jsonindexes[]] :map[<tiddlerJSON>jsonget<currentTiddler>,[title]] :and[format:titlelist[]join[ ]] }}}
+            >
+            <$action-log $$filter="wikiURL contentFilter deserializer tiddlers tiddlerJSON"/>
+                <!-- iterate over each position in the array -->
+                <$list filter="[<tiddlerJSON>jsonindexes[]]" variable="index">
+                    <!-- get the tiddler at that position in the array from the JSON -->
+                        <$let
+                            tiddler={{{ [<tiddlerJSON>jsonextract<index>] }}}
+                            title={{{ [<tiddler>jsonget[title]] }}}
+                            newtags={{{ [<tiddler>jsonget[tags]] [{$:/config/NewTiddler/Tags}] :and[join[ ]] }}}
+                        >
 
-	<!-- fetch the remote data source-->
-	\procedure getWikiActions()
-		<$action-sendmessage
-			$message="tm-http-request"
-			method="GET"
-			bind-status={{{ [[$:/temp/http/load-content/]addsuffix<wikiURL>] }}}
-			oncompletion=<<getWikiCallback>>
-			url=<<wikiURL>>
-			var-wikiURL=<<wikiURL>>
-			var-contentFilter=<<contentFilter>>
-			var-deserializer=<<deserializer>>
-			>
-	\end getWikiActions
+                            <$action-log newtags=<newtags> />
+
+                            <!-- make sure we have a title for the tiddler and exclude system tiddlers -->
+                            <$list filter="[<title>!is[blank]]">
+                                <$action-setmultiplefields
+                                    $fields="[<tiddler>jsonindexes[]] externalTiddler is_volatile includeTimestamp tags"
+                                    $values="[<tiddler>jsonindexes[]] :map[<tiddler>jsonget<currentTiddler>!is[blank]else[]] =yes =yes [<now [UTC]YYYY0MM0DD0hh0mm0ssXXX>] =[<newtags>]"
+                                    $timestamp="no"
+                                    />
+                            </$list>
+                        </$let>
+                </$list>
+            </$let>
+        \end importTiddlers
+        <!-- actions invoked if there is an error fetching the data -->
+        \procedure failureHandler()
+            <$action-log status="error fetching the wiki"/>
+            <$action-setfield $tiddler={{{ [[$:/temp/http/error/]addsuffix<now [UTC]YYYY0MM0DD0hh0mm0ssXXX]>] }}} text={{{ [[There was an error fetching the wiki ]addsuffix<wikiURL>addsuffix<error>] }}} tags="$:/tags/Alert"/>
+        \end failureHandler
+        <$list filter="[<status>match[200]]" variable="null" emptyValue=<<failureHandler>> >
+            <$action-log data=<<data>> status="succcess" />
+            <<importTiddlers>>
+        </$list>
+    \end getWikiCallback
+
+    <!-- fetch the remote data source-->
+    \procedure getWikiActions()
+        <$action-sendmessage
+            $message="tm-http-request"
+            method="GET"
+            bind-status={{{ [[$:/temp/http/load-content/]addsuffix<wikiURL>] }}}
+            oncompletion=<<getWikiCallback>>
+            url=<<wikiURL>>
+            var-wikiURL=<<wikiURL>>
+            var-contentFilter=<<contentFilter>>
+            var-deserializer=<<deserializer>>
+            >
+    \end getWikiActions
 
 <!--  check if its a tiddlyhost URL and if so map it to the json file /tiddlers.json, also trim any trailing slashes  -->
 
 <$let isTiddlyHost={{{ [<wikiURL>regexp[(?i)^https:\/\/\S+tiddlyhost.com]then[yes]else[no]] }}}
-	wikiURL={{{ [<isTiddlyHost>match[yes]] :then[<wikiURL>trim:suffix[/]trim:suffix[tiddlers.json]addsuffix[/tiddlers.json]] :else[<wikiURL>] }}}
-	deserializer={{{ [<isTiddlyHost>match[yes]then[application/json]else<deserializer>] }}}
-	>
-	<$action-log $$filter="isTiddlyHost wikiURL deserializer"/>
-	<<getWikiActions>>
+    wikiURL={{{ [<isTiddlyHost>match[yes]] :then[<wikiURL>trim:suffix[/]trim:suffix[tiddlers.json]addsuffix[/tiddlers.json]] :else[<wikiURL>] }}}
+    deserializer={{{ [<isTiddlyHost>match[yes]then[application/json]else<deserializer>] }}}
+    >
+    <$action-log $$filter="isTiddlyHost wikiURL deserializer"/>
+    <<getWikiActions>>
 </$let>
 \end loadWikiActions
 
