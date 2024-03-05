@@ -23,7 +23,7 @@
     newtags={{{ [<tiddler>jsonget[tags]] [{$:/config/NewTiddler/Tags}] :and[join[ ]] }}}
 >
 
-    <$action-log newtags=<<newtags>> />
+    <$action-log title=<<title>> />
 
     <!-- make sure we have a title for the tiddler and exclude system tiddlers -->
     <$list filter="[<title>!is[blank]]">
