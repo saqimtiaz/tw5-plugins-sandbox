@@ -20,11 +20,12 @@
     tiddler={{{ [<tiddlerJSON>jsonextract<index>] }}}
     title={{{ [<tiddler>jsonget[title]] }}}
     newtags={{{ [<tiddler>jsonget[tags]] [{$:/config/NewTiddler/Tags}] :and[join[ ]] }}}
+    allcaps="^[^a-z]*$"
 >
     <$action-log title=<<title>> />
 
     <!-- Apply is_volatile=yes only for !has[is_volatile]  -->
-    <$list filter="[<title>!is[blank]!has[is_volatile]]">
+    <$list filter="[<title>!is[blank]!has[is_volatile]] -[<title>regexp<allcaps>]">
         <$action-setmultiplefields
             $fields="is_volatile"
             $values="=yes"
@@ -33,7 +34,7 @@
         <$action-log is_volatile />
     </$list>
     <!-- make sure we have a title for the tiddler should also exclude system tiddlers -->
-    <$list filter="[<title>!is[blank]]">
+    <$list filter="[<title>!is[blank]] -[<title>regexp<allcaps>]">
         <$action-setmultiplefields
             $fields="[<tiddler>jsonindexes[]] -is_volatile externalTiddler includeTimestamp =tags"
             $values="[<tiddler>jsonindexes[]] -is_volatile :map[<tiddler>jsonget<currentTiddler>!is[blank]else[]] =yes [<now [UTC]YYYY0MM0DD0hh0mm0ssXXX>] =[<newtags>]"
