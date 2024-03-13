@@ -15,24 +15,33 @@
             <$action-log $$filter="wikiURL contentFilter deserializer tiddlers tiddlerJSON"/>
                 <!-- iterate over each position in the array -->
                 <$list filter="[<tiddlerJSON>jsonindexes[]]" variable="index">
-                    <!-- get the tiddler at that position in the array from the JSON -->
 <!-- get the tiddler at that position in the array from the JSON -->
 <$let
     tiddler={{{ [<tiddlerJSON>jsonextract<index>] }}}
     title={{{ [<tiddler>jsonget[title]] }}}
     newtags={{{ [<tiddler>jsonget[tags]] [{$:/config/NewTiddler/Tags}] :and[join[ ]] }}}
 >
-
     <$action-log title=<<title>> />
 
-    <!-- make sure we have a title for the tiddler and exclude system tiddlers -->
-    <$list filter="[<title>!is[blank]]">
+    <!-- Apply is_volatile=yes only for !has[is_volatile]  -->
+    <$list filter="[<title>!is[blank]!has[is_volatile]]">
         <$action-setmultiplefields
-            $fields="[<tiddler>jsonindexes[]] externalTiddler is_volatile includeTimestamp =tags"
-            $values="[<tiddler>jsonindexes[]] :map[<tiddler>jsonget<currentTiddler>!is[blank]else[]] =yes =yes [<now [UTC]YYYY0MM0DD0hh0mm0ssXXX>] =[<newtags>]"
+            $fields="is_volatile"
+            $values="=yes"
             $timestamp="no"
             />
+        <$action-log is_volatile />
     </$list>
+    <!-- make sure we have a title for the tiddler should also exclude system tiddlers -->
+    <$list filter="[<title>!is[blank]]">
+        <$action-setmultiplefields
+            $fields="[<tiddler>jsonindexes[]] -is_volatile externalTiddler includeTimestamp =tags"
+            $values="[<tiddler>jsonindexes[]] -is_volatile :map[<tiddler>jsonget<currentTiddler>!is[blank]else[]] =yes [<now [UTC]YYYY0MM0DD0hh0mm0ssXXX>] =[<newtags>]"
+            $timestamp="no"
+            />
+        <$action-log externalTiddler />
+    </$list>
+
 </$let>
                 </$list>
             </$let>
