@@ -31,7 +31,6 @@
             $values="=yes"
             $timestamp="no"
             />
-        <$action-log is_volatile />
     </$list>
     <!-- make sure we have a title for the tiddler should also exclude system tiddlers -->
     <$list filter="[<title>!is[blank]] -[<title>regexp<allcaps>]">
@@ -40,7 +39,6 @@
             $values="[<tiddler>jsonindexes[]] -is_volatile :map[<tiddler>jsonget<currentTiddler>!is[blank]else[]] =yes [<now [UTC]YYYY0MM0DD0hh0mm0ssXXX>] =[<newtags>]"
             $timestamp="no"
             />
-        <$action-log externalTiddler />
     </$list>
 
 </$let>
