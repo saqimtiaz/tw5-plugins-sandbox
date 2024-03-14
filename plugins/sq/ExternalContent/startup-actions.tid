@@ -9,7 +9,7 @@ code-body: yes
     <$transclude
         $variable="loadWikiActions"
         wikiURL={{{ [<currentTiddler>get[wikiURL]] }}}
-        contentFilter={{{ [<currentTiddler>get[content-filter]] }}}
+        contentFilter={{{ [<currentTiddler>get[filter]] }}}
         deserializer={{{ [<currentTiddler>get[deserializer]] }}}
         />
 </$list>
