@@ -6,11 +6,11 @@ code-body: yes
 
 <% if [<startupConfigTitle>get[text]trim[]match[yes]] %>
 <$list filter="[all[shadows+tiddlers]tag[$:/tags/load-external-content]!is[draft]]">
-	<$transclude
-		$variable="loadWikiActions"
-		wikiURL={{{ [<currentTiddler>get[text]] }}}
-		contentFilter={{{ [<currentTiddler>get[content-filter]] }}}
-		deseralizer={{{ [<currentTiddler>get[deseralizer]] }}}
-		/>
+    <$transclude
+        $variable="loadWikiActions"
+        wikiURL={{{ [<currentTiddler>get[wikiURL]] }}}
+        contentFilter={{{ [<currentTiddler>get[content-filter]] }}}
+        deserializer={{{ [<currentTiddler>get[deserializer]] }}}
+        />
 </$list>
 <% endif %>
