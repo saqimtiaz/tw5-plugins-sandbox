@@ -1,3 +1,6 @@
+title: $:/plugins/sq/ExternalContent/loadWikiActions
+code-body: yes
+
 \procedure startupConfigTitle() $:/config/sq/ExternalContent/load-on-startup
 \procedure loadWikiActions(wikiURL,contentFilter,deserializer)
     <!-- actions invoked after fetching the remote data -->
