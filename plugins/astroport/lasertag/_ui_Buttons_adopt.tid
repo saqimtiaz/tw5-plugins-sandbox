@@ -1,0 +1,21 @@
+title: $:/astroport/ui/Buttons/adopt
+caption: {{$:/astroport/images/adopt-button}} {{$:/language/Buttons/Adopt/Caption}}
+code-body: yes
+description: {{$:/language/Buttons/Adopt/Hint}}
+tags: $:/tags/ViewToolbar AdoptExternal
+
+\whitespace trim
+<$list filter="[<storyTiddler>has[is_volatile]]">
+ <$button tooltip={{$:/language/Buttons/Adopt/Hint}} aria-label={{$:/language/Buttons/Adopt/Caption}} class=<<tv-config-toolbar-class>>>
+ <$action-listops  $field="is_volatile" $subfilter="+[toggle[yes],[no]]" />
+ <$list filter="[<tv-config-toolbar-icons>match[yes]]" variable="listItem">
+{{$:/astroport/images/adopt-button}}
+ </$list>
+ <$list filter="[<tv-config-toolbar-text>match[yes]]">
+<span class="tc-btn-text">
+<$text text={{$:/language/Buttons/Adopt/Caption}}/>
+</span>
+</$list>
+</$button>
+</$list>
+

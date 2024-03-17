@@ -1,0 +1,20 @@
+title: Astroport
+tags: _PLAYER_ UPlanet
+astronautens: _ASTRONAUTENS_
+astroport: _ASTROPORT_
+birthdate: _BIRTHDATE_
+chain: _CHAIN_
+HPASS: _HPASS_
+g1pub: _G1PUB_
+moats: _MOATS_
+pseudo: _PSEUDO_
+qrsec: _QRSEC_
+twmodel: _TWMODEL_
+created: _MOATS_
+creator: _PSEUDO_
+modified: _MOATS_
+modifier: _PSEUDO_
+
+!! Astroport is a Web3 engine running UPlanet hosting TW5s on IPFS, and more...
+
+> DO NOT DELETE THIS TIDDLER (it contains parameters needed to keep TW to UPlanet)
