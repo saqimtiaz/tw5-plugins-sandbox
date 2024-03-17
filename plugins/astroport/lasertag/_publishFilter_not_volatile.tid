@@ -1,0 +1,5 @@
+title: $:/astroport/publishFilter/not_volatile
+tags: $:/tags/Global load-external
+
+\procedure publishFilter() -[is_volatile[yes]]
+

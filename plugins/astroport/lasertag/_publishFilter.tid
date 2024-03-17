@@ -1,0 +1,5 @@
+title: $:/publishFilter
+tags: $:/tags/Global load-external
+code-body: yes
+
+\procedure publishFilter() -[is_volatile[yes]]

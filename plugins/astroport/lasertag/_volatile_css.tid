@@ -1,0 +1,5 @@
+title: $:/astroport/volatile/css
+tags: $:/tags/Stylesheet
+notes: together with a change to [[$:/core/ui/ViewTemplate]] this stylesheet applies style exactly to tiddlers with `is_volatile` field set to `yes`
+
+[data-volatile="yes"] {  background: #eeaaaa; border: 3px solid orange; }

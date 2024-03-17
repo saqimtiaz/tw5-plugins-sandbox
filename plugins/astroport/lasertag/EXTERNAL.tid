@@ -1,0 +1,50 @@
+title: EXTERNAL
+tags: _PLAYER_ UPlanet $:/tags/SideBar
+wikiURL: /ipns/k51qzi5uqu5dgobi9ozzzvdftqfd3hd7a1488nzymky1edz8j779jov7sbemc0
+filter: [days[-1]!is[system]!tag[G1Voeu]tag[G1CopierYoutube]]
+caption: (⌐■_■)
+
+\procedure loadMyWiki()
+\import [[$:/plugins/sq/ExternalContent/loadWikiActions]]
+<$transclude
+    $variable="loadWikiActions"
+    wikiURL={{!!wikiURL}}
+    contentFilter={{!!filter}}
+    deserializer="text/html"
+    />
+\end
+
+<details close><summary>[[EXTERNAL|EXTERNAL]]</summary>
+  <div>
+
+<$edit size=60 field="wikiURL" value="/ipns/k51qzi5uqu5dgobi9ozzzvdftqfd3hd7a1488nzymky1edz8j779jov7sbemc0" /> ⬅︎ TWz <br>
+<$edit size=50 field="filter" value="!is[system]!tag[G1Voeu]" /> ⬅︎ Filtre
+
+<<hspace>><$button actions=<<loadMyWiki>> > (☼‿‿☼) </$button>
+
+  </div>
+ </details>
+
+<details open ><summary> (☓‿‿☓) </summary>
+
+<div class="sh-multicol">
+
+<<list-links [is_volatile[yes]]>>
+
+</div>
+
+</details>
+
+<details open ><summary> (✜‿‿✜) </summary>
+
+<div class="sh-multicol">
+
+<<list-links [externalTiddler[yes]!is_volatile[yes]]>>
+
+</div>
+
+</details>
+
+
+
+

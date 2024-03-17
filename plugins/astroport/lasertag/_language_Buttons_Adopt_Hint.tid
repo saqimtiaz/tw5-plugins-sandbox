@@ -1,0 +1,4 @@
+title: $:/language/Buttons/Adopt/Hint
+tags: AdoptExternal
+
+Toggle is_volatile field between "yes" and "no", where "no" allows this tiddler to be included ("adopted") on next save. (Otherwise it will be excluded by $:/publishFilter)
