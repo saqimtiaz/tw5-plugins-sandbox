@@ -1,0 +1,24 @@
+title: GPS
+tags: _PLAYER_
+lat: 44.2301
+lon: 1.6518
+umap: /ipns/k51qzi5uqu5djg1gqzujq5p60w25mi235gdg0lgkk5qztkfrpi5c22oolrriyu
+created: _MOATS_
+creator: _PSEUDO_
+modified: _MOATS_
+modifier: _PSEUDO_
+
+<$leafmap
+tileControl
+tile='sat'
+zoom='12'
+places='{"point":"44.2301, 1.6518"}'
+/>
+
+! <a target='_blank' href='/ipns/k51qzi5uqu5djg1gqzujq5p60w25mi235gdg0lgkk5qztkfrpi5c22oolrriyu/_index.html'>Visit UMap_44.2301_1.6518</a>
+
+!! UPlanet moves your data with you
+<<<
+''DO NOT MODIFY MANUALY''
+
+<<<

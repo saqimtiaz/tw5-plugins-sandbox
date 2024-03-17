@@ -1,0 +1,7 @@
+title: $:/plugins/astroport/lasertag/readme
+
+!! Astroport Lasertag
+
+* Automaticaly tag tiddlers with $:/config/NewTiddler/Tags value on import
+* Extend "Load External" plugin 'is_volatile' behaviour
+* Add GPS, _PLAYER_, Astroport & MadeInZion tiddlers 

@@ -1,0 +1,9 @@
+title: $:/core/ui/TagTemplate
+code-body: yes
+
+\whitespace trim
+<span class="tc-tag-list-item" data-tag-title=<<currentTiddler>>>
+<$set name="transclusion" value=<<currentTiddler>>>
+<$macrocall $name="tag-pill-body" tag=<<currentTiddler>> icon={{{ [<currentTiddler>] :cascade[all[shadows+tiddlers]tag[$:/tags/TiddlerIconFilter]!is[draft]get[text]] }}} colour={{{ [<currentTiddler>] :cascade[all[shadows+tiddlers]tag[$:/tags/TiddlerColourFilter]!is[draft]get[text]] }}} palette={{$:/palette}} element-tag="""$button""" element-attributes="""tag='span'"""/>
+</$set>
+</span>

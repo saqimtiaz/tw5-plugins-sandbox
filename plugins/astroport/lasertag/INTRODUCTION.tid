@@ -1,0 +1,41 @@
+title: INTRODUCTION
+tags: _PLAYER_ UPlanet
+created: _MOATS_
+creator: _PSEUDO_
+modified: _MOATS_
+modifier: _PSEUDO_
+
+\define lingo-base() $:/language/ControlPanel/Basics/
+---
+
+!! (°▃▃°) : [[_PLAYER_|_PLAYER_]]
+!!! {{$:/core/images/options-button}} [[TW |$:/ControlPanel]] [  [[ 🌐 |GPS]] : _{{GPS!!lat}}_{{GPS!!lon}} ]
+
+{{Astroport!!astronautens}}
+---
+
+! 🌐 UPlanet
+
+est un ''système d'information libre décentralisé, non commercial et résilient''
+
+UPlanet est un réseau social décentralisé qui vise à révolutionner la manière dont nous gérons et partageons l'information, grâce à un système de grille unique divisant le globe en secteurs, chacun représentant des données localisées. Il permet aux utilisateurs d'enregistrer leur propre TiddlyWiki dans leur secteur, de garder le contrôle de leurs données et de résoudre les conflits grâce à un système basé sur les signatures. Le réseau s'intègre à Astroport, un logiciel de stockage distribué IPFS, ce qui renforce la sécurité et l'accessibilité des données. 
+
+Il fonctionne selon les principes fondamentaux de la décentralisation, de l'affinement des données par le biais d'un réseau de confiance et d'une navigation centrée sur l'utilisateur.
+
+!!  🚀 Bienvenue dans la communauté UPlanet !
+
+---
+
+! 🌐 UPlanet
+
+is a ''decentralized, non-commercial, and resilient free information system''.
+
+UPlanet is a decentralized social network that aims to revolutionize how we manage and share information, with a unique grid system dividing the globe into sectors, each representing localized data. It empowers users by allowing them to register their own TiddlyWiki in their area, maintaining control over their data, and resolving conflicts through a signature-based system. 
+
+The network integrates with Astroport, an IPFS distributed storage software, enhancing data security and accessibility, and operates on core principles of decentralization, data refinement through a web of trust, and user-centric navigation.
+
+!! 🚀 Join UPlanet Today: Where Collaboration Meets Innovation! 
+
+---
+
+> This ~TiddlyWiki is registered on UPlanet [[GPS|GPS]] recorded in [[IPFS|https://ipfs.tech]] powered by [[Astroport|Astroport]]
