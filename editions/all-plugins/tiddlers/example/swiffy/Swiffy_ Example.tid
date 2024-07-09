@@ -8,9 +8,9 @@ type: text/vnd.tiddlywiki
 <$swiffy-slider>
 <div class="swiffy-slider slider-nav-visible slider-nav-arrow slider-nav-mousedrag" >
     <ul class="slider-container">
-        <li><img src="https://source.unsplash.com/49b9l_29ceA/1600x900" style="max-width: 100%;height: auto;"></li>
-        <li><img src="https://source.unsplash.com/nKAglN6HBH8/1600x900" style="max-width: 100%;height: auto;"></li>
-        <li><img src="https://source.unsplash.com/E9ZwWcMGzj8/1600x900" style="max-width: 100%;height: auto;"></li>
+        <li><img src="https://picsum.photos/seed/sq1/1600/900" style="max-width: 100%;height: auto;"></li>
+        <li><img src="https://picsum.photos/seed/sq2/1600/900" style="max-width: 100%;height: auto;"></li>
+        <li><img src="https://picsum.photos/seed/sq3/1600/900" style="max-width: 100%;height: auto;"></li>
     </ul>
 
     <button type="button" class="slider-nav"></button>
