@@ -9,11 +9,11 @@ Wikis to load content from on startup:
 |Defined in |<$link/> |
 |URL |{{!!text}} |
 |content-filter|<$text text={{!!content-filter}}/> |
-|deseralizer|<$text text={{!!deserializer}}/>|
+|deserializer|<$text text={{!!deserializer}}/>|
 
 </$list>
 
 <$button>
-<$action-sendmessage $message="tm-new-tiddler" title="Please enter the wiki name here" tags="$:/tags/load-external-content" text="Replace this text with the URL" content-filter="" deseralizer=""/>
+<$action-sendmessage $message="tm-new-tiddler" title="Please enter the wiki name here" tags="$:/tags/load-external-content" text="Replace this text with the URL" content-filter="" deserializer=""/>
 Add wiki to load content from
 </$button>

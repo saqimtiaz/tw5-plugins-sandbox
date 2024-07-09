@@ -1,0 +1,6 @@
+title: AdoptExternal
+notes: To complement the tools in <<tag load-external>> kit: These <<tag>> tiddlers together allow ExternalContent to be retained on next save (assuming they are set NOT to be saved by a publishFilter set to avoid tiddlers with the `is_volatile` field set to `yes`) Find some ExternalContent [[here|$:/astroport/is_volatile]]
+
+Tagged here as <<tag>>:
+
+<<list-tagged-draggable tag:"AdoptExternal">>
