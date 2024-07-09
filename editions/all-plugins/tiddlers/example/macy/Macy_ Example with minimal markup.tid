@@ -1,10 +1,10 @@
-caption: Minimal e/ample: Bare images wrapped in a $macy widget.
+caption: Minimal example: Bare images wrapped in a $macy widget.
 created: 20220717125717227
 modified: 20220723140152798
 owner-plugin: Macy
-tags: $:/tags/plugin/e/ample Macy
-title: Macy: E/ample with minimal markup
-type: te/t/vnd.tiddlywiki
+tags: $:/tags/plugin/example Macy
+title: Macy: Example with minimal markup
+type: text/vnd.tiddlywiki
 
 <$macy>
 <$image source="https://picsum.photos/557/387"/>

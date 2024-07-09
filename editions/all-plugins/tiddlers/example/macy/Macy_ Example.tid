@@ -1,11 +1,11 @@
-caption: An e/ample of styling the masonry display.
+caption: An example of styling the masonry display.
 created: 20220717125516165
 description: Images wrapped in DIVs for styling. The images can be specified literally or provided by a filter. Animations are customizable via CSS.
 modified: 20220723140152797
 owner-plugin: Macy
-tags: $:/tags/plugin/e/ample Macy
-title: Macy: E/ample
-type: te/t/vnd.tiddlywiki
+tags: $:/tags/plugin/example Macy
+title: Macy: Example
+type: text/vnd.tiddlywiki
 
 <$macy>
 <$let imgs="""

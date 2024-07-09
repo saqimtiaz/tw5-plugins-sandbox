@@ -1,10 +1,10 @@
-caption: Macy integrated with a lightbo/ using the Spotlight plugin.
+caption: Macy integrated with a lightbox using the Spotlight plugin.
 created: 20220713124439714
 modified: 20220723140152798
 owner-plugin: Macy
-tags: $:/tags/plugin/e/ample Macy
-title: Macy: E/ample with lightbo/
-type: te/t/vnd.tiddlywiki
+tags: $:/tags/plugin/example Macy
+title: Macy: Example with lightbox
+type: text/vnd.tiddlywiki
 
 <$macy columns="6" breakAt="1300:5:15:15 940:3:10:10 520:2:5:5 400:1:1:1">
 <$let imgs="""
