@@ -5,7 +5,7 @@ title: Code Annotation Example
 type: text/vnd.tiddlywiki
 
 
-!! Condition expressions in wikitext
+!! Conditional expressions in wikitext
 
 ```wikitext annotated
 <!-- first we check if the animal is an elephant -->
