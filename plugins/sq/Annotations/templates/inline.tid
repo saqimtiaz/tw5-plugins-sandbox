@@ -1,0 +1,5 @@
+title: $:/plugins/sq/Annotations/templates/inline
+
+<div class="annotate-inline">
+    <$codeblock code=<<code>> language=<<language>>/>
+</div>

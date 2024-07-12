@@ -1,0 +1,10 @@
+{
+	"title": "$:/plugins/sq/annotations",
+	"name": "Annotations",
+	"description": "Annotate code with comments and explanations",
+	"author": "Saq Imtiaz",
+	"core-version": ">=5.3.5",
+	"plugin-priority": 0,
+	"list": "readme license",
+	"version": "0.0.1"
+}

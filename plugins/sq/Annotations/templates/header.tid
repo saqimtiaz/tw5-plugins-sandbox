@@ -1,0 +1,17 @@
+title: $:/plugins/sq/Annotations/templates/header
+
+\whitespace trim
+<header>
+	<span class="tc-flex-grow-1">
+		<$transclude $variable="header"/>
+	</span>
+	<% if [<uniquestate>!is[blank]] %>
+		<$button tooltip="toggle layout" aria-label="toggle-layout">
+			<$action-listops $tiddler=<<condition>> $field="text" $subfilter=":and[toggle[inline],[beside]]" />
+			<$transclude $tiddler={{{ [<condition>get[text]match[inline]] :then[[$:/plugins/sq/Annotations/icons/split]] :else[[$:/plugins/sq/Annotations/icons/inline]] }}}/>
+		</$button>
+	<% endif %>
+	<$button message="tm-copy-to-clipboard" param=<<code>> tooltip="copy to clipboard">
+		{{$:/core/images/copy-clipboard}}
+	</$button>
+</header>

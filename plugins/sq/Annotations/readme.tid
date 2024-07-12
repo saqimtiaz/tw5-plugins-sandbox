@@ -1,0 +1,24 @@
+title: $:/plugins/sq/annotations/readme
+
+@@color:red;''Experimental plugin - no support available. Use at your own risk.''@@
+
+!View annotated code using inline ''single-line'' comments.
+
+!!Basic syntax:
+<pre>&#96;&#96;&#96;xml annotated
+code goes here
+&#96;&#96;&#96;
+</pre>
+
+The language specified must match the comment syntax. 
+[[Annotation rules|https://docs.github.com/en/contributing/writing-for-github-docs/annotating-code-examples#annotation-rules]]
+
+
+!!Advanced syntax:
+<pre>&#96;&#96;&#96;xml annotated header:"This is my custom header that can include wikitext" uniquestate:"unique string for annotations in this tiddler, allows switching between views"
+code goes here
+&#96;&#96;&#96;
+</pre>
+
+
+Adapted from [[GitHub docs|https://github.com/github/docs/blob/0f52a58b655b81b771c0232fe458c75fedb03cec/src/content-render/unified/annotate.js]]

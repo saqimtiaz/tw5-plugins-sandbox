@@ -19,7 +19,8 @@
         "sq/ChatGPTImporter",
         "sq/QuickImages",
         "sq/ExternalContent",
-        "sq/OneTabGuard"
+        "sq/OneTabGuard",
+        "sq/Annotations"
     ],
     "themes": [
         "tiddlywiki/vanilla",

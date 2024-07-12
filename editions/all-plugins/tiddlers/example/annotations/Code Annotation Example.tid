@@ -1,0 +1,26 @@
+created: 20240712123140455
+modified: 20240712124229623
+tags: $:/tags/plugin/example
+title: Code Annotation Example
+type: text/vnd.tiddlywiki
+
+
+!! Condition expressions in wikitext
+
+```wikitext annotated
+<!-- first we check if the animal is an elephant -->
+<% if [<animal>match[Elephant]] %>
+  It is an animal with a long trunk
+<!-- we use the `else` clause to handle the situations where the animal is not an elephant -->
+<% else %>
+<!-- then we check if the animal is a giraffe -->
+  <% if [<animal>match[Giraffe]] %>
+    It is an animal with a long neck
+<!-- now we handle the situation where we have neither a long trunk nor a long neck -->
+  <% else %>
+    It is completely unknown
+  <% endif %>
+<!-- lastly we close the `if` statement we started at the beginning of the code -->
+<% endif %>
+
+```

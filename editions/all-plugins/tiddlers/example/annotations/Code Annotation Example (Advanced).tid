@@ -1,0 +1,43 @@
+created: 20240711174437048
+modified: 20240712124242854
+tags: $:/tags/plugin/example
+title: Code Annotation Example (Advanced)
+type: text/vnd.tiddlywiki
+
+
+
+!!Advanced Usage
+
+<pre>&#96;&#96;&#96;xml annotated header:"This is my custom header that can include wikitext" uniquestate:"unique string for annotations in this tiddler, allows switching between views"
+code goes here
+&#96;&#96;&#96;
+</pre>
+
+Example:
+
+```yaml annotated header:"A GitHub action workflow in <<language>>" uniquestate:"yamlgithub"
+# The name of the workflow as it will appear in the "Actions" tab of the ''GitHub'' repository.
+name: Post welcome comment
+othername: saq
+# The `on` keyword lets you define the events that trigger when the workflow is run.
+on:
+  # Add the `pull_request` event, so that the workflow runs automatically
+  # every time a pull request is created.
+  pull_request:
+    types: [opened]
+# Modifies the default permissions granted to `GITHUB_TOKEN`.
+permissions:
+  pull-requests: write
+# Defines a job with the ID `build` that is stored within the `jobs` key.
+jobs:
+  build:
+    name: Post welcome comment
+    # Configures the operating system the job runs on.
+    runs-on: ubuntu-latest
+    # The `run` keyword tells the job to execute a command on the runner.
+    steps:
+      - run: gh pr comment $PR_URL --body "Welcome to the repository!"
+        env:
+          GH_TOKEN: $
+          PR_URL: $
+```

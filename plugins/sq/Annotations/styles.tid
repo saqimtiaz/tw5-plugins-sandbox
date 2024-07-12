@@ -1,0 +1,127 @@
+title: $:/plugins/sq/Annotations/styles
+tags: $:/tags/Stylesheet
+
+\rules except dash
+
+.annotate {
+
+	margin: 1em 0;
+
+	--color-canvas-subtle: <<color pre-background>>;
+	--color-accent-fg: <<color primary>>;
+	--color-border-default: <<color pre-border>>;
+
+	&.beside .annotate-beside {
+		display: inherit;
+	}
+
+	&.beside .annotate-inline,
+	&.inline .annotate-beside {
+		display: none;
+	}
+
+	&.inline .annotate-inline {
+		display: inherit;
+	}
+
+	pre, pre.hljs {
+		padding: 16px;
+		overflow: auto;
+		border: 0 !important;
+		margin: 0 !important;
+
+	}
+
+	pre, .hljs {
+		background-color: transparent;
+	}
+	
+	.annotate-header header {
+		border-top-left-radius: 6px !important;
+		border-top-right-radius: 6px !important;
+		border: 1px solid var(--color-border-default);
+		display: flex;
+		padding: 8px;
+		align-items: center;
+		justify-content: space-between;
+
+		button {
+			margin-left: 0.5em;
+		}
+	}
+
+	.annotate-beside,
+	&.beside .annotate-header {
+		margin: auto;
+	}
+
+	&.beside .annotate-header header {
+		width: auto;
+	}
+
+	@media(min-width: {{$:/themes/tiddlywiki/vanilla/metrics/sidebarbreakpoint}}) {
+		&.beside .annotate-header header {
+			width: 50%;
+		}
+	}
+
+	.annotate-beside>div:last-child>.annotate-code {
+		border-bottom-left-radius: 6px;
+		border-bottom-right-radius: 6px;
+		border-bottom: 1px solid var(--color-border-default)
+	}
+
+	.annotate-inline {
+		border-left: 1px solid var(--color-border-default);
+		border-right: 1px solid var(--color-border-default);
+		border-bottom: 1px solid var(--color-border-default)
+	}
+
+	.annotate-row {
+		display: flex;
+		flex-direction: column
+	}
+
+	@media(min-width: {{$:/themes/tiddlywiki/vanilla/metrics/sidebarbreakpoint}}) {
+		.annotate-row {
+			flex-direction: row;
+			margin: 0 auto
+		}
+
+		.annotate-row:hover, .annotate-row:focus {
+			border-radius: 4px;
+			outline: 2px solid var(--color-accent-fg)
+		}
+	}
+
+	.annotate-code {
+		background-color: var(--color-canvas-subtle);
+		border-left: 1px solid var(--color-border-default);
+		border-right: 1px solid var(--color-border-default)
+	}
+
+	@media(min-width: {{$:/themes/tiddlywiki/vanilla/metrics/sidebarbreakpoint}}) {
+		.annotate-code {
+			width: 50%;
+		}
+	}
+
+	.annotate-note {
+		margin-top: 1rem;
+		margin-bottom: 2rem;
+	}
+
+	@media(min-width: {{$:/themes/tiddlywiki/vanilla/metrics/sidebarbreakpoint}}) {
+		.annotate-note {
+			width: 50%;
+			padding: 16px 0 16px 16px;
+			font-size: 14px;
+			margin: 0;
+		}
+	}
+
+	.annotate-note>p:last-child {
+		margin-bottom: 0;
+	}
+
+}

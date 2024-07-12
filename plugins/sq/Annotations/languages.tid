@@ -1,0 +1,29 @@
+title: $:/plugins/sq/Annotations/languages.json
+type: application/json
+comment-options: number (#), slash (//),  hyphen (--), xml (<!-- -->)
+
+{
+    "bash": "number",
+    "bicep": "slash",
+    "csharp": "slash",
+    "dockerfile": "number",
+    "golang": "slash",
+    "graphql": "number",
+    "groovy": "slash",
+    "html": "xml",
+    "java": "slash",
+    "javascript": "slash",
+    "jsonc": "slash",
+    "markdown": "xml",
+    "powershell": "number",
+    "python": "number",
+    "ruby": "number",
+    "scss": "slash",
+    "shell": "number",
+    "sql": "hyphen",
+    "text": "number",
+    "tiddlywiki": "xml",
+    "wikitext": "xml",
+    "xml": "xml",
+    "yaml": "number"
+}
