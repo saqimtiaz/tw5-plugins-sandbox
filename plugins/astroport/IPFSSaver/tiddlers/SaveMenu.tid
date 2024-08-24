@@ -1,0 +1,25 @@
+title: $:/plugins/astroport/IPFSSaver/SaveMenu
+tags: $:/tags/PageControls
+caption: Sauvegarder sur IPFS
+description: Sauvegarder le wiki sur IPFS et publier sur IPNS
+
+\define save-wiki-to-ipfs()
+<$action-sendmessage $message="tm-notify" $param="$:/language/Notifications/SaveInProgress"/>
+<$javascriptaction code="
+  (async () => {
+    try {
+      const wikiText = $tw.wiki.renderTiddler('text/plain', '$:/core/save/all');
+      const result = await $tw.ipfsSaver.saveAndPublish(wikiText);
+      $tw.wiki.addTiddler({title: '$:/temp/IPFSSaveResult', text: `IPFS Hash: ${result.ipfsHash}\nIPNS Name: ${result.ipnsName}`});
+      $tw.notifier.display('$:/language/Notifications/SaveDone');
+    } catch (error) {
+      $tw.notifier.display(`Erreur: ${error.message}`);
+    }
+  })()
+"/>
+\end
+
+<$button actions=<<save-wiki-to-ipfs>> tooltip="Sauvegarder le wiki sur IPFS" aria-label="Sauvegarder sur IPFS" class=<<tv-config-toolbar-class>>>
+{{$:/core/images/save-button}} Sauvegarder sur IPFS
+</$button>
+

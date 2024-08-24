@@ -1,0 +1,30 @@
+title: $:/plugins/astroport/IPFSSaver/save-button
+tags: $:/tags/ViewToolbar
+caption: Sauvegarder sur IPFS
+description: Sauvegarder ce tiddler sur IPFS et publier sur IPNS
+
+\define save-to-ipfs-action()
+<$action-sendmessage $message="tm-notify" $param="$:/language/Notifications/SaveInProgress"/>
+<$action-setfield $tiddler="$:/temp/ipfs-result" text=<<save-to-ipfs>>/>
+<$action-sendmessage $message="tm-notify" $param="$:/language/Notifications/SaveDone"/>
+\end
+
+\define save-to-ipfs()
+<$set name="tiddlerContent" value={{{ [<currentTiddler>get[text]] }}}>
+<$javascriptaction code="
+  (async () => {
+    try {
+      const result = await $tw.ipfsSaver.saveAndPublish(tiddlerContent);
+      return `IPFS Hash: ${result.ipfsHash}\nIPNS Name: ${result.ipnsName}`;
+    } catch (error) {
+      return `Erreur: ${error.message}`;
+    }
+  })()
+"/>
+</$set>
+\end
+
+<$button actions=<<save-to-ipfs-action>> tooltip="Sauvegarder sur IPFS" aria-label="Sauvegarder sur IPFS" class=<<tv-config-toolbar-class>>>
+{{$:/core/images/save-button}} Sauvegarder sur IPFS
+</$button>
+

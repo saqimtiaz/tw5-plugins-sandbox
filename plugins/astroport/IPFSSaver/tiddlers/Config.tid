@@ -1,0 +1,18 @@
+title: $:/plugins/astroport/IPFSSaver/Config
+tags: $:/tags/ControlPanel/Settings
+caption: IPFS Saver
+
+! Configuration IPFS Saver
+
+|!Paramètre |!Valeur |
+|Adresse du serveur IPFS |<$edit-text tiddler="$:/plugins/astroport/IPFSSaver/Config" field="ipfsServerAddress" default="http://localhost:5001"/> |
+|Nom de la clé IPNS |<$edit-text tiddler="$:/plugins/astroport/IPFSSaver/Config" field="ipnsKeyName" default="self"/> |
+|Taille maximale de cache |<$edit-text tiddler="$:/plugins/astroport/IPFSSaver/Config" field="maxCacheSize" default="50MB"/> |
+|Temps d'expiration du cache |<$edit-text tiddler="$:/plugins/astroport/IPFSSaver/Config" field="cacheExpiration" default="1h"/> |
+|Activer le pinning automatique |<$checkbox tiddler="$:/plugins/astroport/IPFSSaver/Config" field="autoPinning" checked="yes" unchecked="no" default="no"/> |
+
+<$button>
+Sauvegarder la configuration
+<$action-setfield $tiddler="$:/plugins/astroport/IPFSSaver/Config" $field="text" $value={{$:/plugins/astroport/IPFSSaver/Config!!text}}/>
+</$button>
+
