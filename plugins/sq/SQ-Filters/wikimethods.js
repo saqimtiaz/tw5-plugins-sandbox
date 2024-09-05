@@ -28,13 +28,15 @@ exports.getTiddlerImagesWikified = function(title,options) {
 
 exports.wikifyParseTiddler = function(title,options) {
 	let wiki = this,
+		tiddler = wiki.getTiddler(title),
+		type = tiddler.fields.type || "text/vnd.tiddlywiki",
 		wikifyText = wiki.getTiddlerText(title),
 		wikifyWidgetNode,
 		wikifyContainer,
 		wikifyParser,
 		htmlParser;
 	// Create the parse tree
-	wikifyParser = wiki.parseText("html",wikifyText,{
+	wikifyParser = wiki.parseText(type,wikifyText,{
 			parseAsInline: false
 		});
 	// Create the widget tree 
@@ -45,7 +47,7 @@ exports.wikifyParseTiddler = function(title,options) {
 	// Render the widget tree to the container
 	wikifyContainer = $tw.fakeDocument.createElement("div");
 	wikifyWidgetNode.render(wikifyContainer,null);
-	htmlParser = wiki.parseText("text/vnd.tiddlywiki",wikifyContainer.innerHTML);
+	htmlParser = wiki.parseText("html",wikifyContainer.innerHTML);
 	return htmlParser;
 };
 
