@@ -8,7 +8,7 @@ Note that content is loaded immediately after the wiki starts up, therefore Java
 ''If you do not want the imported tiddlers to be saved with the host wiki, you must exclude them:''
 
 * for single file TiddlyWikis you need to create or amend the global variable publishFilter by adding `-[is_volatile[yes]]`
-** if you have not previously defined a publishFilter, create a tiddler with the title `$:/publishFilter` with the tag `$:/tags/Global` where the text field consists of `-[is_volatile[yes]]`
+** if you have not previously defined a publishFilter, create a tiddler with the title `$:/publishFilter` with the tag `$:/tags/Global` where the text field consists of `\procedure publishFilter() -[is_volatile[yes]]`
 * for TiddlyWiki on node.js, modify the tiddler `$:/config/SyncFilter` and append `-[is_volatile[yes]]`
 
 !! Loading content on startup
