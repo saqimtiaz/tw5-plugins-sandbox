@@ -1,0 +1,7 @@
+title: $:/plugins/sq/swiffy-slider/styles-extensions
+type: text/css
+tags: $:/tags/Stylesheet
+
+.slider-nav-mousedrag.slider-clickthrough .slider-container::after {
+    display: none;
+}
