@@ -31,9 +31,9 @@
     "dev": "cross-env TIDDLYWIKI_PLUGIN_PATH=plugins npx nodemon -e tid,multids,js,info,css,json,meta --watch plugins ./node_modules/tiddlywiki/tiddlywiki.js editions/dev --listen port=7555",
     "tests": "cross-env TIDDLYWIKI_PLUGIN_PATH=plugins node ./node_modules/tiddlywiki/tiddlywiki.js editions/test --test",
     "tests-browser": "cross-env TIDDLYWIKI_PLUGIN_PATH=plugins node ./node_modules/tiddlywiki/tiddlywiki.js editions/test --listen port=7555",
-    "local": "cross-env TIDDLYWIKI_PLUGIN_PATH=plugins npx nodemon -e tid,multids,js,info,css,json,meta --watch plugins ./node_modules/tiddlywiki/tiddlywiki.js editions/all-plugins --listen host=192.168.1.115 port=8080",
+    "local": "cross-env TIDDLYWIKI_PLUGIN_PATH=plugins npx nodemon -e tid,multids,js,info,css,json,meta --watch plugins ./node_modules/tiddlywiki/tiddlywiki.js editions/all-plugins --listen host=10.0.0.2 port=8080",
+    "local-dev": "cross-env TIDDLYWIKI_PLUGIN_PATH=plugins npx nodemon -e tid,multids,js,info,css,json,meta --watch plugins ./node_modules/tiddlywiki/tiddlywiki.js editions/dev --listen host=10.0.0.2 port=8080",
     "update-tw": "npm install --save github:Jermolene/TiddlyWiki5",
-
     "swiffy:update-lib": "npm install --save-dev swiffy-slider && cp node_modules/swiffy-slider/dist/js/swiffy-slider.esm.js plugins/sq/SwiffySlider/lib/ && cp node_modules/swiffy-slider/dist/js/swiffy-slider-extensions.js plugins/sq/SwiffySlider/lib/ && cp node_modules/swiffy-slider/dist/css/swiffy-slider.css plugins/sq/SwiffySlider",
     "swiffy:build-lib": "npm run _swiffy:rollup-main && npm run _swiffy:rollup-extensions",
     "_swiffy:rollup-main": "npx rollup -c rollup-config/swiffy.rollup.config.mjs plugins/sq/SwiffySlider/lib/swiffy-slider.esm.js --file plugins/sq/SwiffySlider/swiffy-slider.umd.js --name 'Swiffy'",
