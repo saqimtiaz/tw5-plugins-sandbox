@@ -98,6 +98,8 @@ MacyWidget.prototype.render = function(parent,nextSibling) {
 	this.macy.on(this.macy.constants.EVENT_IMAGE_COMPLETE, function (ctx) {
 		$tw.utils.addClass(self.domNode,"macy-ready");
 		self.attachResizeObserver(self.domNode,100,true,true,function(){self.macy.recalculate(true,true);});
+		var duration = $tw.utils.getAnimationDuration();
+		self.win.setTimeout(function(){self.macy.recalculate(true,true)},duration);
 	});
 };
 
