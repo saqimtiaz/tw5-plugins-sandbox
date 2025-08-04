@@ -1,0 +1,17 @@
+title: $:/plugins/sq/save-tiddler-and-continue/readme
+
+@@color:red;''Experimental plugin - no support available. Use at your own risk.''@@
+
+Adds a button and a keyboard shortcut to the editor toolbar that can be used to save the tiddler and continue editing without losing your place.
+
+''Keyboard shortcut:'' //save-tiddler-and-continue//
+
+<$edit-shortcut tiddler="$:/config/shortcuts/save-tiddler-and-continue" placeholder={{$:/language/ControlPanel/KeyboardShortcuts/Add/Prompt}} style="width:auto;"/>
+<!--
+<$macrocall $name="displayshortcuts" $output="text/html" shortcuts={{$:/config/shortcuts/save-tiddler-and-continue}} prefix="<kbd>" separator="</kbd> <kbd>" suffix="</kbd>"/>
+-->
+
+''Caveats:''
+
+* The keyboard shortcut only works when the cursor is in the text area for editing the text field.
+* Renaming the tiddler requires a normal save for now.

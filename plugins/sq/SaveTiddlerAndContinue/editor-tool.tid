@@ -1,0 +1,51 @@
+title: $:/plugins/sq/save-tiddler-and-continue/editor-tool
+condition: [<targetTiddler>]
+tags: $:/tags/EditorTools
+
+
+
+\function originalTiddler() [<targetTiddler>get[draft.of]trim[]]
+
+\function fields.to.copy() [fields[]] -[[title]] -[[draft.title]] -[[draft.of]] -[[created]] -[[modified]] -[[bag]]
+
+\procedure save-actions()
+<!-- replace the original tiddler with the draft tiddler -->
+<$genesis $type="$action-createtiddler" $$basetitle=<<originalTiddler>> $$overwrite="yes" $names="[<targetTiddler>fields.to.copy[]]" $values="[<targetTiddler>fields.to.copy[]] :map[<targetTiddler>get<currentTiddler>]">
+    <!-- handle unsaved tag -->
+    <%if [<newTagNameTiddler>get[text]!is[blank]] %>
+        <$action-listops $tiddler=<<originalTiddler>> $tags=<<condition>>/>
+    <%endif%>
+    <!-- handle unsaved field -->
+    <%if [<newFieldNameTiddler>get[text]!is[blank]] %>
+        <$action-setfield $tiddler=<<originalTiddler>> $field=<<condition>> $value={{{ [<condition>] :map[subfilter<get-field-value-tiddler-filter>get[text]] }}}/>
+    <%endif%>
+    <!-- focus editor -->
+    <$action-sendmessage
+        $message="tm-edit-text-operation"
+        $param=""
+        prefix="''"
+        suffix="''"
+    />
+</$genesis>
+\end
+
+
+\procedure save-tiddler-button()
+<$button
+    tooltip="save & continue"
+    aria-label="save & continue"
+    class=<<tv-config-toolbar-class>>
+    actions=<<save-actions>>
+    style.margin-left="2em"
+>
+    <span data-tw-keyboard-shortcut="((save-tiddler-and-continue))"></span>
+    <%if [<tv-config-toolbar-icons>match[yes]] %>
+        <svg class="tc-image-button" width="22pt" height="22pt" viewBox="0 0 1100 1099"><path d="M396 376L765 7q7-7 17.5-7T800 7l139 139q7 8 7 18.5t-7 17.5L414 707q-7 8-17.5 8t-17.5-8L87 416q-7-8-7-18t7-18l139-139q8-7 18.5-7t17.5 7zM50 799h1000q21 0 35.5 14.5T1100 849v250H0V849q0-21 14.5-35.5T50 799zm850 100v50h100v-50H900z"/></svg>
+    <%endif%>
+    <%if [<tv-config-toolbar-text>match[yes]] %>
+        <span class="tc-btn-text"><$text text={{$:/language/Buttons/Save/Caption}}/></span>
+    <%endif%>
+</$button>
+\end
+
+<<save-tiddler-button>>

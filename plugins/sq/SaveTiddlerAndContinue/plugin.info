@@ -1,0 +1,6 @@
+{
+    "title": "$:/plugins/sq/save-tiddler-and-continue",
+    "name": "Save tiddler and continue editing",
+    "list": "readme",
+    "version": "1.0.0"
+}
