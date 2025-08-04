@@ -22,7 +22,8 @@
         "sq/Essentials",
         "sq/QuickImages",
         "sq/ChatGPTImporter",
-        "sq/OneTabGuard"
+        "sq/OneTabGuard",
+        "sq/saveTiddlerAndContinue"
     ],
     "themes": [
         "tiddlywiki/vanilla",
