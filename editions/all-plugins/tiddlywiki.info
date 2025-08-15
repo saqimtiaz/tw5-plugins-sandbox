@@ -20,7 +20,8 @@
         "sq/QuickImages",
         "sq/ExternalContent",
         "sq/OneTabGuard",
-        "sq/Annotations"
+        "sq/Annotations",
+        "sq/SaveTiddlerAndContinue"
     ],
     "themes": [
         "tiddlywiki/vanilla",
