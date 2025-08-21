@@ -22,7 +22,7 @@
         "sq/OneTabGuard",
         "sq/Annotations",
         "sq/Floats",
-        "sq/saveTiddlerAndContinue"
+        "sq/SaveTiddlerAndContinue"
     ],
     "themes": [
         "tiddlywiki/vanilla",
