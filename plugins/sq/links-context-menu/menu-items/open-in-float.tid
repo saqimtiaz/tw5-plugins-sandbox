@@ -1,0 +1,5 @@
+sq-contextmenu-name: Open in float
+tags: $:/tags/links-context-menu/menuitems
+title: $:/plugins/sq/floats/menuitems/open-in-float
+
+<$action.open.float $tiddler=<<currentTiddler>> $x=<<rootLeft>> $y=<<rootBottom>> $force="yes"/>

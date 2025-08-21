@@ -46,8 +46,23 @@ exports.prototype.renderLink = function(parent,nextSibling) {
 				wiki: self.wiki,
 				noStateReference: true
 			});
+			let root = event.currentTarget,
+				rootRect = root.getBoundingClientRect();
 			self.wiki.setText("$:/state/sq/links-context-menu/","current",undefined,self.to);
+			self.wiki.setText("$:/state/sq/links-context-menu/","pageX",undefined,event.pageX);
+			self.wiki.setText("$:/state/sq/links-context-menu/","pageY",undefined,event.pageY);
+			self.wiki.setText("$:/state/sq/links-context-menu/","clientX",undefined,event.clientX);
+			self.wiki.setText("$:/state/sq/links-context-menu/","clientY",undefined,event.clientY);
+			self.wiki.setText("$:/state/sq/links-context-menu/","rootTop",undefined,rootRect.top);
+			self.wiki.setText("$:/state/sq/links-context-menu/","rootLeft",undefined,rootRect.left);
+			self.wiki.setText("$:/state/sq/links-context-menu/","rootHeight",undefined,rootRect.height);
+			self.wiki.setText("$:/state/sq/links-context-menu/","rootWidth",undefined,rootRect.width);
+			self.wiki.setText("$:/state/sq/links-context-menu/","rootBottom",undefined,rootRect.bottom);
+			self.wiki.setText("$:/state/sq/links-context-menu/","rootRight",undefined,rootRect.right);
+
 			
+			//TODO: set pageX and pageY as fields, then as variables in template
+			//IDEA: all popups to have a reference to their state? to get coords?
 		});
 	}
 	

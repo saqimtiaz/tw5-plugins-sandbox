@@ -1,0 +1,18 @@
+title: $:/plugins/sq/floats/container
+tags: $:/tags/PageTemplate
+
+\import [[$:/plugins/sq/floats/variables]]
+\parsermode inline
+
+<$eventcatcherplus
+	$pointerdown=<<pointerdown-actions>>
+	$pointermove=<<pointermove-actions>>
+	$pointerup=<<pointerup-actions>>
+	selector="float float-header, float .resize-handle, float"
+	matchSelector=":not(.float-controls):not(.float-controls *)"
+	pointerCapture="dynamic"
+	tag="div"
+	class=`floats ${ [<floats-state>get[text]] }$`
+>
+	<$list filter="[_is_float[yes]_float[open]get[content]sort[title]]" template="$:/plugins/sq/floats/template"/>
+</$eventcatcherplus>

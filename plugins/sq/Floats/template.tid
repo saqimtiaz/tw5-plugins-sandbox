@@ -1,0 +1,49 @@
+title: $:/plugins/sq/floats/template
+
+<float
+	role="dialog"
+	aria-label=`Floating panel: ${ [{!!caption}!is[blank]else<currentTiddler>] }$`
+	aria-modal="false"
+	tabindex="-1"
+	data-float-id=<<currentTiddler>>
+	state=<<get.float.state>>
+	style.zIndex=<<get.float.metric zindex>>
+	style.transform=`translate3d(${ [get.transformation.metric[x]] }$px, ${ [get.transformation.metric[y]] }$px, 0px)`
+	style.height=`${ [get.transformation.metric[height]] }$px`
+	style.width=`${ [get.transformation.metric[width]] }$px`
+>
+	<$let float-state=<<get.float.state>> >
+		<$setmultiplevariables 
+			$names="[<float-state>fields[]removeprefix[var-]]"
+			$values="[<float-state>fields[]prefix[var-]] :map[<float-state>get<currentTiddler>]"
+		>
+			<float-header data-float-id=<<currentTiddler>> data-role="header" role="heading" aria-level="2">
+				<span class="float-controls">
+					<$button class="tc-btn-invisible btn-close-float" actions=`<$action.close.float $tiddler="$(currentTiddler)$"/>` aria-label="Close float">
+						{{$:/core/images/close-button}}
+					</$button>
+				</span>
+				<h3><$text text={{{ [{!!caption}!is[blank]else<currentTiddler>] }}} /></h3>
+			</float-header>
+			<float-body role="region">
+				<$transclude mode="block"/>
+			</float-body>
+
+			<div class="resize-handles" data-role="resize-handles" >
+				<!-- Resize handles (edges) -->
+				<div class="resize-handle resize-top" data-role="resize-handle" data-position="top" data-float-id=<<currentTiddler>>></div>
+				<div class="resize-handle resize-right" data-role="resize-handle" data-position="right" data-float-id=<<currentTiddler>>></div>
+				<div class="resize-handle resize-bottom" data-role="resize-handle" data-position="bottom" data-float-id=<<currentTiddler>>></div>
+				<div class="resize-handle resize-left" data-role="resize-handle" data-position="left" data-float-id=<<currentTiddler>>></div>
+
+				<!-- Resize handles (corners) -->
+				<div class="resize-handle resize-top-right" data-role="resize-handle" data-position="top-right" data-float-id=<<currentTiddler>>></div>
+				<div class="resize-handle resize-bottom-right" data-role="resize-handle" data-position="bottom-right" data-float-id=<<currentTiddler>>></div>
+				<div class="resize-handle resize-bottom-left" data-role="resize-handle" data-position="bottom-left" data-float-id=<<currentTiddler>>></div>
+				<div class="resize-handle resize-top-left" data-role="resize-handle" data-position="top-left" data-float-id=<<currentTiddler>>></div>
+			</div>
+		</$setmultiplevariables>
+	</$let>
+</float>
+
+

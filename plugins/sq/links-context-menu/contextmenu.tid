@@ -11,7 +11,14 @@ title: $:/plugins/sq/links-context-menu/contextmenu
 \end
 
 \define menu-divider() <div class="sq-contextmenu-divider"/>
-<$vars currentTiddler={{{[[$:/state/sq/links-context-menu/]get[current]]}}}>
+<$let currentTiddler={{{[[$:/state/sq/links-context-menu/]get[current]]}}}
+	pageX={{{[[$:/state/sq/links-context-menu/]get[pageX]]}}}
+	pageY={{{[[$:/state/sq/links-context-menu/]get[pageY]]}}}
+	clientX={{{[[$:/state/sq/links-context-menu/]get[clientX]]}}}
+	clientY={{{[[$:/state/sq/links-context-menu/]get[clientY]]}}}
+	rootBottom={{{[[$:/state/sq/links-context-menu/]get[rootBottom]]}}}
+	rootLeft={{{[[$:/state/sq/links-context-menu/]get[rootLeft]]}}}
+>
 	<$reveal type="popup" state="$:/state/sq/links-context-menu/">
 		<div class="tc-drop-down sq-contextmenu sq-etl-contexmenu">
 			<$list filter="[all[shadows+tiddlers]tag[$:/tags/links-context-menu/menuitems]sort[sq-contextmenu-name]]" variable="listItem">
@@ -24,4 +31,4 @@ title: $:/plugins/sq/links-context-menu/contextmenu
 			</$list>
 		</div>
 	</$reveal>
-</$vars>
+</$let>

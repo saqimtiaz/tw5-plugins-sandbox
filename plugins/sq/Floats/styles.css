@@ -1,0 +1,147 @@
+\rules except dash
+
+.floats.dragging, .floats.resizing {
+	position: fixed;
+	top:0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+}
+
+/* Float container styles */
+float {
+	/* Custom properties for resizing areas */
+	--resize-handle-thickness: 10px;
+	--resize-corner-size: 16px;
+
+	display: block;
+	z-index: 500;
+	position: fixed;
+	top: 0;
+	background-color: #ffffff;
+	border: 1px solid #999999;
+	border-radius: 6px;
+	min-width: 100px;
+	min-height: 100px;
+	overflow: hidden;
+	padding-bottom: 10px;
+	box-shadow: 0 3px 7px rgba(0,0,0,0.3);
+
+	float-header {
+		display: block;
+		padding: 0.5em 1em;
+		border-bottom: 1px solid #eeeeee;
+		cursor: grab;
+		background-color: #f4f4f4;
+		top: 0;
+
+		h3 {
+			margin: 0;
+		}
+	
+		.float-controls {
+			float: right;
+		}
+	}
+
+	float-body {
+		display: block;
+		padding: 0em 1em 0.5em 1em;
+		height: 100%;
+		overflow: auto;
+		overscroll-behavior: contain;
+		
+		/* Scrollbar styling for WebKit (Chrome, Safari, Edge) */
+		&::-webkit-scrollbar {
+			width: 6px;
+			height: 6px;
+		}
+
+		&::-webkit-scrollbar-track {
+			background: transparent;
+		}
+
+		&::-webkit-scrollbar-thumb {
+			background-color: rgba(0, 0, 0, 0.2);
+			border-radius: 3px;
+		}
+
+		/* Firefox scrollbar (minimal) */
+		scrollbar-width: thin;
+		scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+	}
+
+	/* Shared resize handle styles */
+	.resize-handle {
+		position: absolute;
+		background: transparent;
+		z-index: 10;
+	}
+
+	/* Edges */
+	.resize-top, .resize-bottom {
+		height: var(--resize-handle-thickness);
+		left: 0;
+		right: 0;
+		cursor: ns-resize;
+	}
+	.resize-top { top: calc(-1 * var(--resize-handle-thickness) / 2); }
+	.resize-bottom { bottom: calc(-1 * var(--resize-handle-thickness) / 2); }
+
+	.resize-right, .resize-left {
+		width: var(--resize-handle-thickness);
+		top: 0;
+		bottom: 0;
+		cursor: ew-resize;
+	}
+	.resize-right { right: calc(-1 * var(--resize-handle-thickness) / 2); }
+	.resize-left { left: calc(-1 * var(--resize-handle-thickness) / 2); }
+
+	/* Corners */
+	.resize-top-right, .resize-bottom-right, .resize-bottom-left, .resize-top-left {
+		width: var(--resize-corner-size);
+		height: var(--resize-corner-size);
+		position: absolute;
+		z-index: 11;
+	}
+
+	.resize-top-right {
+		top: calc(-1 * var(--resize-corner-size) / 2);
+		right: calc(-1 * var(--resize-corner-size) / 2);
+		cursor: nesw-resize;
+	}
+
+	.resize-bottom-right {
+		bottom: calc(-1 * var(--resize-corner-size) / 2);
+		right: calc(-1 * var(--resize-corner-size) / 2);
+		cursor: nwse-resize;
+	}
+
+	.resize-bottom-left {
+		bottom: calc(-1 * var(--resize-corner-size) / 2);
+		left: calc(-1 * var(--resize-corner-size) / 2);
+		cursor: nesw-resize;
+	}
+
+	.resize-top-left {
+		top: calc(-1 * var(--resize-corner-size) / 2);
+		left: calc(-1 * var(--resize-corner-size) / 2);
+		cursor: nwse-resize;
+	}
+
+	/* debug */
+/*
+	.resize-handle {
+		background: rgba(0, 128, 255, 0.2);
+	}
+*/
+}
+
+
+
+
+
+
+

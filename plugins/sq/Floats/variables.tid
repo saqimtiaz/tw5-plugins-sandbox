@@ -1,0 +1,151 @@
+title: $:/plugins/sq/floats/variables
+
+\procedure state-prefix() $:/sq/floats/float/state/
+<!-- holds metrics for the float during drag or resize-->
+\procedure temp-state-prefix() $:/temp/sq/floats/temp-state/
+<!-- whether we are dragging or resizing -->
+\procedure floats-state() $:/temp/sq/floats/mode
+
+\function .clamp(min,max) [max<min>min<max>]
+\function get.float.state() "${ [<state-prefix>] }$$(currentTiddler)$" :and[substitute[]]
+\function get.float.temp.state() "${ [<temp-state-prefix>] }$$(currentTiddler)$" :and[substitute[]]
+\function float.is.dragging() [<floats-state>get[text]match[dragging]]
+\function float.is.resizing() [<floats-state>get[text]match[resizing]]
+\function get.field(field,default:0) [get<field>else<default>]
+<!-- get saved float metrics from its state-->
+\function get.float.metric(field,default:0) [<get.float.state>get.field<field>,<default>]
+<!-- get the metrics for the active drag in progress -->
+\function get.motion.metric(field,default) [<get.float.temp.state>get.field<field>,<default>]
+<!-- get the metrics used by float template to position the float
+	during an active drag we get them from the temp state -->
+\function get.transformation.metric(field,default:0) [<get.float.temp.state>is[tiddler]else<get.float.state>get.field<field>,<default>]
+<!-- used by float template -->
+\function get.next.zindex() [_is_float[yes]get[zindex]else[500]maxall[]add[1]]
+\function float.is.dragging() [<floats-state>get[text]match[dragging]]
+\function float.is.resizing() [<floats-state>get[text]match[resizing]]
+
+\widget $$set.metric(type,fields)
+\function ignore.fields() [all[]] :except[[type]] :except[[fields]]
+\function field.params() [<fields>enlist-input[]]
+<$parameters $params="all">
+<$genesis
+	$type="$action-setfield"
+	$remappable="no"
+	$$tiddler={{{ [<type>match[float]then<get.float.state>] :else[<type>match[motion]then<get.float.temp.state>] }}}
+	$names="[<all>jsonindexes[]ignore.fields[]] :all[field.params[]]" 
+	$values="[<all>jsonindexes[]ignore.fields[]] :map[<all>jsonget<currentTiddler>] :all[field.params[]getvariable[]]"
+/>
+</$parameters>
+\end $$set.metric
+
+<!-- START EVENT HANDLERS-->
+
+\procedure pointerdown-actions()
+<$let
+	currentTiddler=<<dom-data-float-id>>
+	x={{{ [get.float.metric[x]] }}}
+	y={{{ [get.float.metric[y]] }}}
+	height={{{ [get.float.metric[height]] }}}
+	width={{{ [get.float.metric[width]] }}}
+>
+	<!-- update zindex to select float -->
+	<$$set.metric type="float" zindex=<<get.next.zindex>> />
+
+	<%if [<dom-data-role>match[header]then[dragging]] :else[<dom-data-role>match[resize-handle]then[resizing]] %>
+		<!-- set movement type -->
+		<$action-setfield $tiddler=<<floats-state>> text=<<condition>> />
+		<!-- initialize resize metrics so we can use them to update position during drag/resize-->
+		<$$set.metric
+			type="motion"
+			fields="x y width height"
+			startMoveX=<<event-fromviewport-posx>>
+			startMoveY=<<event-fromviewport-posy>>
+			startWidth=<<width>>
+			startHeight=<<height>>
+			startX=<<x>>
+			startY=<<y>>
+			resizeHandle=<<dom-data-position>>
+			float-id=<<dom-data-float-id>>
+		/>
+	<%endif%>
+</$let>
+\end pointerdown-actions
+
+\procedure pointerup-actions()
+<$let currentTiddler=<<dom-data-float-id>> >
+	<%if [float.is.dragging[]] [float.is.resizing[]] %>
+		<$$set.metric type="float" x=<<get.motion.metric x>> y=<<get.motion.metric y>> height=<<get.motion.metric height>> width=<<get.motion.metric width>> />
+	<%endif%>
+	<$action-deletetiddler $filter="[<floats-state>] [<get.float.temp.state>]"/>
+</$let>
+\end pointerup-actions
+
+\procedure resize-move-actions()
+<%if [<resizeHandle>prefix[bottom]] %>
+	<$let
+		maxHeight={{{ [<containerHeight>subtract<startY>] }}}
+		height={{{ [<startHeight>add<dy>.clamp<minDimension>,<maxHeight>] }}}
+	>
+		<$$set.metric type="motion" height=<<height>>/>
+	</$let>
+<%endif%>
+<%if [<resizeHandle>suffix[right]] %>
+	<$let
+		maxWidth={{{ [<containerWidth>subtract<startX>] }}}
+		width={{{ [<startWidth>add<dx>.clamp<minDimension>,<maxWidth>] }}}
+	>
+		<$$set.metric type="motion" width=<<width>> />
+	</$let>
+<%endif%>
+<%if [<resizeHandle>suffix[left]] %>
+	<$let
+		maxWidth={{{ [<startX>add<startWidth>] }}}
+		width={{{ [<startWidth>subtract<dx>.clamp<minDimension>,<maxWidth>] }}}
+		deltaWidth={{{ [<width>subtract<startWidth>] }}}
+		x={{{ [<startX>subtract<deltaWidth>] }}}
+	>
+		<$$set.metric type="motion" fields="width x" />
+	</$let>
+<%endif%>
+<%if [<resizeHandle>prefix[top]] %>
+	<$let
+		maxHeight={{{ [<startHeight>add<startY>] }}}
+		height={{{ [<startHeight>subtract<dy>.clamp<minDimension>,<maxHeight>]  }}}
+		deltaHeight={{{ [<height>subtract<startHeight>]  }}}
+		y={{{ [<startY>subtract<deltaHeight>max[0]] }}}
+	>
+		<$$set.metric type="motion" fields="height y"/>
+	</$let>
+<%endif%>
+\end
+
+\procedure pointermove-actions()
+<$let
+	currentTiddler=<<dom-data-float-id>>
+	dx={{{ [<event-fromviewport-posx>subtract<get.motion.metric startMoveX>] }}}
+	dy={{{ [<event-fromviewport-posy>subtract<get.motion.metric startMoveY>] }}}
+	resizeHandle={{{ [get.motion.metric[resizeHandle]] }}}
+	containerWidth={{$:/info/browser/window/client/width}}
+	containerHeight={{$:/info/browser/window/client/height}}
+	minDimension="100"
+	startHeight=<<get.float.metric height>>
+	startWidth=<<get.float.metric width>>
+	startX=<<get.float.metric x>>
+	startY=<<get.float.metric y>>
+>
+	<%if [float.is.dragging[]] %>
+		<$let
+			maxX={{{ [<containerWidth>subtract<startWidth>] }}}
+			x={{{ [<dx>add<startX>.clamp[0],<maxX>] }}}
+			maxY={{{ [<containerHeight>subtract<startHeight>] }}}
+			y={{{ [<dy>add<startY>.clamp[0],<maxY>] }}}
+		>
+			<$$set.metric type="motion" fields="x y"/>
+		</$let>
+	<%elseif [float.is.resizing[]] %>
+		<$transclude $variable="resize-move-actions"/>
+	<%endif%>
+</$let>
+\end pointermove-actions
+
+<!-- END EVENT HANDLERS -->

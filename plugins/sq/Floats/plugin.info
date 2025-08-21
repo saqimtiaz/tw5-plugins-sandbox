@@ -1,11 +1,11 @@
 {
-	"title": "$:/plugins/sq/links-context-menu",
-	"name": "Links Context Menu",
-	"description": "Context menu for tiddler links",
+	"title": "$:/plugins/sq/floats",
+	"name": "Floats",
+	"description": "Floating draggable resizable containers",
 	"author": "Saq Imtiaz",
 	"core-version": ">=5.2.0",
 	"plugin-priority": 0,
 	"list": "readme settings",
-	"version": "1.0.5",
+	"version": "4.0.0-alpha",
 	"stability": "STABILITY_1_EXPERIMENTAL"
 }

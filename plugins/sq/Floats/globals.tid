@@ -1,0 +1,56 @@
+title: $:/plugins/sq/floats/globals
+tags: $:/tags/Global
+
+<!--
+TODO:
+	- handle using and setting ID manually to allow same tiddler more than once
+	- support $classes attribute that adds classes to DOM node of float
+-->
+\widget $action.open.float($tiddler,$id,$x,$y,$height,$width,$force:"no")
+\import [[$:/plugins/sq/floats/variables]]
+<$let currentTiddler=<<$tiddler>>
+	state=<<get.float.state>> 
+>
+	<%if [<state>!is[tiddler]] [<$force>match[yes]] %>
+		<$parameters
+			$params="all"
+			$$x="200"
+			$$y="200"
+			$$width="400"
+			$$height="400"
+			$$force="no"
+		>
+			<$action-setfield
+				$tiddler=<<get.float.state>> 
+				width=<<$width>>
+				height=<<$height>>
+				x=<<$x>>
+				y=<<$y>>
+				_is_float="yes"
+				_float="open"
+				zindex=<<get.next.zindex>>
+				content=<<currentTiddler>>
+			/>
+			<$action-setmultiplefields $tiddler=<<get.float.state>> $fields="[<all>jsonindexes[]!prefix[$]addprefix[var-]]" $values="[<all>jsonindexes[]!prefix[$]] :map[<all>jsonget<currentTiddler>]"/>
+		</$parameters>
+	<%else%>
+		<$action-setfield
+			$tiddler=<<state>>
+			_float="open"
+			zindex=<<get.next.zindex>>
+		/>
+	<%endif%>
+</$let>
+\end $action.open.float
+
+\widget $action.close.float($tiddler)
+\import [[$:/plugins/sq/floats/variables]]
+<$let currentTiddler=<<$tiddler>> >
+	<$action-setfield $tiddler=<<get.float.state>> _float="closed"/>
+	<!-- TODO 
+		make the number to keep configurable
+		functions to get open float state tiddlers, closed float state tiddlers, min float state tiddlers
+	-->
+	<$action-deletetiddler $filter="[_is_float[yes]_float[closed]prefix<state-prefix>sort[modified]butlast[25]]"/>
+</$let>
+\end
