@@ -1,5 +1,5 @@
 /*\
-title: $:/core/modules/widgets/eventcatcher.js
+title: $:/core/modules/widgets/eventcatcherplus.js
 type: application/javascript
 module-type: widget
 
