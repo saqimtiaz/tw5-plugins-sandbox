@@ -1,0 +1,28 @@
+title: $:/plugins/sq/photopea/layout
+tags: $:/tags/Layout
+name: Photopea
+description: Edit images in Photopea
+<!-- TODO: remove this tag -->
+
+\procedure state() $:/config/state/photopea/layout
+\procedure layout-config() $:/layout
+
+\procedure save-actions()
+<$action-sendmessage $message="tm-photopea-save"/>
+\end
+
+\procedure exit-actions()
+<$action-setfield $tiddler=<<layout-config>> text={{{ [<state>get[old-layout]!is[blank]!is[tiddler]else[$:/core/ui/PageTemplate]]}}}/>
+<$action-deletetiddler $tiddler=<<state>> />
+\end
+
+<$edit-photopea tiddler={{{ [<state>get[text]] }}} exitactions=<<exit-actions>> >
+	<$button
+		tooltip="save changes and close editor"
+		aria-label="save changes and close editor"
+		class="save"
+		actions=<<save-actions>>
+	>
+		{{$:/core/images/done-button}}
+	</$button>
+</$edit-photopea>

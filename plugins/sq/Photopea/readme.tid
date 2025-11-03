@@ -1,0 +1,9 @@
+title: $:/plugins/sq/photopea/readme
+
+!!Open and edit embedded images from your wiki in the online photoeditor Photopea and seamlessly save them back to TiddlyWiki. 
+
+@@color:red;''Experimental plugin - no support available. Use at your own risk.''@@
+
+* [[Photopea|https://www.photopea.com/]] is a powerful free add-supported photoeditor that will feel familiar to Photoshop users.
+* You need to be online in order to open Photopea.
+* However, Photopea runs entirely in your browser and does not upload your image anywhere.

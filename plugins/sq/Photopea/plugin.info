@@ -1,0 +1,10 @@
+{
+	"title": "$:/plugins/sq/photopea",
+	"name": "Photopea",
+	"description": "Photopea image editor",
+	"author": "Saq Imtiaz",
+	"core-version": ">=5.2.0",
+	"plugin-priority": 0,
+	"list": "readme",
+	"version": "0.1.0"
+}

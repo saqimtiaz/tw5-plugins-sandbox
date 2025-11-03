@@ -1,0 +1,33 @@
+
+.photopea-container {
+
+    position: relative;
+    /*display: none;*/
+
+    iframe {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 1201;
+    }
+
+    button.save {
+        z-index: 1202;
+        position: fixed;
+        top:2px;
+        right: 2px;
+        height: 60px;
+        width: 60px;
+        border: 1px solid #6e6767;
+        border-radius: 5px;
+        background-color: rgb(29, 34, 34);
+        fill: whitesmoke;
+    }
+
+    button.save:hover {
+        fill: red;
+    }
+
+}

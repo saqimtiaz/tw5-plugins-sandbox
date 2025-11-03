@@ -1,0 +1,12 @@
+title: $:/plugins/sq/photopea/editor-button
+tags: $:/tags/EditorToolbar
+icon: $:/plugins/sq/photopea/icon
+caption: Open in Photopea
+description: Open in Photopea
+condition: image/jpeg image/jpg image/png image/webp :intersection[<targetTiddler>get[type]]
+
+\procedure state() $:/config/state/photopea/layout
+\procedure layout-config() $:/layout
+
+<$action-setfield $tiddler=<<state>> old-layout={{{ [<layout-config>get[text]]}}} text=<<storyTiddler>> />
+<$action-setfield $tiddler=<<layout-config>> text="$:/plugins/sq/photopea/layout"/>
